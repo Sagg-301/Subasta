@@ -51,6 +51,7 @@ private List<Bienes> bienes;
             super(itemView);
             texto = (TextView)itemView.findViewById(R.id.textoid);
             imagen = (ImageView) itemView.findViewById(R.id.imagenid);
+
         }
     }
 }
