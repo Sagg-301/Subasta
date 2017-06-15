@@ -9,15 +9,59 @@
 
     <EditText
         android:id="@+id/txttitulo"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Titulo" />
 
     <EditText
         android:id="@+id/txtsubtitulo"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Subtitulo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/finicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha Inicio" />
+
+        <Button
+            android:id="@+id/ffinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha Final" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/inicioid"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/finalid"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/txtdescripcion"
@@ -33,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.00"
         android:gravity="top"
-        android:hint="Ingrese precio estimado" />
+        android:hint="Ingrese precio estimado $" />
 
     <Button
         android:id="@+id/enviart"
