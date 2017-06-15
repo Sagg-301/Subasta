@@ -3,11 +3,13 @@ package com.ids.appsubasta.subasta.Usuario;
 import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Sergio on 14/6/2017.
  */
 
-public class Usuario {
+public class Usuario extends RealmObject {
     private String nombre;
     private String apellido;
     private String telefono;
