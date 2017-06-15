@@ -16,7 +16,7 @@ import java.util.Calendar;
 
 public class CrearSubastaActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button fechaInicioB, fechaFinalB;
+    Button fechaInicioB, fechaFinalB, boton;
     EditText FechaInicioEdit, FechaFinalEdit;
     private int dia, mes, ano;
 
@@ -24,7 +24,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_subasta);
-        Button boton = (Button) findViewById(R.id.enviart);
+        boton = (Button) findViewById(R.id.enviart);
         fechaInicioB = (Button) findViewById(R.id.finicio);
         fechaFinalB = (Button) findViewById(R.id.ffinal);
         FechaInicioEdit = (EditText) findViewById(R.id.inicioid);
