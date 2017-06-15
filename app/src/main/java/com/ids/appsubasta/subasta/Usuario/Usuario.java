@@ -1,5 +1,6 @@
 package com.ids.appsubasta.subasta.Usuario;
 
+import com.ids.appsubasta.subasta.Ban.TipoBan;
 import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
 
@@ -17,6 +18,7 @@ public class Usuario extends RealmObject {
     private Cartera cartera;
     private Subasta subasta;
     private TipoUsuario tipoUsuario;
+    private TipoBan ban;
 
     public Usuario() {
     }
@@ -41,6 +43,14 @@ public class Usuario extends RealmObject {
         return cartera;
     }
 
+    public Subasta getSubasta() {
+        return subasta;
+    }
+
+    public TipoBan getBan() {
+        return ban;
+    }
+
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
@@ -63,6 +73,14 @@ public class Usuario extends RealmObject {
 
     public void setCartera(Cartera cartera) {
         this.cartera = cartera;
+    }
+
+    public void setSubasta(Subasta subasta) {
+        this.subasta = subasta;
+    }
+
+    public void setBan(TipoBan ban) {
+        this.ban = ban;
     }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
