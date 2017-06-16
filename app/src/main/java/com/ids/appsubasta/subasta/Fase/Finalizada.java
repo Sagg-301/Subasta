@@ -2,6 +2,8 @@ package com.ids.appsubasta.subasta.Fase;
 
 import com.ids.appsubasta.subasta.Subasta;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Sergio on 14/6/2017.
  */

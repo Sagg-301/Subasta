@@ -10,17 +10,20 @@ import java.util.ArrayList;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.Ignore;
 
 /**
  * Created by Sergio on 14/6/2017.
  */
 
-public class Subasta extends RealmObject {
+public class Subasta extends RealmObject{
+    @Ignore
     private Interfaz interfaz;
-    private ArrayList<Multimedia> multimedia;
+    @Ignore
     private Fase fase;
     private Usuario martillero;
     private RealmList<Usuario> usuarios;
+    @Ignore
     private ArrayList<Pujas> pujas;
 
     public Subasta() {
@@ -30,9 +33,6 @@ public class Subasta extends RealmObject {
         return interfaz;
     }
 
-    public ArrayList<Multimedia> getMultimedia() {
-        return multimedia;
-    }
 
     public Fase getFase() {
         return fase;
@@ -50,9 +50,6 @@ public class Subasta extends RealmObject {
         this.interfaz = interfaz;
     }
 
-    public void setMultimedia(ArrayList<Multimedia> multimedia) {
-        this.multimedia = multimedia;
-    }
 
     public void setFase(Fase fase) {
         this.fase = fase;

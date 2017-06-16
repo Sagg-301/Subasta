@@ -5,19 +5,24 @@ import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
 
 import io.realm.RealmObject;
+import io.realm.annotations.Ignore;
 
 /**
  * Created by Sergio on 14/6/2017.
  */
 
-public class Usuario extends RealmObject {
+public class Usuario extends RealmObject{
     private String nombre;
     private String apellido;
     private String telefono;
     private String id;
+    @Ignore
     private Cartera cartera;
+    @Ignore
     private Subasta subasta;
+    @Ignore
     private TipoUsuario tipoUsuario;
+    @Ignore
     private TipoBan ban;
 
     public Usuario() {

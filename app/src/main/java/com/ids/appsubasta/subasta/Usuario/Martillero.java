@@ -2,6 +2,8 @@ package com.ids.appsubasta.subasta.Usuario;
 
 import com.ids.appsubasta.subasta.Subasta;
 
+import java.util.ArrayList;
+
 import io.realm.RealmList;
 
 /**
@@ -9,21 +11,25 @@ import io.realm.RealmList;
  */
 
 public class Martillero implements TipoUsuario {
-    private RealmList<Subasta> subasta;
+    private ArrayList<Subasta> subasta;
 
     public Martillero() {
     }
 
-    public RealmList<Subasta> getSubasta() {
+    public ArrayList<Subasta> getSubasta() {
         return subasta;
     }
 
-    public void setSubasta(RealmList<Subasta> subasta) {
+    public void setSubasta(ArrayList<Subasta> subasta) {
         this.subasta = subasta;
     }
 
     @Override
     public void cambiarTipoDeUsuario(Usuario u) {
         u.setTipoUsuario(this);
+    }
+
+    public void cambiarFase(Subasta subasta){
+
     }
 }
