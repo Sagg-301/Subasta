@@ -8,16 +8,19 @@ import com.ids.appsubasta.subasta.Usuario.Usuario;
 
 import java.util.ArrayList;
 
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
 /**
  * Created by Sergio on 14/6/2017.
  */
 
-public class Subasta {
+public class Subasta extends RealmObject {
     private Interfaz interfaz;
     private ArrayList<Multimedia> multimedia;
     private Fase fase;
     private Usuario martillero;
-    private ArrayList<Usuario> usuarios;
+    private RealmList<Usuario> usuarios;
     private ArrayList<Pujas> pujas;
 
     public Subasta() {
@@ -39,7 +42,7 @@ public class Subasta {
         return martillero;
     }
 
-    public ArrayList<Usuario> getUsuarios() {
+    public RealmList<Usuario> getUsuarios() {
         return usuarios;
     }
 
@@ -59,7 +62,7 @@ public class Subasta {
         this.martillero = martillero;
     }
 
-    public void setUsuarios(ArrayList<Usuario> usuarios) {
+    public void setUsuarios(RealmList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 

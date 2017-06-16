@@ -1,13 +1,16 @@
 package com.ids.appsubasta.subasta.Usuario;
 
+import com.ids.appsubasta.subasta.Ban.TipoBan;
 import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
+
+import io.realm.RealmObject;
 
 /**
  * Created by Sergio on 14/6/2017.
  */
 
-public class Usuario {
+public class Usuario extends RealmObject {
     private String nombre;
     private String apellido;
     private String telefono;
@@ -15,6 +18,7 @@ public class Usuario {
     private Cartera cartera;
     private Subasta subasta;
     private TipoUsuario tipoUsuario;
+    private TipoBan ban;
 
     public Usuario() {
     }
@@ -39,6 +43,14 @@ public class Usuario {
         return cartera;
     }
 
+    public Subasta getSubasta() {
+        return subasta;
+    }
+
+    public TipoBan getBan() {
+        return ban;
+    }
+
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
@@ -61,6 +73,14 @@ public class Usuario {
 
     public void setCartera(Cartera cartera) {
         this.cartera = cartera;
+    }
+
+    public void setSubasta(Subasta subasta) {
+        this.subasta = subasta;
+    }
+
+    public void setBan(TipoBan ban) {
+        this.ban = ban;
     }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {

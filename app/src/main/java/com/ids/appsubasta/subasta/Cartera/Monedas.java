@@ -5,4 +5,6 @@ package com.ids.appsubasta.subasta.Cartera;
  */
 
 public abstract class Monedas {
+    public Monedas() {
+    }
 }
