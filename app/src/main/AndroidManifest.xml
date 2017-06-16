@@ -18,7 +18,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SubastaCreada"
+        android:name=".CreacionSubasta.SubastaCreada"
+        android:label="@string/app_name">
+    </activity>
+        <activity
+            android:name=".CreacionSubasta.CrearSubastaActivity"
             android:label="@string/app_name">
         </activity>
     </application>

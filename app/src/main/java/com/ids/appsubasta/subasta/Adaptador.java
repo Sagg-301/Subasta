@@ -36,6 +36,7 @@ private List<Bienes> bienes;
        Bienes bien = bienes.get(position);
         adaptadorViewHolder.texto.setText(bien.getNombre());
         adaptadorViewHolder.descripcion.setText(bien.getDescripcion());
+       // adaptadorViewHolder.imagen.setImageDrawable(R.drawable);
     }
 
     @Override
@@ -52,7 +53,6 @@ private List<Bienes> bienes;
             texto = (TextView)itemView.findViewById(R.id.textoid);
             descripcion = (TextView)itemView.findViewById(R.id.descripcionid);
             imagen = (ImageView) itemView.findViewById(R.id.imagenid);
-
         }
     }
 }

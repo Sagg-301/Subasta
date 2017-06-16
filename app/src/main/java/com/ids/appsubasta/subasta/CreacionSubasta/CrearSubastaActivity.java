@@ -1,4 +1,4 @@
-package com.ids.appsubasta.subasta;
+package com.ids.appsubasta.subasta.CreacionSubasta;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.ids.appsubasta.subasta.R;
 
 import java.util.Calendar;
 
