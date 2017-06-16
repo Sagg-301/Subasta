@@ -50,6 +50,7 @@ private List<Bienes> bienes;
         public adaptadorHolder(View itemView){
             super(itemView);
             texto = (TextView)itemView.findViewById(R.id.textoid);
+            descripcion = (TextView)itemView.findViewById(R.id.descripcionid);
             imagen = (ImageView) itemView.findViewById(R.id.imagenid);
 
         }
