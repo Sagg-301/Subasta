@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:text="TextView"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:textColor="@android:color/white"
         android:layout_marginEnd="220dp"
         android:layout_alignTop="@+id/relativeLayout"
@@ -86,7 +86,7 @@
         android:layout_height="60px"
         android:layout_alignBottom="@+id/relativeLayout"
         android:layout_alignStart="@+id/estadoidrow"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/verlote"
          />
 
@@ -99,6 +99,14 @@
         android:layout_toEndOf="@+id/verlotesrow"
         android:background="@drawable/favoritos"
         />
+
+    <Button
+        android:id="@+id/verlotesroww"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tiempoidrow"
+        android:layout_alignEnd="@+id/favoritosrow"
+        android:text="Button" />
 
 
 </RelativeLayout>

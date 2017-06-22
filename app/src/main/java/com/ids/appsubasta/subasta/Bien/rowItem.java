@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.ids.appsubasta.subasta.R;
 
 
@@ -27,8 +29,7 @@ public class rowItem extends AppCompatActivity {
         favoritos.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent creacion = new Intent(rowItem.this, favoritos.class);
-                startActivity(creacion);
+                Toast.makeText(getApplicationContext(), "Se añadió esta subasta a Favoritos", Toast.LENGTH_SHORT).show();
             }
         });
 

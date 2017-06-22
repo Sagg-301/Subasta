@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         bienes.add(new Bienes("Camisa","Camisa del Real Madrid","Monto: 300", "Finaliza el: 25/07/2017", "En curso"));
         bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "Monto: 185", "Finaliza el: 30/07/2017", "En curso"));
         bienes.add(new Bienes("Balon","Balon de futbol del Manchester United", "Monto: 500", "Finaliza el: 26/06/2017", "En curso"));
-        bienes.add(new Bienes("Computadora","Mac con 16gb de ram, Intel Core i7", "Monto: 200", "Finaliza el: 29/07/2017", "En curso"));
+        bienes.add(new Bienes("Mac","16gb de ram, Intel Core i7", "Monto: 200", "Finaliza el: 29/07/2017", "En curso"));
     }
+
     public void inicializaAdaptador(){
         adaptador = new Adaptador (bienes);
         bienestimeline.setAdapter(adaptador);
