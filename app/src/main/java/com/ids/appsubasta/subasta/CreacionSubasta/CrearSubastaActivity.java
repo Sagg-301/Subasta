@@ -18,29 +18,29 @@ import java.util.Calendar;
 
 public class CrearSubastaActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button fechaInicioB, fechaFinalB, boton;
-    EditText FechaInicioEdit, FechaFinalEdit;
+    Button FechaInicialID, FechaFinalID, enviar;
+    EditText InicioID, FinalID;
     private int dia, mes, ano;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_subasta);
-        boton = (Button) findViewById(R.id.enviart);
-        fechaInicioB = (Button) findViewById(R.id.finicio);
-        fechaFinalB = (Button) findViewById(R.id.ffinal);
-        FechaInicioEdit = (EditText) findViewById(R.id.inicioid);
-        FechaFinalEdit = (EditText) findViewById(R.id.finalid);
-        fechaInicioB.setOnClickListener(this);
-        fechaFinalB.setOnClickListener(this);
+        enviar = (Button) findViewById(R.id.EnviarID);
+        FechaInicialID = (Button) findViewById(R.id.FechaInicialID);
+        FechaFinalID = (Button) findViewById(R.id.FechaFinalID);
+        InicioID = (EditText) findViewById(R.id.InicioID);
+        FinalID = (EditText) findViewById(R.id.FinalID);
+        FechaInicialID.setOnClickListener(this);
+        FechaFinalID.setOnClickListener(this);
 
-        boton.setOnClickListener(new View.OnClickListener() {
+        enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String titulo = ((EditText) findViewById(R.id.txttitulo)).getText().toString();
-                String subtitulo = ((EditText) findViewById(R.id.txtsubtitulo)).getText().toString();
-                String descripcion = ((EditText) findViewById(R.id.txtdescripcion)).getText().toString();
-                String monto = ((EditText) findViewById(R.id.precio)).getText().toString();
+                String titulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
+                String subtitulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
+                String descripcion = ((EditText) findViewById(R.id.descripcionID)).getText().toString();
+                String monto = ((EditText) findViewById(R.id.montoID)).getText().toString();
                 int precio = Integer.parseInt(monto);
                 if (precio > 0) {
                     Intent creacion = new Intent(CrearSubastaActivity.this, SubastaCreada.class);
@@ -50,13 +50,12 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
                 }
             }
         });
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View v) {
-        if (v == fechaInicioB) {
+        if (v == FechaInicialID) {
             final Calendar c = Calendar.getInstance();
             dia = c.get(Calendar.DAY_OF_MONTH);
             mes = c.get(Calendar.MONTH);
@@ -66,7 +65,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
 
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    FechaInicioEdit.setText(dayOfMonth + "/" + month + "/" + year);
+                    InicioID.setText(dayOfMonth + "/" + month + "/" + year);
                 }
             }
                     , dia, mes, ano);
@@ -74,7 +73,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
         }
 
 
-        if (v == fechaFinalB) {
+        if (v == FechaFinalID) {
             final Calendar c = Calendar.getInstance();
             dia = c.get(Calendar.DAY_OF_MONTH);
             mes = c.get(Calendar.MONTH);
@@ -84,7 +83,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
 
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    FechaFinalEdit.setText(dayOfMonth + "/" + month + "/" + year);
+                    FinalID.setText(dayOfMonth + "/" + month + "/" + year);
                 }
             }
                     , dia, mes, ano);

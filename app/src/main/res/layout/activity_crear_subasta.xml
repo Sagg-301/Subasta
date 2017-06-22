@@ -1,100 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:orientation="vertical"
-    android:background="#C9C9C9"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/fondocrearsubastaa">
+
+
 
     <EditText
-        android:id="@+id/txttitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Titulo"
-        android:textSize="25sp"
-        android:textColor="#F60C62"/>
-
-    <EditText
-        android:id="@+id/txtsubtitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Subtitulo"
-        android:textSize="25sp"
-        android:textColor="#F60C62"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <Button
-            android:id="@+id/finicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Fecha Inicio"
-            android:textColor="#F60C62"/>
-
-        <Button
-            android:id="@+id/ffinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Fecha Final"
-            android:textColor="#F60C62"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/inicioid"
-            android:layout_width="152dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/finalid"
-            android:layout_width="152dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName" />
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/txtdescripcion"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.05"
-        android:gravity="top"
-        android:hint="Descripcion"
-        android:textSize="22sp"/>
-
-    <EditText
-        android:id="@+id/precio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.00"
-        android:gravity="top"
-        android:hint="Ingrese precio estimado $"
-        android:textSize="22sp"/>
+        android:id="@+id/TituloID"
+        android:layout_width="700px"
+        android:layout_height="100px"
+        android:background="@drawable/titulo"
+        android:layout_marginLeft="36dp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="130dp"
+        android:hint="INICIO"
+        android:textColor="#f6e397"
+        android:textColorHint="#2b1e20"
+         />
 
     <Button
-        android:id="@+id/enviart"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:hint="enviar"
-        android:text="Enviar"
-        android:textColor="#F60C62"/>
-</LinearLayout>
+        android:id="@+id/FechaInicialID"
+        android:layout_width="330px"
+        android:layout_height="100px"
+        android:background="@drawable/fechainicial"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/TituloID"
+        android:layout_alignStart="@+id/TituloID" />
+    <Button
+        android:id="@+id/FechaFinalID"
+        android:layout_width="330px"
+        android:layout_height="100px"
+        android:background="@drawable/fechafinal"
+        android:layout_below="@+id/TituloID"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_toEndOf="@+id/FechaInicialID" />
+    <EditText
+        android:id="@+id/InicioID"
+        android:layout_width="330px"
+        android:layout_height="100px"
+        android:background="@drawable/inicial"
+        android:inputType="textCapCharacters"
+        android:layout_below="@+id/FechaFinalID"
+        android:layout_alignStart="@+id/FechaInicialID"
+        android:layout_marginTop="15dp"
+        android:textColor="#f6e397"
+        android:textColorHint="#2b1e20"/>
+    <EditText
+        android:id="@+id/FinalID"
+        android:layout_width="330px"
+        android:layout_height="100px"
+        android:background="@drawable/inicial"
+        android:inputType="textCapCharacters"
+        android:layout_below="@+id/FechaFinalID"
+        android:layout_alignStart="@+id/FechaFinalID"
+        android:layout_marginTop="15dp"
+        android:textColor="#f6e397"
+        android:textColorHint="#2b1e20"/>
+    <EditText
+        android:id="@+id/descripcionID"
+        android:layout_width="700px"
+        android:layout_height="300px"
+        android:background="@drawable/descripciona"
+        android:inputType="textCapCharacters"
+        android:layout_below="@+id/InicioID"
+        android:layout_alignStart="@+id/FechaInicialID"
+        android:layout_marginTop="15dp"
+        android:hint="DESCRIPCION DE LOS BIENES"
+        android:textColor="#f6e397"
+        android:textColorHint="#2b1e20"/>
+    <EditText
+        android:id="@+id/montoID"
+        android:layout_width="700px"
+        android:layout_height="100px"
+        android:background="@drawable/descripciona"
+        android:inputType="textCapCharacters"
+        android:layout_below="@+id/descripcionID"
+        android:layout_alignStart="@+id/FechaInicialID"
+        android:layout_marginTop="15dp"
+        android:hint="Precio de los bienes"
+        android:textColor="#f6e397"
+        android:textColorHint="#2b1e20"/>
+    <Button
+        android:id="@+id/EnviarID"
+        android:layout_width="700px"
+        android:layout_height="78px"
+        android:background="@drawable/enviar"
+        android:layout_below="@+id/montoID"
+        android:layout_marginTop="15dp"
+        android:layout_alignStart="@+id/FechaInicialID"
+        android:layout_marginBottom="45dp"
+         />
+
+
+</RelativeLayout>

@@ -37,17 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void data(){
         bienes = new ArrayList<>();
-        bienes.add(new Bienes("Camisa","Camisa del club Barcelona", "12345",23));
-        bienes.add(new Bienes("Camisa","Camisa del Real Madrid", "1234",24));
-        bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "123",25));
-        bienes.add(new Bienes("Camisa","Camisa de los Leones del Caracas", "123456",26));
-        bienes.add(new Bienes("Camisa","Camisa del logo de iPhone", "12",27));
-        bienes.add(new Bienes("Camisa","Camisa Nike", "123459",28));
+        bienes.add(new Bienes("iPhone 7","Telefono movil con 256GB de memoria","Monto: 500", "Finaliza el: 20/07/2017", "En curso"));
+        bienes.add(new Bienes("Camisa","Camisa del Real Madrid","Monto: 300", "Finaliza el: 25/07/2017", "En curso"));
+        bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "Monto: 185", "Finaliza el: 30/07/2017", "En curso"));
+        bienes.add(new Bienes("Balon","Balon de futbol del Manchester United", "Monto: 500", "Finaliza el: 26/06/2017", "En curso"));
+        bienes.add(new Bienes("Computadora","Mac con 16gb de ram, Intel Core i7", "Monto: 200", "Finaliza el: 29/07/2017", "En curso"));
     }
     public void inicializaAdaptador(){
         adaptador = new Adaptador (bienes);
         bienestimeline.setAdapter(adaptador);
-        boton = (Button) findViewById(R.id.button);
+        boton = (Button) findViewById(R.id.button1);
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,4 +55,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

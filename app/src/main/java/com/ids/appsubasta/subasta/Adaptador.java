@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import com.ids.appsubasta.subasta.Bien.Bienes;
 
-import java.util.List;
+import org.w3c.dom.Text;
 
-import static com.ids.appsubasta.subasta.R.id.parent;
+import java.util.List;
 
 /**
  * Created by Usuario on 15/06/2017.
@@ -36,6 +36,9 @@ private List<Bienes> bienes;
        Bienes bien = bienes.get(position);
         adaptadorViewHolder.texto.setText(bien.getNombre());
         adaptadorViewHolder.descripcion.setText(bien.getDescripcion());
+        adaptadorViewHolder.monto.setText(bien.getMonto());
+        adaptadorViewHolder.tiempo.setText(bien.getTiempo());
+        adaptadorViewHolder.estado.setText(bien.getEstado());
        // adaptadorViewHolder.imagen.setImageDrawable(R.drawable);
     }
 
@@ -45,14 +48,17 @@ private List<Bienes> bienes;
     }
 
     public class adaptadorHolder extends RecyclerView.ViewHolder{
-        private TextView texto, descripcion;
+        private TextView texto, descripcion, monto, tiempo, estado;
         private ImageView imagen;
 
         public adaptadorHolder(View itemView){
             super(itemView);
-            texto = (TextView)itemView.findViewById(R.id.textoid);
-            descripcion = (TextView)itemView.findViewById(R.id.descripcionid);
-            imagen = (ImageView) itemView.findViewById(R.id.imagenid);
+            texto = (TextView)itemView.findViewById(R.id.textoidrow);
+            descripcion = (TextView)itemView.findViewById(R.id.descripcionidrow);
+            monto = (TextView)itemView.findViewById(R.id.montoidrow);
+            tiempo = (TextView)itemView.findViewById(R.id.tiempoidrow);
+            estado = (TextView)itemView.findViewById(R.id.estadoidrow);
+            //imagen = (ImageView) itemView.findViewById(R.id.imagenid);
         }
     }
 }

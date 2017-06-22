@@ -2,22 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@drawable/fondotimeline">
 
-
-<android.support.v7.widget.RecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/beta"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-</android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
+        android:layout_width="42px"
+        android:layout_height="41px"
+        android:background="@drawable/mas"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="505dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/beta"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        />
+        android:layout_height="842dp"></android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

@@ -1,35 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
 
-    <ImageView
-        android:id="@+id/imagenid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_marginTop="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="23dp" />
+
+
+    >
+
+
+    <RelativeLayout
+        android:layout_width="700px"
+        android:layout_height="350px"
+        android:background="@drawable/timecuadros"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/relativeLayout">
+
+        <ImageView
+            android:id="@+id/imagenid"
+            android:layout_width="220px"
+            android:layout_height="220px"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="53dp"
+            android:background="@drawable/iphonee"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/textoid"
+        android:id="@+id/textoidrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imagenid"
-        android:layout_marginBottom="12dp"
-        android:layout_marginStart="24dp"
-        android:layout_toEndOf="@+id/imagenid"
-        android:text="TextView" />
+        android:layout_marginLeft="50dp"
+        android:text="TextView"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        android:layout_marginEnd="220dp"
+        android:layout_alignTop="@+id/relativeLayout"
+        android:layout_alignEnd="@+id/relativeLayout" />
 
     <TextView
-        android:id="@+id/descripcionid"
+        android:id="@+id/descripcionidrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textoid"
-        android:layout_marginStart="19dp"
-        android:layout_toEndOf="@+id/textoid"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_below="@+id/textoidrow"
+        android:layout_alignStart="@+id/textoidrow"
+        android:layout_marginBottom="5dp"
+        android:textColor="@android:color/white"/>
+    <TextView
+        android:id="@+id/montoidrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/descripcionidrow"
+        android:layout_alignStart="@+id/descripcionidrow"
+        android:layout_marginBottom="5dp"
+        android:textColor="@android:color/white"/>
+    <TextView
+        android:id="@+id/tiempoidrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/montoidrow"
+        android:layout_alignStart="@+id/montoidrow"
+        android:layout_marginBottom="5dp"
+        android:textColor="@android:color/white"/>
+    <TextView
+        android:id="@+id/estadoidrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/tiempoidrow"
+        android:layout_alignStart="@+id/tiempoidrow"
+        android:textColor="@android:color/white"
+        />
+
+    <Button
+        android:id="@+id/verlotesrow"
+        android:layout_width="200px"
+        android:layout_height="60px"
+        android:layout_alignBottom="@+id/relativeLayout"
+        android:layout_alignStart="@+id/estadoidrow"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/verlote"
+         />
+
+    <Button
+        android:id="@+id/favoritosrow"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:layout_alignBottom="@+id/verlotesrow"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/verlotesrow"
+        android:background="@drawable/favoritos"
+        />
+
+
 </RelativeLayout>
