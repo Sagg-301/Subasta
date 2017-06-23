@@ -16,9 +16,13 @@
         android:layout_marginLeft="36dp"
         android:inputType="textPersonName"
         android:layout_marginTop="130dp"
-        android:hint="INICIO"
+        android:hint="I N I C I O"
+        android:textSize="30px"
+        android:paddingLeft="40px"
+        android:paddingTop="5dp"
         android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"
+        android:textColorHint="#eda0a0"
+
          />
 
     <Button
@@ -69,9 +73,12 @@
         android:layout_below="@+id/InicioID"
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
-        android:hint="DESCRIPCION DE LOS BIENES"
+        android:hint="D E S C R I P C I Ó N  D E  L O S  B I E N E S"
+        android:textSize="30px"
+        android:paddingLeft="40px"
+        android:paddingBottom="150dp"
         android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"/>
+        android:textColorHint="#eda0a0"/>
     <EditText
         android:id="@+id/montoID"
         android:layout_width="700px"
@@ -81,9 +88,11 @@
         android:layout_below="@+id/descripcionID"
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
-        android:hint="Precio de los bienes"
+        android:hint="P R E C I O  D E  L O S  B I E N E S"
+        android:textSize="30px"
+        android:paddingLeft="50px"
         android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"/>
+        android:textColorHint="#eda0a0"/>
     <Button
         android:id="@+id/EnviarID"
         android:layout_width="700px"

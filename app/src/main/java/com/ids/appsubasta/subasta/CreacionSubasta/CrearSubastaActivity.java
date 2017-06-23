@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ids.appsubasta.subasta.R;
@@ -20,6 +21,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
 
     Button FechaInicialID, FechaFinalID, enviar;
     EditText InicioID, FinalID;
+    ImageView imagen;
     private int dia, mes, ano;
 
     @Override
@@ -31,6 +33,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
         FechaFinalID = (Button) findViewById(R.id.FechaFinalID);
         InicioID = (EditText) findViewById(R.id.InicioID);
         FinalID = (EditText) findViewById(R.id.FinalID);
+        imagen = (ImageView) findViewById(R.id.imagenid);
         FechaInicialID.setOnClickListener(this);
         FechaFinalID.setOnClickListener(this);
 

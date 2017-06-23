@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ids.appsubasta.subasta.MainActivity;
 import com.ids.appsubasta.subasta.R;
 
 /**
@@ -15,8 +16,21 @@ import com.ids.appsubasta.subasta.R;
  */
 
 public class SubastaCreada extends AppCompatActivity {
+    Button home;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subasta_creada);
+        home = (Button) findViewById(R.id.homecreadoid);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent creacion = new Intent(SubastaCreada.this, MainActivity.class);
+                    startActivity(creacion);
+
+            }
+        });
     }
 }

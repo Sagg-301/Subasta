@@ -7,8 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.ids.appsubasta.subasta.Bien.Bienes;
+import com.ids.appsubasta.subasta.Bien.verLotes;
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 
 import java.util.ArrayList;
@@ -37,24 +39,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void data(){
         bienes = new ArrayList<>();
-        bienes.add(new Bienes("iPhone 7","Telefono movil con 256GB de memoria","Monto: 500", "Finaliza el: 20/07/2017", "En curso"));
-        bienes.add(new Bienes("Camisa","Camisa del Real Madrid","Monto: 300", "Finaliza el: 25/07/2017", "En curso"));
-        bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "Monto: 185", "Finaliza el: 30/07/2017", "En curso"));
-        bienes.add(new Bienes("Balon","Balon de futbol del Manchester United", "Monto: 500", "Finaliza el: 26/06/2017", "En curso"));
-        bienes.add(new Bienes("Mac","16gb de ram, Intel Core i7", "Monto: 200", "Finaliza el: 29/07/2017", "En curso"));
+        bienes.add(new Bienes("iPhone 7","Telefono movil con 256 GB de memoria. Auriculares, cargador y forro","500", "20/07/2017", "En curso"));
+        bienes.add(new Bienes("Collar","Collar de perlas","300", "25/07/2017", "En curso"));
+        bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "185", "30/07/2017", "En curso"));
+        bienes.add(new Bienes("Balon","Balon de futbol del Manchester United", "500", "26/06/2017", "En curso"));
+        bienes.add(new Bienes("Mac","16gb de ram, Intel Core i7", "200", "Finaliza el: 29/07/2017", "En curso"));
     }
 
+
     public void inicializaAdaptador(){
-        adaptador = new Adaptador (bienes);
+        adaptador = new Adaptador (bienes,this);
         bienestimeline.setAdapter(adaptador);
         boton = (Button) findViewById(R.id.button1);
         boton.setOnClickListener(new View.OnClickListener() {
-            @Override
+            @Override /*Este boton es el signo mas que esta en la ventana TimeLine, al darle click me lleva a crear subasta*/
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CrearSubastaActivity.class);
+                Intent intent = new Intent(getApplicationContext(),login.class);
                 startActivity(intent);
             }
         });
+
+
     }
 
 

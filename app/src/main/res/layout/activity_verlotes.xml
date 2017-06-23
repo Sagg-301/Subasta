@@ -14,22 +14,32 @@
         android:layout_marginTop="50dp"
         app:srcCompat="@drawable/cuadrado_verlote" />
 
+    <ImageView
+        android:id="@+id/VerLotesImagen"
+        android:layout_width="400px"
+        android:layout_height="400px"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/iphonee"
+        />
+
     <TextView
         android:id="@+id/tituloVerLotes"
         android:layout_width="250px"
         android:layout_height="100px"
-        android:text="iPhone 7"
         android:textSize="40dp"
         android:layout_below="@+id/CuadradoVerLotes"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        />
 
     <TextView
         android:id="@+id/descricionVerLotes"
-        android:layout_width="480px"
-        android:layout_height="70px"
-        android:text="Telefono movil con 256 GB de memoria. Auriculares, cargador y forro"
+        android:layout_width="500px"
+        android:layout_height="100px"
         android:textSize="20dp"
         android:layout_below="@+id/tituloVerLotes"
         android:layout_centerHorizontal="true"
@@ -40,7 +50,6 @@
         android:id="@+id/montoVerLotes"
         android:layout_width="200px"
         android:layout_height="40px"
-        android:text="Monto $ 500"
         android:textSize="20dp"
         android:layout_below="@+id/descricionVerLotes"
         android:layout_centerHorizontal="true"
@@ -49,13 +58,12 @@
 
     <TextView
         android:id="@+id/fechaVerLotes"
-        android:layout_width="300px"
-        android:layout_height="50px"
-        android:text="Finaliza el: 20/07/2017"
+        android:layout_width="500px"
+        android:layout_height="60px"
         android:textSize="20dp"
         android:layout_below="@+id/montoVerLotes"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="170dp"
         android:textColor="@android:color/white"/>
 
     <EditText
@@ -68,9 +76,12 @@
         android:layout_above="@+id/pujarVerLotes"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="#2b1e20"
-        android:hint="Monto a pujar"/>
+        android:textSize="30px"
+        android:paddingLeft="50px"
+        android:paddingTop="5dp"
+        android:textColor="#f6e397"
+        android:textColorHint="#eda0a0"
+        android:hint="M O N T O  A  P U J A R"/>
 
     <Button
         android:id="@+id/pujarVerLotes"

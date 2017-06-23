@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:paddingTop="250dp"
     android:paddingLeft="80dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/subasta_creada"
+    >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="¡La subasta fue creada con exito!" />
-</LinearLayout>
+    <Button
+        android:id="@+id/homecreadoid"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+
+        android:layout_marginBottom="287dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/botonhome"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
