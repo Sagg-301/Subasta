@@ -3,9 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/fondocrearsubastaa">
-
 
 
     <EditText
@@ -15,15 +14,12 @@
         android:background="@drawable/titulo"
         android:layout_marginLeft="36dp"
         android:inputType="textPersonName"
-        android:layout_marginTop="130dp"
-        android:hint="I N I C I O"
-        android:textSize="30px"
-        android:paddingLeft="40px"
-        android:paddingTop="5dp"
+        android:layout_marginTop="59dp"
+        android:hint="INICIO"
         android:textColor="#f6e397"
-        android:textColorHint="#eda0a0"
-
-         />
+        android:textColorHint="#2b1e20"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/FechaInicialID"
@@ -73,12 +69,10 @@
         android:layout_below="@+id/InicioID"
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
-        android:hint="D E S C R I P C I Ó N  D E  L O S  B I E N E S"
-        android:textSize="30px"
-        android:paddingLeft="40px"
-        android:paddingBottom="150dp"
+        android:hint="DESCRIPCION DE LOS BIENES"
         android:textColor="#f6e397"
-        android:textColorHint="#eda0a0"/>
+        android:textColorHint="#2b1e20"
+        android:layout_alignEnd="@+id/FinalID" />
     <EditText
         android:id="@+id/montoID"
         android:layout_width="700px"
@@ -88,21 +82,19 @@
         android:layout_below="@+id/descripcionID"
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
-        android:hint="P R E C I O  D E  L O S  B I E N E S"
-        android:textSize="30px"
-        android:paddingLeft="50px"
+        android:hint="Precio de los bienes"
         android:textColor="#f6e397"
-        android:textColorHint="#eda0a0"/>
+        android:textColorHint="#2b1e20"
+        android:layout_alignEnd="@+id/descripcionID" />
     <Button
         android:id="@+id/EnviarID"
         android:layout_width="700px"
         android:layout_height="78px"
         android:background="@drawable/enviar"
+        android:layout_marginTop="16dp"
         android:layout_below="@+id/montoID"
-        android:layout_marginTop="15dp"
-        android:layout_alignStart="@+id/FechaInicialID"
-        android:layout_marginBottom="45dp"
-         />
+        android:layout_alignStart="@+id/montoID"
+        android:layout_alignEnd="@+id/montoID" />
 
 
 </RelativeLayout>
