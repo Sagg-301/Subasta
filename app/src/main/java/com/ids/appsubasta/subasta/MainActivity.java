@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void data(){
         bienes = new ArrayList<>();
-        bienes.add(new Bienes("iPhone 7","Telefono movil con 256 GB de memoria. Auriculares, cargador y forro","500", "20/07/2017", "En curso"));
+        /*bienes.add(new Bienes("iPhone 7","Telefono movil con 256 GB de memoria. Auriculares, cargador y forro","500", "20/07/2017", "En curso"));
         bienes.add(new Bienes("Collar","Collar de perlas","300", "25/07/2017", "En curso"));
         bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "185", "30/07/2017", "En curso"));
         bienes.add(new Bienes("Balon","Balon de futbol del Manchester United", "500", "26/06/2017", "En curso"));
-        bienes.add(new Bienes("Mac","16gb de ram, Intel Core i7", "200", "Finaliza el: 29/07/2017", "En curso"));
+        bienes.add(new Bienes("Mac","16gb de ram, Intel Core i7", "200", "Finaliza el: 29/07/2017", "En curso"));*/
     }
 
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override /*Este boton es el signo mas que esta en la ventana TimeLine, al darle click me lleva a crear subasta*/
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),login.class);
+                Intent intent = new Intent(getApplicationContext(),CrearSubastaActivity.class);
                 startActivity(intent);
             }
         });

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -13,9 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.ids.appsubasta.subasta.Adaptador;
+import com.ids.appsubasta.subasta.Bien.Bienes;
 import com.ids.appsubasta.subasta.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class CrearSubastaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +28,9 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     EditText InicioID, FinalID;
     ImageView imagen;
     private int dia, mes, ano;
+    private List<Bienes> bienes;
+    private RecyclerView bienestimeline;
+    private Adaptador adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +49,14 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
                 String titulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
-                String subtitulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
                 String descripcion = ((EditText) findViewById(R.id.descripcionID)).getText().toString();
                 String monto = ((EditText) findViewById(R.id.montoID)).getText().toString();
                 int precio = Integer.parseInt(monto);
                 if (precio > 0) {
+                    data(titulo, descripcion,monto, "23/06/2017", "En curso");
                     Intent creacion = new Intent(CrearSubastaActivity.this, SubastaCreada.class);
                     startActivity(creacion);
+
                 } else {
                     Toast.makeText(getApplicationContext(), "¡Error!, Ingrese un valor mayor a 0", Toast.LENGTH_SHORT).show();
                 }
@@ -94,4 +103,12 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
         }
 
     }
+
+    public void data(String titulo, String descripcion, String monto, String fecha, String estado){
+        bienes = new ArrayList<>();
+        bienes.add(new Bienes(titulo,descripcion,monto,fecha,estado));
+        adaptador = new Adaptador(bienes,this);
+        adaptador.notifyDataSetChanged();
+    }
+
 }
