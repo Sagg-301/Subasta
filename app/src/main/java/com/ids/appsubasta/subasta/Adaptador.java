@@ -37,8 +37,6 @@ private List<Bienes> bienes;
         adaptadorViewHolder.texto.setText(bien.getNombre());
         adaptadorViewHolder.descripcion.setText(bien.getDescripcion());
         adaptadorViewHolder.monto.setText(bien.getMonto());
-        adaptadorViewHolder.tiempo.setText(bien.getTiempo());
-        adaptadorViewHolder.estado.setText(bien.getEstado());
        // adaptadorViewHolder.imagen.setImageDrawable(R.drawable);
     }
 

@@ -1,42 +1,31 @@
 package com.ids.appsubasta.subasta.Bien;
 
+import io.realm.Realm;
+import io.realm.RealmObject;
+
 /**
  * Created by Sergio on 14/6/2017.
  */
 
-public class Bienes {
+public class Bienes extends RealmObject {
 
     private String nombre;
     private String descripcion;
     private String identificacion;
     private String monto;
-    private String tiempo;
-    private String estado;
     private int foto;
 
-    public Bienes (String nombre, String descripcion, String monto, String tiempo, String estado){
+    public Bienes() {
+    }
+
+    public Bienes (String nombre, String descripcion, String monto){
         this.nombre= nombre;
         this.descripcion= descripcion;
         this.monto = monto;
-        this.tiempo = tiempo;
-        this.estado = estado;
+
     }
 
-    public String getTiempo() {
-        return tiempo;
-    }
 
-    public void setTiempo(String tiempo) {
-        this.tiempo = tiempo;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 
     public String getMonto() {
         return monto;

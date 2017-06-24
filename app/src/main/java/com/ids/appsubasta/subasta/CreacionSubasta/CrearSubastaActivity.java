@@ -12,9 +12,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ids.appsubasta.subasta.Bien.Bienes;
+import com.ids.appsubasta.subasta.Fase.Fase;
+import com.ids.appsubasta.subasta.Fase.Inactiva;
 import com.ids.appsubasta.subasta.R;
+import com.ids.appsubasta.subasta.Subasta;
 
 import java.util.Calendar;
+
+import io.realm.Realm;
 
 public class CrearSubastaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +32,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_subasta);
+        final Realm realm = Realm.getDefaultInstance();
         enviar = (Button) findViewById(R.id.EnviarID);
         FechaInicialID = (Button) findViewById(R.id.FechaInicialID);
         FechaFinalID = (Button) findViewById(R.id.FechaFinalID);
@@ -41,8 +48,20 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
                 String subtitulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
                 String descripcion = ((EditText) findViewById(R.id.descripcionID)).getText().toString();
                 String monto = ((EditText) findViewById(R.id.montoID)).getText().toString();
+                String fechaInicial = InicioID.getText().toString();
+                String fechaFinal = FinalID.getText().toString();
                 int precio = Integer.parseInt(monto);
                 if (precio > 0) {
+                    //Copia nueva subasta a Realm
+                    realm.beginTransaction();
+                    Bienes bien = new Bienes(titulo,monto,descripcion);
+                    Subasta subasta = new Subasta();
+                    Fase faseDefault = new Inactiva();
+                    faseDefault.cambiarFase(subasta);
+                    subasta.addBien(bien);
+                    realm.copyToRealm(subasta);
+                    realm.commitTransaction();
+                    //-----------------------------
                     Intent creacion = new Intent(CrearSubastaActivity.this, SubastaCreada.class);
                     startActivity(creacion);
                 } else {
