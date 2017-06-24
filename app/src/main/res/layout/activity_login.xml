@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/fondo_login"
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300px"
+        android:layout_height="430px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/logo_login" />
+
+    <EditText
+        android:id="@+id/usuariologin"
+        android:layout_width="600px"
+        android:layout_height="80px"
+        android:ems="10"
+        android:hint="U S U A R I O"
+        android:textSize="35px"
+        android:paddingLeft="100px"
+        android:inputType="textPersonName"
+        android:background="@drawable/usuario_login"
+        android:layout_marginTop="72dp"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/contraseñalogin"
+        android:layout_width="600px"
+        android:layout_height="80px"
+        android:ems="10"
+        android:hint="C O N T R A S E Ñ A"
+        android:textSize="35px"
+        android:paddingLeft="100px"
+        android:inputType="textPassword"
+        android:textColor="@android:color/white"
+        android:background="@drawable/contrasena_login"
+        android:layout_below="@+id/usuariologin"
+        android:layout_alignStart="@+id/usuariologin"
+        android:layout_marginTop="20dp" />
+
+    <Button
+    android:id="@+id/loginlogin"
+    android:layout_width="280px"
+    android:layout_height="110px"
+    android:layout_marginTop="60dp"
+        android:background="@drawable/login_login"
+    android:layout_below="@+id/contraseñalogin"
+    android:layout_alignStart="@+id/usuariologin"/>
+
+    <Button
+        android:id="@+id/registrologin"
+        android:layout_width="280px"
+        android:layout_height="110px"
+        android:background="@drawable/registro_login"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/contraseñalogin"
+        android:layout_alignEnd="@+id/usuariologin"/>
+
+    <Button
+        android:id="@+id/olvidocontralogin"
+        android:layout_width="330px"
+        android:layout_height="24px"
+        android:background="@drawable/olvidocontrasena_login"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/registrologin"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+</RelativeLayout>
+
