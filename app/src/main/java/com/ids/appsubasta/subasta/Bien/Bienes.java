@@ -18,11 +18,11 @@ public class Bienes extends RealmObject {
     public Bienes() {
     }
 
-    public Bienes (String nombre, String descripcion, String monto){
+    public Bienes (int foto, String nombre, String descripcion, String monto){
         this.nombre= nombre;
         this.descripcion= descripcion;
         this.monto = monto;
-
+        this.setFoto(foto);
     }
 
 
