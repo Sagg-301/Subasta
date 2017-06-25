@@ -10,33 +10,15 @@ public class Bienes {
     private String descripcion;
     private String identificacion;
     private String monto;
-    private String tiempo;
-    private String estado;
     private int foto;
 
-    public Bienes (String nombre, String descripcion, String monto, String tiempo, String estado){
+    public Bienes (int foto, String nombre, String descripcion, String monto){
         this.nombre= nombre;
         this.descripcion= descripcion;
         this.monto = monto;
-        this.tiempo = tiempo;
-        this.estado = estado;
+        this.setFoto(foto);
     }
 
-    public String getTiempo() {
-        return tiempo;
-    }
-
-    public void setTiempo(String tiempo) {
-        this.tiempo = tiempo;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 
     public String getMonto() {
         return monto;

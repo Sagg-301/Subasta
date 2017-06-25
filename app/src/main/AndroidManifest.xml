@@ -30,10 +30,6 @@
             android:name=".Bien.verLotes"
             android:label="bienes">
         </activity>
-        <activity
-            android:name=".login"
-            android:label="logueo">
-        </activity>
 
     </application>
 

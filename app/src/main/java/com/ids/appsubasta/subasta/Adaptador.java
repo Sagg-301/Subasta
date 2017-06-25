@@ -19,7 +19,7 @@ import java.util.List;
 
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
-private List<Bienes> bienes;
+    List<Bienes> bienes;
     Context ctx;
 
     public Adaptador (List<Bienes> bienes, Context ctx){
@@ -40,8 +40,6 @@ private List<Bienes> bienes;
         adaptadorViewHolder.texto.setText(bien.getNombre());
         adaptadorViewHolder.descripcion.setText(bien.getDescripcion());
         adaptadorViewHolder.monto.setText(bien.getMonto());
-        adaptadorViewHolder.tiempo.setText(bien.getTiempo());
-        adaptadorViewHolder.estado.setText(bien.getEstado());
         adaptadorViewHolder.img.setImageResource(bien.getFoto());
     }
 
@@ -51,7 +49,7 @@ private List<Bienes> bienes;
     }
 
     public class adaptadorHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView texto, descripcion, monto, tiempo, estado;
+        private TextView texto, descripcion, monto, estado;
         private ImageView img;
         private List<Bienes> bienes;
         private Context ctx;
@@ -65,9 +63,8 @@ private List<Bienes> bienes;
             texto = (TextView)itemView.findViewById(R.id.textoidrow);
             descripcion = (TextView)itemView.findViewById(R.id.descripcionidrow);
             monto = (TextView)itemView.findViewById(R.id.montoidrow);
-            tiempo = (TextView)itemView.findViewById(R.id.tiempoidrow);
-            estado = (TextView)itemView.findViewById(R.id.estadoidrow);
             img = (ImageView)itemView.findViewById(R.id.imagenid);
+            //estado = (TextView)itemView.findViewById(R.id.estadoidrow);
         }
 
         @Override
@@ -79,7 +76,6 @@ private List<Bienes> bienes;
             intent.putExtra("Titulo",bienes.getNombre());
             intent.putExtra("Descripcion",bienes.getDescripcion());
             intent.putExtra("Precio",bienes.getMonto());
-            intent.putExtra("Tiempo",bienes.getTiempo());
             this.ctx.startActivity(intent);
         }
     }

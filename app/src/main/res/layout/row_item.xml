@@ -66,26 +66,7 @@
         android:layout_marginBottom="10dp"
         android:textSize="17dp"
         android:textColor="@android:color/white"/>
-    <TextView
-        android:id="@+id/tiempoidrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_below="@+id/montoidrow"
-        android:textSize="17dp"
-        android:layout_alignStart="@+id/montoidrow"
-        android:layout_marginBottom="10dp"
-        android:textColor="@android:color/white"/>
-    <TextView
-        android:id="@+id/estadoidrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="17dp"
-        android:layout_below="@+id/tiempoidrow"
-        android:layout_alignStart="@+id/tiempoidrow"
-        android:textColor="@android:color/white"
-        />
+
 
 
 

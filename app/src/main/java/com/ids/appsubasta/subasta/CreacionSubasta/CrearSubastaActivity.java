@@ -27,15 +27,20 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     Button FechaInicialID, FechaFinalID, enviar;
     EditText InicioID, FinalID;
     ImageView imagen;
-    private int dia, mes, ano;
+    private int dia, mes, ano,img=0;
     private List<Bienes> bienes;
     private RecyclerView bienestimeline;
     private Adaptador adaptador;
+
+    public CrearSubastaActivity(List<Bienes> bienes) {
+        this.bienes = bienes;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_subasta);
+        bienes = new ArrayList<>();
         enviar = (Button) findViewById(R.id.EnviarID);
         FechaInicialID = (Button) findViewById(R.id.FechaInicialID);
         FechaFinalID = (Button) findViewById(R.id.FechaFinalID);
@@ -53,10 +58,9 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
                 String monto = ((EditText) findViewById(R.id.montoID)).getText().toString();
                 int precio = Integer.parseInt(monto);
                 if (precio > 0) {
-                    data(titulo, descripcion,monto, "23/06/2017", "En curso");
+                    bienes.add(new Bienes(img, titulo,descripcion,monto));
                     Intent creacion = new Intent(CrearSubastaActivity.this, SubastaCreada.class);
                     startActivity(creacion);
-
                 } else {
                     Toast.makeText(getApplicationContext(), "¡Error!, Ingrese un valor mayor a 0", Toast.LENGTH_SHORT).show();
                 }
@@ -84,7 +88,6 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
             datePickerDialog.show();
         }
 
-
         if (v == FechaFinalID) {
             final Calendar c = Calendar.getInstance();
             dia = c.get(Calendar.DAY_OF_MONTH);
@@ -102,13 +105,6 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
             datePickerDialog.show();
         }
 
-    }
-
-    public void data(String titulo, String descripcion, String monto, String fecha, String estado){
-        bienes = new ArrayList<>();
-        bienes.add(new Bienes(titulo,descripcion,monto,fecha,estado));
-        adaptador = new Adaptador(bienes,this);
-        adaptador.notifyDataSetChanged();
     }
 
 }
