@@ -45,7 +45,6 @@ public class Timeline extends AppCompatActivity {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override /*Este boton es el signo mas que esta en la ventana TimeLine, al darle click me lleva a crear subasta*/
             public void onClick(View v) {
-                CrearSubastaActivity crearSubastaActivity = new CrearSubastaActivity(bienes);
                 Intent intent = new Intent(getApplicationContext(),CrearSubastaActivity.class);
                 startActivity(intent);
             }

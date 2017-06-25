@@ -30,6 +30,10 @@
             android:name=".Bien.verLotes"
             android:label="bienes">
         </activity>
+        <activity
+            android:name=".Timeline"
+            android:label="timeline">
+        </activity>
 
     </application>
 

@@ -32,10 +32,6 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     private RecyclerView bienestimeline;
     private Adaptador adaptador;
 
-    public CrearSubastaActivity(List<Bienes> bienes) {
-        this.bienes = bienes;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
