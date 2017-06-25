@@ -1,4 +1,4 @@
-package com.ids.appsubasta.subasta;
+//package com.ids.appsubasta.subasta;
 
 import com.ids.appsubasta.subasta.Bien.Bienes;
 import com.ids.appsubasta.subasta.Fase.Fase;
@@ -14,17 +14,10 @@ import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
 
-/**
- * Created by Sergio on 14/6/2017.
- */
-
+/*
 public class Subasta extends RealmObject{
     @PrimaryKey
     private String Id;
-    @Ignore
-    private Interfaz interfaz;
-    @Ignore
-    private Fase fase;
     private Usuario martillero;
     private RealmList<Bienes> bienes;
     @Ignore
@@ -39,9 +32,6 @@ public class Subasta extends RealmObject{
         Id = id;
     }
 
-    public Interfaz getInterfaz() {
-        return interfaz;
-    }
 
     public String getId() {
         return Id;
@@ -55,9 +45,6 @@ public class Subasta extends RealmObject{
         return bienes;
     }
 
-    public Fase getFase() {
-        return fase;
-    }
 
     public Usuario getMartillero() {
         return martillero;
@@ -65,10 +52,6 @@ public class Subasta extends RealmObject{
 
     public RealmList<Usuario> getUsuarios() {
         return usuarios;
-    }
-
-    public void setInterfaz(Interfaz interfaz) {
-        this.interfaz = interfaz;
     }
 
     public void setId(String id) {
@@ -79,9 +62,6 @@ public class Subasta extends RealmObject{
         this.pujas = pujas;
     }
 
-    public void setFase(Fase fase) {
-        this.fase = fase;
-    }
 
     public void setBienes(RealmList<Bienes> bienes) {
         this.bienes = bienes;
@@ -117,4 +97,4 @@ public class Subasta extends RealmObject{
         bienes.add(bien);
     }
 
-}
+}*/

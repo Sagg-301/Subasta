@@ -12,7 +12,7 @@ import io.realm.RealmResults;
 /**
  * Created by Sergio on 14/6/2017.
  */
-
+/*
 public class Martillero implements TipoUsuario {
     private RealmResults<Subasta> subasta;
     private Realm realm;
@@ -37,4 +37,4 @@ public class Martillero implements TipoUsuario {
             }
         }
     }
-}
+}*/
