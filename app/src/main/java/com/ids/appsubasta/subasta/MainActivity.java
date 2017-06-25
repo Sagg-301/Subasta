@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void data(){
-     /*   bienes = new ArrayList<>();
-        bienes.add(new Bienes("iPhone 7","Telefono movil con 256GB de memoria","Monto: 500", "Finaliza el: 20/07/2017", "En curso"));
-        bienes.add(new Bienes("Camisa","Camisa del Real Madrid","Monto: 300", "Finaliza el: 25/07/2017", "En curso"));
-        bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "Monto: 185", "Finaliza el: 30/07/2017", "En curso"));
-        bienes.add(new Bienes("Balon","Balon de futbol del Manchester United", "Monto: 500", "Finaliza el: 26/06/2017", "En curso"));
-        bienes.add(new Bienes("Mac","16gb de ram, Intel Core i7", "Monto: 200", "Finaliza el: 29/07/2017", "En curso")); */
+        bienes = new ArrayList<>();
+        bienes.add(new Bienes("iPhone 7","Telefono movil con 256GB de memoria","Monto: 500"));
+        bienes.add(new Bienes("Camisa","Camisa del Real Madrid","Monto: 300"));
+        bienes.add(new Bienes("Camisa","Camisa del Caracas Futbol club", "Monto: 185"));
+        bienes.add(new Bienes("Balon","Balon de futbol del Manchester United", "Monto: 500"));
+        bienes.add(new Bienes("Mac","16gb de ram, Intel Core i7", "Monto: 200"));
     }
 
     public void inicializaAdaptador(){

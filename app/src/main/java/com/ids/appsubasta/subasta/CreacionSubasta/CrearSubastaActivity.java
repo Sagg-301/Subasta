@@ -47,23 +47,28 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String titulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
-                String subtitulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
-                String descripcion = ((EditText) findViewById(R.id.descripcionID)).getText().toString();
-                String monto = ((EditText) findViewById(R.id.montoID)).getText().toString();
-                String fechaInicial = InicioID.getText().toString();
-                String fechaFinal = FinalID.getText().toString();
+                final String titulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
+                final String subtitulo = ((EditText) findViewById(R.id.TituloID)).getText().toString();
+                final String descripcion = ((EditText) findViewById(R.id.descripcionID)).getText().toString();
+                final String monto = ((EditText) findViewById(R.id.montoID)).getText().toString();
+                final String fechaInicial = InicioID.getText().toString();
+                final String fechaFinal = FinalID.getText().toString();
                 int precio = Integer.parseInt(monto);
                 if (precio > 0) {
                     //Copia nueva subasta a Realm
-                    realm.beginTransaction();
-                    Bienes bien = new Bienes(titulo,monto,descripcion);
-                    Subasta subasta = new Subasta();
-                    Fase faseDefault = new Inactiva();
-                    faseDefault.cambiarFase(subasta);
-                    subasta.addBien(bien);
-                    realm.copyToRealm(subasta);
-                    realm.commitTransaction();
+                    realm.executeTransaction(new Realm.Transaction() {
+                                                 @Override
+                                                 public void execute(Realm realm) {
+                                                     Bienes bien = realm.createObject(Bienes.class);
+                                                     bien.setMonto(monto);
+                                                     bien.setNombre(titulo);
+                                                     bien.setDescripcion(descripcion);
+
+                                                     Subasta subasta = realm.createObject(Subasta.class,titulo);
+                                                     subasta.addBien(bien);
+                                                 }
+                                             }
+                                             );
                     //-----------------------------
                     Intent creacion = new Intent(CrearSubastaActivity.this, SubastaCreada.class);
                     startActivity(creacion);
