@@ -1,12 +1,14 @@
 package com.ids.appsubasta.subasta.Usuario;
 
+import com.ids.appsubasta.subasta.Cartera.Monedas;
+import com.ids.appsubasta.subasta.Fase.Fase;
 import com.ids.appsubasta.subasta.Pujas.Pujas;
 
 /**
  * Created by Sergio on 14/6/2017.
  */
 
-public class Postor{
+public class Postor implements TipoUsuario {
     private String id;
 
     public Postor() {
@@ -24,5 +26,18 @@ public class Postor{
         this.id = id;
     }
 
+    @Override
+    public void cambiarTipoDeUsuario(Usuario u) {
+        u.setTipoUsuario(this);
+    }
 
+    @Override
+    public void cambiarFase(String idSubasta, Fase fase) {
+        //Postor no tiene permitido cambiar fase
+    }
+
+    public Pujas realizarPuja(Monedas valor) {
+        Pujas puja = new Pujas(valor,this.id);
+        return puja;
+    }
 }
