@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.ids.appsubasta.subasta.MainActivity;
 import com.ids.appsubasta.subasta.R;
+import com.ids.appsubasta.subasta.Timeline;
 
 /**
  * Created by Usuario on 15/06/2017.
@@ -23,11 +24,10 @@ public class SubastaCreada extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subasta_creada);
         home = (Button) findViewById(R.id.homecreadoid);
-
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent creacion = new Intent(SubastaCreada.this, MainActivity.class);
+                    Intent creacion = new Intent(SubastaCreada.this, Timeline.class);
                     startActivity(creacion);
 
             }

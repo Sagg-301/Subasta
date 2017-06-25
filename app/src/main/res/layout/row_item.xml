@@ -37,20 +37,24 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:text="TextView"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:textColor="@android:color/white"
-        android:layout_marginEnd="220dp"
+        android:layout_marginEnd="225dp"
+        android:layout_marginBottom="10dp"
         android:layout_alignTop="@+id/relativeLayout"
-        android:layout_alignEnd="@+id/relativeLayout" />
+        android:layout_alignEnd="@+id/relativeLayout"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/descripcionidrow"
-        android:layout_width="wrap_content"
+        android:layout_width="380px"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_below="@+id/textoidrow"
         android:layout_alignStart="@+id/textoidrow"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="17dp"
         android:textColor="@android:color/white"/>
     <TextView
         android:id="@+id/montoidrow"
@@ -59,26 +63,10 @@
         android:text="TextView"
         android:layout_below="@+id/descripcionidrow"
         android:layout_alignStart="@+id/descripcionidrow"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="17dp"
         android:textColor="@android:color/white"/>
-    <TextView
-        android:id="@+id/tiempoidrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_below="@+id/montoidrow"
-        android:layout_alignStart="@+id/montoidrow"
-        android:layout_marginBottom="5dp"
-        android:textColor="@android:color/white"/>
-    <TextView
-        android:id="@+id/estadoidrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_below="@+id/tiempoidrow"
-        android:layout_alignStart="@+id/tiempoidrow"
-        android:textColor="@android:color/white"
-        />
+
 
 
 
