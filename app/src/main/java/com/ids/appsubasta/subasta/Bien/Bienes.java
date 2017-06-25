@@ -12,6 +12,7 @@ public class Bienes {
     private String monto;
     private int foto;
 
+
     public Bienes (int foto, String nombre, String descripcion, String monto){
         this.nombre= nombre;
         this.descripcion= descripcion;
