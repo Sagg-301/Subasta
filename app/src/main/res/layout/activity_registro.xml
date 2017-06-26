@@ -53,6 +53,7 @@
         android:layout_below="@+id/telefono_registro"
         android:layout_marginTop="30px"
         android:hint="E - M A I L"
+        android:inputType="textEmailAddress"
         android:textColorHint="#ffffff"
         android:textSize="20px"
         android:paddingLeft="30px"/>

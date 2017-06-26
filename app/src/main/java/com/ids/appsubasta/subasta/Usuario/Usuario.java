@@ -1,5 +1,6 @@
 package com.ids.appsubasta.subasta.Usuario;
 
+import com.ids.appsubasta.subasta.Ban.TipoBan;
 import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
 
@@ -11,17 +12,37 @@ public class Usuario extends RealmObject{                   //Observador
     private String nombre;
     private String apellido;
     private String telefono;
+    private String contraseña;
     @PrimaryKey
-    private String id;
+    private String usuario;
+    private String email;
     @Ignore
     private Cartera cartera;
     @Ignore
     private Subasta subasta;                                //Sujeto a Observar
     @Ignore
     private TipoUsuario tipoUsuario;
+    @Ignore
+    private TipoBan ban;
 
     public Usuario() {
         tipoUsuario = null;
+    }
+
+    public Usuario(String nombre, String apellido, String telefono, String contraseña, String email) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.contraseña = contraseña;
+        this.email = email;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
     }
 
     public String getNombre() {
@@ -36,8 +57,8 @@ public class Usuario extends RealmObject{                   //Observador
         return telefono;
     }
 
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
     public Cartera getCartera() {
@@ -48,13 +69,24 @@ public class Usuario extends RealmObject{                   //Observador
         return subasta;
     }
 
+    public TipoBan getBan() {
+        return ban;
+    }
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
 
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public void setApellido(String apellido) {
@@ -65,8 +97,8 @@ public class Usuario extends RealmObject{                   //Observador
         this.telefono = telefono;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setCartera(Cartera cartera) {
@@ -77,6 +109,9 @@ public class Usuario extends RealmObject{                   //Observador
         this.subasta = subasta;
     }
 
+    public void setBan(TipoBan ban) {
+        this.ban = ban;
+    }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;

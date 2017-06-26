@@ -25,7 +25,7 @@ public class Martillero implements TipoUsuario {
     @Override
     public void cambiarTipoDeUsuario(Usuario u) {
         u.setTipoUsuario(this);
-        subasta= realm.where(Subasta.class).equalTo("id",u.getId()).findAll();
+        subasta= realm.where(Subasta.class).equalTo("id",u.getEmail()).findAll();
     }
 
     @Override

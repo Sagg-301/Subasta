@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,17 +20,21 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Timeline"
+            android:label="@string/app_name">
+        </activity>
+        <activity
             android:name=".CreacionSubasta.SubastaCreada"
             android:label="@string/app_name"></activity>
         <activity
             android:name=".CreacionSubasta.CrearSubastaActivity"
             android:label="@string/app_name"></activity>
         <activity
-            android:name=".Bien.verLotes"
+            android:name=".Bien.rowItem"
             android:label="bienes"></activity>
         <activity
-            android:name=".Timeline"
-            android:label="Timeline"></activity>
+            android:name=".Bien.verLotes"
+            android:label="bienes"></activity>
         <activity
             android:name=".Registro"
             android:label="Registro"></activity>
