@@ -12,17 +12,23 @@ import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.RealmResults;
+
 public class Timeline extends AppCompatActivity {
-    private List<Bienes> bienes;
+    private RealmResults<Bienes> bienes;
     private RecyclerView bienestimeline;
     private Adaptador adaptador;
     private Button boton;
+    private Realm realm;
     private CrearSubastaActivity crearSubastaActivity;
     int[] imagen = {R.drawable.iphonee, R.drawable.gorra, R.drawable.internet};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        realm = Realm.getDefaultInstance();
         setContentView(R.layout.activity_timeline);
         bienestimeline = (RecyclerView) findViewById(R.id.beta);
         LinearLayoutManager lim = new LinearLayoutManager(this);
@@ -33,9 +39,7 @@ public class Timeline extends AppCompatActivity {
     }
 
     public void data(){
-        bienes = new ArrayList<>();
-        bienes.add(new Bienes(imagen[1],"iPhone 7","Telefono movil con 256 GB de memoria. Auriculares, cargador y forro","500"));
-        bienes.add(new Bienes(imagen[2],"Collar","Collar de perlas, 8mm y 170cm de longitud","350"));
+        bienes = realm.where(Bienes.class).findAll();
     }
 
     public void inicializaAdaptador(){

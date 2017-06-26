@@ -21,6 +21,8 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+import io.realm.RealmList;
+
 /**
  * Created by Usuario on 15/06/2017.
  */
