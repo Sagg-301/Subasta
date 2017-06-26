@@ -7,5 +7,5 @@ import com.ids.appsubasta.subasta.Subasta;
  */
 
 public interface Fase {
-    public void cambiarFase(Subasta subasta);
+    void cambiarFase(Subasta subasta);
 }

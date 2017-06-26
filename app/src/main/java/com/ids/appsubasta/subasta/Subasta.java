@@ -1,37 +1,33 @@
-//package com.ids.appsubasta.subasta;
+package com.ids.appsubasta.subasta;
 
 import com.ids.appsubasta.subasta.Bien.Bienes;
+import com.ids.appsubasta.subasta.Fase.EnCurso;
 import com.ids.appsubasta.subasta.Fase.Fase;
-import com.ids.appsubasta.subasta.Interfaz.Interfaz;
-import com.ids.appsubasta.subasta.Multimedia.Multimedia;
 import com.ids.appsubasta.subasta.Pujas.Pujas;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
-
 import java.util.ArrayList;
-
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
 
-/*
+
 public class Subasta extends RealmObject{
     @PrimaryKey
     private String Id;
     private Usuario martillero;
+    @Ignore
+    private Fase fase;
     private RealmList<Bienes> bienes;
     @Ignore
     private RealmList<Usuario> usuarios;
     @Ignore
     private ArrayList<Pujas> pujas;
-
     public Subasta() {
     }
-
     public Subasta(String id) {
         Id = id;
     }
-
 
     public String getId() {
         return Id;
@@ -45,7 +41,6 @@ public class Subasta extends RealmObject{
         return bienes;
     }
 
-
     public Usuario getMartillero() {
         return martillero;
     }
@@ -53,7 +48,6 @@ public class Subasta extends RealmObject{
     public RealmList<Usuario> getUsuarios() {
         return usuarios;
     }
-
     public void setId(String id) {
         Id = id;
     }
@@ -61,7 +55,6 @@ public class Subasta extends RealmObject{
     public void setPujas(ArrayList<Pujas> pujas) {
         this.pujas = pujas;
     }
-
 
     public void setBienes(RealmList<Bienes> bienes) {
         this.bienes = bienes;
@@ -80,7 +73,6 @@ public class Subasta extends RealmObject{
             u.actualizar(this);
         }
     }
-
     public void adscribirUsuario(Usuario u){
         usuarios.add(u);
     }
@@ -97,4 +89,11 @@ public class Subasta extends RealmObject{
         bienes.add(bien);
     }
 
-}*/
+    public Fase getFases() {
+        return fase;
+    }
+
+    public void setFase(Fase fase) {
+        this.fase = fase;
+    }
+}

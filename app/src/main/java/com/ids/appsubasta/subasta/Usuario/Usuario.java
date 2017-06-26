@@ -1,16 +1,11 @@
 package com.ids.appsubasta.subasta.Usuario;
 
-import com.ids.appsubasta.subasta.Ban.TipoBan;
 import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
 
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
-
-/**
- * Created by Sergio on 14/6/2017.
- */
 
 public class Usuario extends RealmObject{                   //Observador
     private String nombre;
@@ -24,8 +19,6 @@ public class Usuario extends RealmObject{                   //Observador
     private Subasta subasta;                                //Sujeto a Observar
     @Ignore
     private TipoUsuario tipoUsuario;
-    @Ignore
-    private TipoBan ban;
 
     public Usuario() {
         tipoUsuario = null;
@@ -55,9 +48,6 @@ public class Usuario extends RealmObject{                   //Observador
         return subasta;
     }
 
-    public TipoBan getBan() {
-        return ban;
-    }
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
@@ -87,9 +77,6 @@ public class Usuario extends RealmObject{                   //Observador
         this.subasta = subasta;
     }
 
-    public void setBan(TipoBan ban) {
-        this.ban = ban;
-    }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;

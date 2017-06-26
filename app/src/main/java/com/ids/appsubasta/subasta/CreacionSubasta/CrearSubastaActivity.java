@@ -28,7 +28,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     EditText InicioID, FinalID;
     ImageView imagen;
     private int dia, mes, ano,img=0;
-    private List<Bienes> bienes;
+    private ArrayList<Bienes> bienes;
     private RecyclerView bienestimeline;
     private Adaptador adaptador;
 
@@ -36,7 +36,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_subasta);
-        bienes = new ArrayList<>();
+        bienes = (ArrayList<Bienes>) getIntent().getSerializableExtra("array");
         enviar = (Button) findViewById(R.id.EnviarID);
         FechaInicialID = (Button) findViewById(R.id.FechaInicialID);
         FechaFinalID = (Button) findViewById(R.id.FechaFinalID);
@@ -54,7 +54,8 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
                 String monto = ((EditText) findViewById(R.id.montoID)).getText().toString();
                 int precio = Integer.parseInt(monto);
                 if (precio > 0) {
-                    bienes.add(new Bienes(img, titulo,descripcion,monto));
+                   /* bienes.add(new Bienes(img, titulo,descripcion,monto));
+                    adaptador.notifyDataSetChanged();*/
                     Intent creacion = new Intent(CrearSubastaActivity.this, SubastaCreada.class);
                     startActivity(creacion);
                 } else {

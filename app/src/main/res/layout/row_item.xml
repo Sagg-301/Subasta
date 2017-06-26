@@ -48,7 +48,7 @@
 
     <TextView
         android:id="@+id/descripcionidrow"
-        android:layout_width="380px"
+        android:layout_width="350px"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_below="@+id/textoidrow"
@@ -57,15 +57,26 @@
         android:textSize="17dp"
         android:textColor="@android:color/white"/>
     <TextView
-        android:id="@+id/montoidrow"
-        android:layout_width="wrap_content"
+        android:id="@+id/Monto"
+        android:layout_width="80px"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_below="@+id/descripcionidrow"
         android:layout_alignStart="@+id/descripcionidrow"
         android:layout_marginBottom="10dp"
         android:textSize="17dp"
-        android:textColor="@android:color/white"/>
+        android:text="Monto:"
+        android:textColor="@android:color/white"
+        />
+    <TextView
+        android:id="@+id/montoidrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="17dp"
+        android:textColor="@android:color/white"
+        android:layout_alignBaseline="@+id/Monto"
+        android:layout_alignBottom="@+id/Monto"
+        android:layout_toEndOf="@+id/Monto" />
 
 
 

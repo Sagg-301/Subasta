@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button login;
+    Button login, registro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent creacion = new Intent(MainActivity.this, Timeline.class);
                 startActivity(creacion);
             }
-           /* else{
-                Toast.makeText(getApplicationContext(), "¡Error!, EL usuario o la contraseña no existen", Toast.LENGTH_SHORT).show();
-            }*/
         });
+        registro = (Button) findViewById(R.id.registrologin);
+        registro.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent creacion = new Intent(MainActivity.this, Registro.class);
+                startActivity(creacion);
+            }
+        });
+
     }
 }
 
