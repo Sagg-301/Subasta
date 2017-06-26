@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-/**
- * Created by Usuario on 26/06/2017.
- */
 
 public class Registro extends AppCompatActivity {
     Button registro;

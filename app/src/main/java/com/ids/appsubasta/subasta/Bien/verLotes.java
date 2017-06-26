@@ -3,6 +3,7 @@ package com.ids.appsubasta.subasta.Bien;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,16 +13,24 @@ import android.widget.TextView;
 
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 import com.ids.appsubasta.subasta.R;
+import com.ids.appsubasta.subasta.Slider_Adapter;
 
 
 public class verLotes extends AppCompatActivity {
     ImageView imagen;
     TextView titulo,descripcion,monto;
     Button pujar;
+    ViewPager view;
+    Slider_Adapter adaptador;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verlotes);
+
+        view = (ViewPager) findViewById(R.id.screenshots);
+        adaptador = new Slider_Adapter(this);
+        view.setAdapter (adaptador);
+
         imagen = (ImageView) findViewById(R.id.VerLotesImagen);
         titulo = (TextView) findViewById(R.id.tituloVerLotes);
         descripcion = (TextView) findViewById(R.id.descricionVerLotes);
