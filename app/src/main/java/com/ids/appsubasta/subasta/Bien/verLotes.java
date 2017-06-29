@@ -1,6 +1,7 @@
 package com.ids.appsubasta.subasta.Bien;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
+import com.ids.appsubasta.subasta.Pujas.Pujas;
 import com.ids.appsubasta.subasta.R;
 import com.ids.appsubasta.subasta.Slider_Adapter;
 
@@ -19,13 +21,21 @@ import com.ids.appsubasta.subasta.Slider_Adapter;
 public class verLotes extends AppCompatActivity {
     ImageView imagen;
     TextView titulo,descripcion,monto;
-    Button pujar;
+    Button pujar,verhistorial;
     ViewPager view;
     Slider_Adapter adaptador;
+    Typeface century, futura;
+    Pujas pujas;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verlotes);
+        /*Fuentes*/
+        /*String fuentee= ("assets/fuentes/gothic.TTF");
+        this.century = Typeface.createFromAsset(getAssets(),fuentee);
+        String fuentees= ("assets/fuentes/futura.ttf");
+        this.futura = Typeface.createFromAsset(getAssets(),fuentees);*/
+
 
         view = (ViewPager) findViewById(R.id.screenshots);
         adaptador = new Slider_Adapter(this);
@@ -33,8 +43,13 @@ public class verLotes extends AppCompatActivity {
 
         imagen = (ImageView) findViewById(R.id.VerLotesImagen);
         titulo = (TextView) findViewById(R.id.tituloVerLotes);
+        titulo.setTypeface(futura);
         descripcion = (TextView) findViewById(R.id.descricionVerLotes);
+        descripcion.setTypeface(century);
         monto = (TextView) findViewById(R.id.montoVerLotes);
+        monto.setTypeface(century);
+
+
         imagen.setImageResource(getIntent().getIntExtra("img_id",00));
         titulo.setText("" +getIntent().getStringExtra("Titulo"));
         descripcion.setText("DESCRIPCIÓN: " +getIntent().getStringExtra("Descripcion"));
@@ -44,10 +59,18 @@ public class verLotes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String monto = ((EditText) findViewById(R.id.montoVerLotes)).getText().toString();
-                /*Si el monto es mayor que la ultima puja realizada se envia a la base de datos*/
-                /*Luego se refresca la pantalla*/
-                Intent intent = new Intent(verLotes.this,CrearSubastaActivity.class);
-                startActivity(intent);
+                int precio = Integer.parseInt(monto);
+                    Intent intent = new Intent(verLotes.this,CrearSubastaActivity.class);
+                    startActivity(intent);
+               // }
+            }
+        });
+        verhistorial = (Button) findViewById(R.id.verHistorialVerLotes);
+        verhistorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* Intent intent = new Intent(verLotes.this,HistorialPujas.class);
+                startActivity(intent);*/
             }
         });
     }

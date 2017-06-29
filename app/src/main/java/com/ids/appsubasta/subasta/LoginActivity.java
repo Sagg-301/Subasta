@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(getApplicationContext(), "¡Error!, El Usuario no existe", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
         registro = (Button) findViewById(R.id.registrologin);

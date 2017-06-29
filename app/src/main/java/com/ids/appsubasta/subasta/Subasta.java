@@ -1,5 +1,7 @@
 package com.ids.appsubasta.subasta;
 
+import android.widget.ImageView;
+
 import com.ids.appsubasta.subasta.Bien.Bienes;
 import com.ids.appsubasta.subasta.Fase.EnCurso;
 import com.ids.appsubasta.subasta.Fase.Fase;
@@ -10,6 +12,8 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
+
+import static android.R.attr.max;
 
 
 public class Subasta extends RealmObject{
@@ -23,6 +27,7 @@ public class Subasta extends RealmObject{
     private RealmList<Usuario> usuarios;
     @Ignore
     private ArrayList<Pujas> pujas;
+    private ArrayList<ImageView> fotos;
     public Subasta() {
     }
     public Subasta(String id) {
@@ -73,6 +78,7 @@ public class Subasta extends RealmObject{
             u.actualizar(this);
         }
     }
+
     public void adscribirUsuario(Usuario u){
         usuarios.add(u);
     }
@@ -89,6 +95,10 @@ public class Subasta extends RealmObject{
         bienes.add(bien);
     }
 
+    public void setFotos (ImageView fotos){
+        this.fotos.add(fotos);
+    }
+
     public Fase getFases() {
         return fase;
     }
@@ -96,4 +106,5 @@ public class Subasta extends RealmObject{
     public void setFase(Fase fase) {
         this.fase = fase;
     }
+
 }

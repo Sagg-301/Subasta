@@ -1,8 +1,11 @@
 package com.ids.appsubasta.subasta.Usuario;
 
-import com.ids.appsubasta.subasta.Ban.TipoBan;
+import android.widget.ImageView;
+
 import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
+
+import java.util.ArrayList;
 
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
@@ -22,8 +25,8 @@ public class Usuario extends RealmObject{                   //Observador
     private Subasta subasta;                                //Sujeto a Observar
     @Ignore
     private TipoUsuario tipoUsuario;
-    @Ignore
-    private TipoBan ban;
+    private ArrayList<ImageView> fotos;
+
 
     public Usuario() {
         tipoUsuario = null;
@@ -36,6 +39,7 @@ public class Usuario extends RealmObject{                   //Observador
         this.contraseña = contraseña;
         this.email = email;
     }
+
 
     public String getUsuario() {
         return usuario;
@@ -69,9 +73,6 @@ public class Usuario extends RealmObject{                   //Observador
         return subasta;
     }
 
-    public TipoBan getBan() {
-        return ban;
-    }
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
@@ -109,9 +110,6 @@ public class Usuario extends RealmObject{                   //Observador
         this.subasta = subasta;
     }
 
-    public void setBan(TipoBan ban) {
-        this.ban = ban;
-    }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;

@@ -11,20 +11,21 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-/**
- * Created by Usuario on 26/06/2017.
- */
+import java.util.ArrayList;
+
+import static com.ids.appsubasta.subasta.R.id.ImagenesID;
+import static com.ids.appsubasta.subasta.R.id.ImagenesID2;
+import static com.ids.appsubasta.subasta.R.id.ImagenesID3;
 
 public class Slider_Adapter extends PagerAdapter {
 
-    private int[] image_resources = {R.drawable.collar_perlas, R.drawable.iphonee, R.drawable.camisa_realmadrid};
+    private int[] image_resources = {R.drawable.iphonee, R.drawable.collar_perlas, R.drawable.gorra};
     private Context ctx;
     private LayoutInflater layoutInflater;
 
     public Slider_Adapter (Context ctx){
         this.ctx=ctx;
     }
-
 
     @Override
     public int getCount() {

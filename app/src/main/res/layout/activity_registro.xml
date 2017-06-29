@@ -16,6 +16,7 @@
         android:hint="N O M B R E"
         android:paddingLeft="30px"
         android:textColorHint="#ffffff"
+        android:textColor="@android:color/white"
         android:textSize="20px" />
 
     <EditText
@@ -27,6 +28,7 @@
         android:layout_below="@+id/nombre_registro"
         android:layout_marginTop="30px"
         android:hint="A P E L L I D O"
+        android:textColor="@android:color/white"
         android:textColorHint="#ffffff"
         android:textSize="20px"
         android:paddingLeft="30px"/>
@@ -40,6 +42,7 @@
         android:layout_below="@+id/apellido_registro"
         android:layout_marginTop="30px"
         android:hint="T E L E F O N O"
+        android:textColor="@android:color/white"
         android:textColorHint="#ffffff"
         android:textSize="20px"
         android:paddingLeft="30px"/>
@@ -55,6 +58,7 @@
         android:hint="E - M A I L"
         android:inputType="textEmailAddress"
         android:textColorHint="#ffffff"
+        android:textColor="@android:color/white"
         android:textSize="20px"
         android:paddingLeft="30px"/>
 
@@ -68,6 +72,7 @@
         android:layout_marginTop="30px"
         android:hint="U S U A R I O"
         android:textColorHint="#ffffff"
+        android:textColor="@android:color/white"
         android:textSize="20px"
         android:paddingLeft="30px"/>
 
@@ -75,12 +80,14 @@
         android:id="@+id/contrasena_registro"
         android:layout_width="500px"
         android:layout_height="110px"
+        android:inputType="textPassword"
         android:background="@drawable/cuadrado_registro"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/usuario_registro"
         android:layout_marginTop="30px"
         android:hint="C O N T R A S E Ñ A"
         android:textColorHint="#ffffff"
+        android:textColor="@android:color/white"
         android:textSize="20px"
         android:paddingLeft="30px"/>
 
@@ -88,10 +95,10 @@
         android:id="@+id/registrarse_registro"
         android:layout_width="290px"
         android:layout_height="90px"
+        android:textColor="@android:color/white"
         android:background="@drawable/registrarse_registro"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/contrasena_registro"
         android:layout_marginTop="70px" />
-
 
 </RelativeLayout>

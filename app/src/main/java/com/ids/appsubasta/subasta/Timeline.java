@@ -25,7 +25,6 @@ public class Timeline extends AppCompatActivity {
     private Button boton;
     private Realm realm;
     private CrearSubastaActivity crearSubastaActivity;
-    int[] imagen = {R.drawable.iphonee, R.drawable.gorra, R.drawable.internet};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

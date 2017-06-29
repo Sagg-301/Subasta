@@ -14,10 +14,12 @@
         android:background="@drawable/titulo"
         android:layout_marginLeft="36dp"
         android:inputType="textPersonName"
-        android:layout_marginTop="59dp"
-        android:hint="INICIO"
+        android:layout_marginTop="70dp"
+        android:hint="I N I C I O"
         android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"
+        android:textColorHint="@android:color/white"
+        android:paddingLeft="30dp"
+        android:textSize="25px"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -47,8 +49,11 @@
         android:layout_below="@+id/FechaFinalID"
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
-        android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"/>
+        android:hint="DD/MM/YYYY"
+        android:textColorHint="@android:color/white"
+        android:paddingLeft="30dp"
+        android:textSize="25px"
+        android:textColor="#f6e397" />
     <EditText
         android:id="@+id/FinalID"
         android:layout_width="330px"
@@ -56,10 +61,13 @@
         android:background="@drawable/inicial"
         android:inputType="textCapCharacters"
         android:layout_below="@+id/FechaFinalID"
+        android:hint="DD/MM/YYYY"
         android:layout_alignStart="@+id/FechaFinalID"
         android:layout_marginTop="15dp"
-        android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"/>
+        android:textColorHint="@android:color/white"
+        android:paddingLeft="30dp"
+        android:textSize="25px"
+        android:textColor="#f6e397" />
     <EditText
         android:id="@+id/descripcionID"
         android:layout_width="700px"
@@ -70,8 +78,11 @@
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
         android:hint="DESCRIPCION DE LOS BIENES"
+        android:textColorHint="@android:color/white"
+        android:paddingLeft="30dp"
+        android:paddingBottom="120dp"
+        android:textSize="25px"
         android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"
         android:layout_alignEnd="@+id/FinalID" />
     <EditText
         android:id="@+id/montoID"
@@ -82,16 +93,51 @@
         android:layout_below="@+id/descripcionID"
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
-        android:hint="Precio de los bienes"
+        android:hint="P R E C I O  E S T I M A D O ( $ )"
+        android:textColorHint="@android:color/white"
+        android:paddingLeft="30dp"
+        android:textSize="25px"
         android:textColor="#f6e397"
-        android:textColorHint="#2b1e20"
         android:layout_alignEnd="@+id/descripcionID" />
+
+
+    <Button
+        android:id="@+id/agregarID"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_below="@+id/montoID"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="480dp"
+        android:background="@android:drawable/ic_menu_add" />
+
+
+    <ImageView
+        android:id="@+id/ImagenesID"
+        android:layout_width="130px"
+        android:layout_height="130px"
+        android:layout_below="@+id/montoID"
+        android:layout_marginTop="25dp"
+        android:layout_alignStart="@+id/EnviarID" />
+    <ImageView
+        android:id="@+id/ImagenesID2"
+        android:layout_width="130px"
+        android:layout_height="130px"
+        android:layout_alignTop="@+id/ImagenesID"
+        android:layout_alignEnd="@+id/InicioID" />
+    <ImageView
+        android:id="@+id/ImagenesID3"
+        android:layout_width="130px"
+        android:layout_height="130px"
+        android:layout_alignTop="@+id/ImagenesID2"
+        android:layout_alignStart="@+id/FinalID"
+        android:layout_marginStart="20dp" />
+
     <Button
         android:id="@+id/EnviarID"
         android:layout_width="700px"
         android:layout_height="78px"
         android:background="@drawable/enviar"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="150dp"
         android:layout_below="@+id/montoID"
         android:layout_alignStart="@+id/montoID"
         android:layout_alignEnd="@+id/montoID" />

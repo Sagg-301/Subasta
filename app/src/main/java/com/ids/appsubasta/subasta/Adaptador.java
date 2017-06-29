@@ -49,7 +49,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
     }
 
     public class adaptadorHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView texto, descripcion, monto, estado;
+        private TextView texto, descripcion, monto;
         private ImageView img;
         private List<Bienes> bienes;
         private Context ctx;

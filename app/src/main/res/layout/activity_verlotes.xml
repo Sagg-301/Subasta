@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/CuadradoVerLotes"
-        android:layout_width="450px"
-        android:layout_height="450px"
+        android:layout_width="350px"
+        android:layout_height="350px"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
@@ -16,11 +16,11 @@
 
     <ImageView
         android:id="@+id/VerLotesImagen"
-        android:layout_width="400px"
-        android:layout_height="400px"
+        android:layout_width="350px"
+        android:layout_height="350px"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/iphonee"
         />
 
@@ -29,21 +29,21 @@
         android:background="#e74c3c"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_width="350dp"
-        android:layout_marginTop="50dp"
-        android:layout_height="350dp"
+        android:layout_width="300dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="300dp"
         >
 
     </android.support.v4.view.ViewPager>
 
     <TextView
         android:id="@+id/tituloVerLotes"
-        android:layout_width="250px"
+        android:layout_width="280px"
         android:layout_height="100px"
         android:textSize="40dp"
         android:layout_below="@+id/CuadradoVerLotes"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         />
@@ -51,8 +51,8 @@
     <TextView
         android:id="@+id/descricionVerLotes"
         android:layout_width="500px"
-        android:layout_height="100px"
-        android:textSize="20dp"
+        android:layout_height="200px"
+        android:textSize="30dp"
         android:layout_below="@+id/tituloVerLotes"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
@@ -60,23 +60,15 @@
 
     <TextView
         android:id="@+id/montoVerLotes"
-        android:layout_width="200px"
-        android:layout_height="40px"
-        android:textSize="20dp"
+        android:layout_width="250px"
+        android:layout_height="50px"
+        android:textSize="30dp"
         android:layout_below="@+id/descricionVerLotes"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:textColor="@android:color/white"/>
 
-    <TextView
-        android:id="@+id/fechaVerLotes"
-        android:layout_width="500px"
-        android:layout_height="60px"
-        android:textSize="20dp"
-        android:layout_below="@+id/montoVerLotes"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="170dp"
-        android:textColor="@android:color/white"/>
+
 
     <EditText
         android:id="@+id/montoidVerLotes"
@@ -85,8 +77,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:background="@drawable/linea_verlote"
-        android:layout_above="@+id/pujarVerLotes"
+        android:layout_below="@+id/montoVerLotes"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="20dp"
         android:textSize="30px"
         android:paddingLeft="50px"
@@ -99,10 +92,18 @@
         android:id="@+id/pujarVerLotes"
         android:layout_width="550px"
         android:layout_height="100px"
-        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/pujar_verlote"
-         />
+        android:layout_below="@+id/montoidVerLotes"
+        android:background="@drawable/pujar_verlote" />
+    <Button
+        android:id="@+id/verHistorialVerLotes"
+        android:layout_width="550px"
+        android:layout_height="32px"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/pujarVerLotes"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/verhistorialpujas_verlotes"
+        />
 
 </RelativeLayout>

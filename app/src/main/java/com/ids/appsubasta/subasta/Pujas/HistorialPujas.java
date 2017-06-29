@@ -14,6 +14,8 @@ import com.ids.appsubasta.subasta.Bien.verLotes;
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 import com.ids.appsubasta.subasta.R;
 
+import java.util.List;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -22,12 +24,12 @@ import io.realm.RealmResults;
  */
 
 public class HistorialPujas extends AppCompatActivity {
-    private RealmResults<Pujas> pujas;
     private RecyclerView pujastimeline;
     private AdaptadorPujas adaptador;
     private Button boton;
     private Realm realm;
     private CrearSubastaActivity crearSubastaActivity;
+    private List<Pujas> pujas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +44,7 @@ public class HistorialPujas extends AppCompatActivity {
         inicializaAdaptador();
     }
 
-    public void data(){
-        pujas = realm.where(Pujas.class).findAll();
-    }
+    public void data(){}
 
     public void inicializaAdaptador(){
         adaptador = new AdaptadorPujas (pujas,this);
