@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondorojoo"
+    tools:context="com.ids.appsubasta.subasta.ConfiguracionActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="54dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="center"
+        android:text="Tipo de Usuario"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <Switch
+        android:id="@+id/postorSwitch"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:layout_weight="1"
+        android:checked="false"
+        android:splitTrack="false"
+        android:text="Postor"
+        android:textColor="@android:color/white"
+        android:trackTint="@android:color/background_light"
+        tools:checked="false" />
+
+    <Switch
+        android:id="@+id/martilleroSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/postorSwitch"
+        android:layout_alignStart="@+id/postorSwitch"
+        android:layout_below="@+id/postorSwitch"
+        android:layout_marginTop="17dp"
+        android:layout_weight="1"
+        android:text="Martillero"
+        android:textColor="@android:color/white"
+        android:trackTint="@android:color/background_light" />
+
+    <Switch
+        android:id="@+id/vendedorSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/martilleroSwitch"
+        android:layout_alignStart="@+id/martilleroSwitch"
+        android:layout_below="@+id/martilleroSwitch"
+        android:layout_marginTop="21dp"
+        android:text="Vendedor"
+        android:textColor="@android:color/white"
+        android:trackTint="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:text="Atrás"
+        android:textColor="@android:color/white" />
+</RelativeLayout>
