@@ -27,7 +27,7 @@ public class Subasta extends RealmObject{
     private RealmList<Usuario> usuarios;
     @Ignore
     private ArrayList<Pujas> pujas;
-    private ArrayList<ImageView> fotos;
+
     public Subasta() {
     }
     public Subasta(String id) {
@@ -73,6 +73,8 @@ public class Subasta extends RealmObject{
         this.usuarios = usuarios;
     }
 
+    //-----------------------------------------------------------------------------------
+
     public void notificar(){
         for (Usuario u: usuarios){
             u.actualizar(this);
@@ -95,16 +97,20 @@ public class Subasta extends RealmObject{
         bienes.add(bien);
     }
 
-    public void setFotos (ImageView fotos){
-        this.fotos.add(fotos);
-    }
-
     public Fase getFases() {
         return fase;
     }
 
     public void setFase(Fase fase) {
         this.fase = fase;
+    }
+
+    public String generarIdBienes(){
+        String idBienes;
+        int cantidadBienes;
+        cantidadBienes = this.bienes.size();
+        idBienes = this.Id + Integer.toString(cantidadBienes);
+        return idBienes;
     }
 
 }

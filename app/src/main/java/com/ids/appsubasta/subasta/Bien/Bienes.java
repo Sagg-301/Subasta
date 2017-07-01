@@ -1,14 +1,22 @@
 package com.ids.appsubasta.subasta.Bien;
 
+import com.ids.appsubasta.subasta.Interfaz.Foto;
+
+import java.util.ArrayList;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Bienes extends RealmObject {
 
     private String nombre;
     private String descripcion;
+    @PrimaryKey
     private String identificacion;
     private String monto;
     private int foto;
+    private RealmList<Foto> fotos;
 
     public Bienes() {
     }
@@ -18,15 +26,6 @@ public class Bienes extends RealmObject {
         this.descripcion= descripcion;
         this.monto = monto;
         this.setFoto(foto);
-    }
-
-
-    public String getMonto() {
-        return monto;
-    }
-
-    public void setMonto(String monto) {
-        this.monto = monto;
     }
 
     public String getNombre() {
@@ -53,11 +52,33 @@ public class Bienes extends RealmObject {
         this.identificacion = identificacion;
     }
 
+    public String getMonto() {
+        return monto;
+    }
+
+    public void setMonto(String monto) {
+        this.monto = monto;
+    }
+
     public int getFoto() {
         return foto;
     }
 
     public void setFoto(int foto) {
         this.foto = foto;
+    }
+
+    public RealmList<Foto> getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(RealmList<Foto> fotos) {
+        this.fotos = fotos;
+    }
+
+    //-----------------------------------------------------
+
+    public void addFotos(Foto fotos){
+        this.fotos.add(fotos);
     }
 }

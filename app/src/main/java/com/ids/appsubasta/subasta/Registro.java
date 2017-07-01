@@ -22,6 +22,8 @@ public class Registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         final Realm realm = Realm.getDefaultInstance();
         registro = (Button) findViewById(R.id.registrarse_registro);
+
+        //OnClick----------------------------------------------------------------------
         registro.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -47,7 +49,7 @@ public class Registro extends AppCompatActivity {
                         }
                     });
                     //------------------------------------
-                    Intent creacion = new Intent(Registro.this, Timeline.class);
+                    Intent creacion = new Intent(Registro.this, LoginActivity.class);
                     startActivity(creacion);
                 }
                 else{

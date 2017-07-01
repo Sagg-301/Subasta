@@ -2,11 +2,13 @@ package com.ids.appsubasta.subasta.Usuario;
 
 import android.widget.ImageView;
 
+import com.ids.appsubasta.subasta.Ban.TipoBan;
 import com.ids.appsubasta.subasta.Cartera.Cartera;
 import com.ids.appsubasta.subasta.Subasta;
 
 import java.util.ArrayList;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
@@ -16,20 +18,24 @@ public class Usuario extends RealmObject{                   //Observador
     private String apellido;
     private String telefono;
     private String contraseña;
+    private RealmList<Subasta> subastasPropias;
     @PrimaryKey
-    private String usuario;
+    private String nombreUsuario;
     private String email;
     @Ignore
     private Cartera cartera;
     @Ignore
-    private Subasta subasta;                                //Sujeto a Observar
+    private Subasta subastaObservable;                                //Sujeto a Observar
+    private String tipoUsuarioS;
     @Ignore
     private TipoUsuario tipoUsuario;
-    private ArrayList<ImageView> fotos;
+    @Ignore
+    private TipoBan ban;
 
 
     public Usuario() {
-        tipoUsuario = null;
+        TipoUsuario dfault = new Postor();
+        tipoUsuario = dfault;
     }
 
     public Usuario(String nombre, String apellido, String telefono, String contraseña, String email) {
@@ -40,9 +46,8 @@ public class Usuario extends RealmObject{                   //Observador
         this.email = email;
     }
 
-
-    public String getUsuario() {
-        return usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
     public String getContraseña() {
@@ -69,17 +74,28 @@ public class Usuario extends RealmObject{                   //Observador
         return cartera;
     }
 
-    public Subasta getSubasta() {
-        return subasta;
+    public Subasta getSubastaObservable() {
+        return subastaObservable;
     }
 
+    public TipoBan getBan() {
+        return ban;
+    }
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public String getTipoUsuarioS() {
+        return tipoUsuarioS;
+    }
+
+    public RealmList<Subasta> getSubastasPropias() {
+        return subastasPropias;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public void setNombre(String nombre) {
@@ -106,18 +122,50 @@ public class Usuario extends RealmObject{                   //Observador
         this.cartera = cartera;
     }
 
-    public void setSubasta(Subasta subasta) {
-        this.subasta = subasta;
+    public void setSubastaObservable(Subasta subastaObservable) {
+        this.subastaObservable = subastaObservable;
     }
 
+    public void setBan(TipoBan ban) {
+        this.ban = ban;
+    }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public void actualizar(Subasta subasta){            //Metodo Update de clase observadora
-        this.subasta = subasta;
+    public void setTipoUsuarioS(String tipoUsuarioS) {
+        this.tipoUsuarioS = tipoUsuarioS;
     }
 
+    public void setSubastasPropias(RealmList<Subasta> subastasPropias) {
+        this.subastasPropias = subastasPropias;
+    }
+
+    //Terminan Getter y Setters------------------------------------------------------------
+
+    public void actualizar(Subasta subasta){            //Metodo Update de clase observadora
+        this.subastaObservable = subasta;
+    }
+
+    public void realizarPuja(){
+
+    }
+
+    public String generarIdSubasta(){
+        String idSubasta;
+        int cantidadSubasta;
+        cantidadSubasta = subastasPropias.size();
+        idSubasta = this.nombreUsuario + Integer.toString(cantidadSubasta);
+        return idSubasta;
+    }
+
+    public String generarIdBienes(){
+        String idSubasta;
+        int cantidadSubasta;
+        cantidadSubasta = subastasPropias.size();
+        idSubasta = this.nombreUsuario + Integer.toString(cantidadSubasta);
+        return idSubasta;
+    }
 
 }

@@ -2,6 +2,8 @@ package com.ids.appsubasta.subasta;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 
 import com.ids.appsubasta.subasta.Bien.Bienes;
 import com.ids.appsubasta.subasta.Bien.verLotes;
+import com.ids.appsubasta.subasta.Interfaz.Foto;
+import com.ids.appsubasta.subasta.Usuario.Usuario;
 
 import org.w3c.dom.Text;
 
@@ -21,10 +25,12 @@ import java.util.List;
 public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
     List<Bienes> bienes;
     Context ctx;
+    Usuario usuario;
 
-    public Adaptador (List<Bienes> bienes, Context ctx){
+    public Adaptador (Usuario usuario,List<Bienes> bienes, Context ctx){
         this.bienes = bienes;
         this.ctx = ctx;
+        this.usuario = usuario;
     }
 
     @Override
@@ -40,7 +46,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
         adaptadorViewHolder.texto.setText(bien.getNombre());
         adaptadorViewHolder.descripcion.setText(bien.getDescripcion());
         adaptadorViewHolder.monto.setText(bien.getMonto());
-        adaptadorViewHolder.img.setImageResource(bien.getFoto());
+        Bitmap bmp = BitmapFactory.decodeByteArray(bien.getFotos().get(1).getData(),0,bien.getFotos().get(1).getData().length);
+        adaptadorViewHolder.img.setImageBitmap(bmp);
     }
 
     @Override
@@ -75,6 +82,10 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
             intent.putExtra("Titulo",bienes.getNombre());
             intent.putExtra("Descripcion",bienes.getDescripcion());
             intent.putExtra("Precio",bienes.getMonto());
+            intent.putExtra("Id", bienes.getIdentificacion());
+            //PassData-------------------------------
+            intent.putExtra("EXTRA_USUARIO",usuario.getNombreUsuario());
+            //---------------------------------------
             this.ctx.startActivity(intent);
         }
     }

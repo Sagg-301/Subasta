@@ -24,13 +24,19 @@ import android.widget.Toast;
 import com.ids.appsubasta.subasta.Bien.Bienes;
 import com.ids.appsubasta.subasta.Fase.Fase;
 import com.ids.appsubasta.subasta.Fase.Inactiva;
+import com.ids.appsubasta.subasta.Interfaz.Foto;
 import com.ids.appsubasta.subasta.R;
 import com.ids.appsubasta.subasta.Subasta;
+import com.ids.appsubasta.subasta.Timeline;
+import com.ids.appsubasta.subasta.Usuario.Usuario;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class CrearSubastaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,12 +51,18 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     private final int SELECT_PICTURE = 200;
     static final int REQUEST_IMAGE_CAPTURE =1;
     private int flag=1;
+    private RealmList<Foto> fotos = new RealmList<>();
+    private Realm realm;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_subasta);
-        final Realm realm = Realm.getDefaultInstance();
+
+        realm = Realm.getDefaultInstance();
+        usuario = realm.where(Usuario.class).equalTo("nombreUsuario",getIntent().getStringExtra("EXTRA_USUARIO")).findFirst();
+        //Botones----------------------------------------
         enviar = (Button) findViewById(R.id.EnviarID);
         FechaInicialID = (Button) findViewById(R.id.FechaInicialID);
         FechaFinalID = (Button) findViewById(R.id.FechaFinalID);
@@ -62,7 +74,8 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
         FechaInicialID.setOnClickListener(this);
         FechaFinalID.setOnClickListener(this);
         agregar = (Button) findViewById(R.id.agregarID);
-
+        //Botones----------------------------------------
+        //Eventos----------------------------------------
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,21 +97,19 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
                     realm.executeTransaction(new Realm.Transaction() {
                                                  @Override
                                                  public void execute(Realm realm) {
-                                                     Bienes bien = realm.createObject(Bienes.class);
+                                                     Subasta subasta = realm.createObject(Subasta.class,usuario.generarIdSubasta());
+                                                     Bienes bien = realm.createObject(Bienes.class, subasta.generarIdBienes());
                                                      bien.setMonto(monto);
                                                      bien.setNombre(titulo);
                                                      bien.setDescripcion(descripcion);
-
-                                                     Subasta subasta = realm.createObject(Subasta.class,titulo);
+                                                     bien.setFotos(fotos);
                                                      subasta.addBien(bien);
-                                                     subasta.setFotos(imagen1);
-                                                     subasta.setFotos(imagen2);
-                                                     subasta.setFotos(imagen3);
                                                  }
                                              }
                     );
                     //-----------------------------
-                    Intent creacion = new Intent(CrearSubastaActivity.this, SubastaCreada.class);
+                    Intent creacion = new Intent(CrearSubastaActivity.this, Timeline.class);
+                    creacion.putExtra("EXTRA_USUARIO", usuario.getNombreUsuario());
                     startActivity(creacion);
                 } else {
                     Toast.makeText(getApplicationContext(), "¡Error!, Ingrese un valor mayor a 0", Toast.LENGTH_SHORT).show();
@@ -155,6 +166,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -163,14 +175,38 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             if(flag == 1){
                 imagen1.setImageBitmap(imageBitmap);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                realm.beginTransaction();
+                Foto f = realm.createObject(Foto.class);
+                f.setData(byteArray);
+                realm.commitTransaction();
+                fotos.add(f);
                 flag = flag + 1;
             }
             else if (flag == 2){
                 imagen2.setImageBitmap(imageBitmap);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                realm.beginTransaction();
+                Foto f = realm.createObject(Foto.class);
+                f.setData(byteArray);
+                realm.commitTransaction();
+                fotos.add(f);
                 flag = flag + 1;
             }
             else if (flag == 3){
                 imagen3.setImageBitmap(imageBitmap);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                realm.beginTransaction();
+                byte[] byteArray = stream.toByteArray();
+                Foto f = realm.createObject(Foto.class);
+                f.setData(byteArray);
+                realm.commitTransaction();
+                fotos.add(f);
                 flag = 1;
             }
         }

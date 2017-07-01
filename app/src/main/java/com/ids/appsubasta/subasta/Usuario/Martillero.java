@@ -13,8 +13,7 @@ import io.realm.RealmResults;
  * Created by Sergio on 14/6/2017.
  */
 
-public class Martillero implements TipoUsuario {
-    private RealmResults<Subasta> subasta;
+public class Martillero extends TipoUsuario {
     private Realm realm;
 
     public Martillero() {
@@ -25,16 +24,11 @@ public class Martillero implements TipoUsuario {
     @Override
     public void cambiarTipoDeUsuario(Usuario u) {
         u.setTipoUsuario(this);
-        subasta= realm.where(Subasta.class).equalTo("id",u.getEmail()).findAll();
+        u.setTipoUsuarioS("martillero");
     }
 
-    @Override
-    public void cambiarFase(String idSubasta, Fase fase){
-        for (Subasta s:
-             subasta) {
-            if (s.getId() == idSubasta){
-                fase.cambiarFase(s);
-            }
-        }
+
+    public void cambiarFase(Subasta subasta, Fase fase){
+        fase.cambiarFase(subasta);
     }
 }

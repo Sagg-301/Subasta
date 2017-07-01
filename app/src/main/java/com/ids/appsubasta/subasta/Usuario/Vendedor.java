@@ -10,7 +10,7 @@ import io.realm.RealmObject;
  * Created by Sergio on 14/6/2017.
  */
 
-public class Vendedor extends RealmObject implements TipoUsuario {
+public class Vendedor extends TipoUsuario {
     private Subasta subasta;
 
 
@@ -25,9 +25,9 @@ public class Vendedor extends RealmObject implements TipoUsuario {
     @Override
     public void cambiarTipoDeUsuario(Usuario u) {
         u.setTipoUsuario(this);
+        u.setTipoUsuarioS("vendedor");
     }
 
-    @Override
     public void cambiarFase(String idSubasta, Fase fase) {
         //Vendedor no tiene permitido cambiar fase
     }

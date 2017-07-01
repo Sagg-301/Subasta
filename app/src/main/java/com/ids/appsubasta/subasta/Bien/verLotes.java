@@ -16,6 +16,9 @@ import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 import com.ids.appsubasta.subasta.Pujas.Pujas;
 import com.ids.appsubasta.subasta.R;
 import com.ids.appsubasta.subasta.Slider_Adapter;
+import com.ids.appsubasta.subasta.Usuario.Usuario;
+
+import io.realm.Realm;
 
 
 public class verLotes extends AppCompatActivity {
@@ -23,6 +26,9 @@ public class verLotes extends AppCompatActivity {
     TextView titulo,descripcion,monto;
     Button pujar,verhistorial;
     ViewPager view;
+    Usuario usuario;
+    Bienes bien;
+    Realm realm;
     Slider_Adapter adaptador;
     Typeface century, futura;
     Pujas pujas;
@@ -36,10 +42,15 @@ public class verLotes extends AppCompatActivity {
         String fuentees= ("assets/fuentes/futura.ttf");
         this.futura = Typeface.createFromAsset(getAssets(),fuentees);*/
 
+        realm = Realm.getDefaultInstance();
+        usuario = realm.where(Usuario.class).equalTo("nombreUsuario",getIntent().getStringExtra("EXTRA_USUARIO")).findFirst();
+        bien = realm.where(Bienes.class).equalTo("identificacion",getIntent().getStringExtra("Id")).findFirst();
+
 
         view = (ViewPager) findViewById(R.id.screenshots);
-        adaptador = new Slider_Adapter(this);
+        adaptador = new Slider_Adapter(this,bien.getFotos());
         view.setAdapter (adaptador);
+
 
         imagen = (ImageView) findViewById(R.id.VerLotesImagen);
         titulo = (TextView) findViewById(R.id.tituloVerLotes);
@@ -54,6 +65,7 @@ public class verLotes extends AppCompatActivity {
         titulo.setText("" +getIntent().getStringExtra("Titulo"));
         descripcion.setText("DESCRIPCIÓN: " +getIntent().getStringExtra("Descripcion"));
         monto.setText("MONTO: " +getIntent().getStringExtra("Precio"));
+
         pujar = (Button) findViewById(R.id.pujarVerLotes);
         pujar.setOnClickListener(new View.OnClickListener() {
             @Override

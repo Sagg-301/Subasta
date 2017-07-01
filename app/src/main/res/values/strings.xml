@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Subasta</string>
+    <string name="title_activity_timeline_nav">TimelineNavActivity</string>
+
+    <string name="open">Abrir</string>
+    <string name="close">Cerrar</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

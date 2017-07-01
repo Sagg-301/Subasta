@@ -8,7 +8,7 @@ import com.ids.appsubasta.subasta.Pujas.Pujas;
  * Created by Sergio on 14/6/2017.
  */
 
-public class Postor implements TipoUsuario {
+public class Postor extends TipoUsuario {
     private String id;
 
     public Postor() {
@@ -29,9 +29,9 @@ public class Postor implements TipoUsuario {
     @Override
     public void cambiarTipoDeUsuario(Usuario u) {
         u.setTipoUsuario(this);
+        u.setTipoUsuarioS("postor");
     }
 
-    @Override
     public void cambiarFase(String idSubasta, Fase fase) {
         //Postor no tiene permitido cambiar fase
     }
