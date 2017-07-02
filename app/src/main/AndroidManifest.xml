@@ -3,6 +3,10 @@
     package="com.ids.appsubasta.subasta">
 
     <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED"/>
 
     <application
         android:name=".Aplicacion"

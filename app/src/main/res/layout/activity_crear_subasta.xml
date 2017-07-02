@@ -88,7 +88,7 @@
         android:id="@+id/montoID"
         android:layout_width="700px"
         android:layout_height="100px"
-        android:background="@drawable/descripciona"
+        android:background="@drawable/titulo"
         android:inputType="textCapCharacters"
         android:layout_below="@+id/descripcionID"
         android:layout_alignStart="@+id/FechaInicialID"
@@ -108,26 +108,26 @@
         android:layout_below="@+id/montoID"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="480dp"
-        android:background="@android:drawable/ic_menu_add" />
+        android:background="@drawable/camera" />
 
 
     <ImageView
         android:id="@+id/ImagenesID"
-        android:layout_width="130px"
-        android:layout_height="130px"
+        android:layout_width="250px"
+        android:layout_height="140px"
         android:layout_below="@+id/montoID"
         android:layout_marginTop="25dp"
         android:layout_alignStart="@+id/EnviarID" />
     <ImageView
         android:id="@+id/ImagenesID2"
-        android:layout_width="130px"
-        android:layout_height="130px"
+        android:layout_width="140px"
+        android:layout_height="140px"
         android:layout_alignTop="@+id/ImagenesID"
-        android:layout_alignEnd="@+id/InicioID" />
+        android:layout_toEndOf="@+id/ImagenesID" />
     <ImageView
         android:id="@+id/ImagenesID3"
-        android:layout_width="130px"
-        android:layout_height="130px"
+        android:layout_width="140px"
+        android:layout_height="140px"
         android:layout_alignTop="@+id/ImagenesID2"
         android:layout_alignStart="@+id/FinalID"
         android:layout_marginStart="20dp" />

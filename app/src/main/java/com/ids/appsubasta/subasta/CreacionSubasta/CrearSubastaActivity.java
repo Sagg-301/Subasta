@@ -44,12 +44,17 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     EditText InicioID, FinalID;
     ImageView imagen1, imagen2, imagen3;
     private int dia, mes, ano;
-    private String APP_DIRECTORY = "myPictureApp/";
-    private String MEDIA_DIRECTORY = APP_DIRECTORY + "media";
+
+    //Las primeras dos son para saber donde se guardaran nuestras fotos
+    private String APP_DIRECTORY = "myPictureApp/"; //Directorio principal
+    private String MEDIA_DIRECTORY = APP_DIRECTORY + "myPictureApp"; //Subcarpeta
+
     private String TEMPORAL_PICTURE_NAME = "temporal.jpg";
     private final int PHOTO_CODE=100;
     private final int SELECT_PICTURE = 200;
+    private final int MY_PERMISSIONS = 100;
     static final int REQUEST_IMAGE_CAPTURE =1;
+
     private int flag=1;
     private RealmList<Foto> fotos = new RealmList<>();
     private Realm realm;
@@ -159,7 +164,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     }
 
 
-    private void llamarIntent() {
+    private void llamarIntent() { //De aqui vas a la camara del dispositivo
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
@@ -188,7 +193,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
             else if (flag == 2){
                 imagen2.setImageBitmap(imageBitmap);
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream); //compress(Bitmap.CompressFormat format, int quality, OutputStream stream)
                 byte[] byteArray = stream.toByteArray();
                 realm.beginTransaction();
                 Foto f = realm.createObject(Foto.class);

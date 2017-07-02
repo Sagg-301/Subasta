@@ -33,16 +33,16 @@ public class AdaptadorPujas extends RecyclerView.Adapter<AdaptadorPujas.adaptado
     @Override
     public adaptadorHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_item, parent, false);
+                .inflate(R.layout.historial_row_item, parent, false);
         return new adaptadorHolder(v,ctx,pujas);
     }
 
     @Override
     public void onBindViewHolder(adaptadorHolder adaptadorViewHolder, int position) {
-        //Bienes bien = pujas.get(position);
         Pujas puja = pujas.get(position);
         adaptadorViewHolder.idpostor.setText(puja.getIdPostor());
-        //adaptadorViewHolder.monto.setText(puja.getValor());
+        adaptadorViewHolder.monto.setText((CharSequence) puja.getValor());
+        adaptadorViewHolder.fecha.setText(puja.getFecha());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class AdaptadorPujas extends RecyclerView.Adapter<AdaptadorPujas.adaptado
     }
 
     public class adaptadorHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView idpostor, monto;
+        private TextView idpostor, monto, fecha;
         private List<Pujas> pujas;
         private Context ctx;
 
@@ -61,8 +61,9 @@ public class AdaptadorPujas extends RecyclerView.Adapter<AdaptadorPujas.adaptado
             this.pujas = pujas;
             this.ctx = ctx;
             itemView.setOnClickListener(this);
-            idpostor = (TextView)itemView.findViewById(R.id.textoidrow);
-            monto = (TextView)itemView.findViewById(R.id.montoidrow);
+            idpostor = (TextView)itemView.findViewById(R.id.usuarioPujador);
+            monto = (TextView)itemView.findViewById(R.id.fechaPujador);
+            fecha = (TextView)itemView.findViewById(R.id.montoPujador);
         }
 
         @Override

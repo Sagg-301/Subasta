@@ -43,7 +43,7 @@ public class Timeline extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         realm = Realm.getDefaultInstance();
         setContentView(R.layout.activity_timeline);
-        nav = (NavigationView) findViewById(R.id.Nav_View);
+       nav = (NavigationView) findViewById(R.id.Nav_View);
         bienestimeline = (RecyclerView) findViewById(R.id.beta);
         LinearLayoutManager lim = new LinearLayoutManager(this);
         lim.setOrientation(LinearLayoutManager.VERTICAL);

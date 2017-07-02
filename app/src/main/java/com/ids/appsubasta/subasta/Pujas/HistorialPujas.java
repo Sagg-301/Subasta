@@ -14,14 +14,11 @@ import com.ids.appsubasta.subasta.Bien.verLotes;
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 import com.ids.appsubasta.subasta.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-
-/**
- * Created by Usuario on 27/06/2017.
- */
 
 public class HistorialPujas extends AppCompatActivity {
     private RecyclerView pujastimeline;
@@ -29,13 +26,13 @@ public class HistorialPujas extends AppCompatActivity {
     private Button boton;
     private Realm realm;
     private CrearSubastaActivity crearSubastaActivity;
-    private List<Pujas> pujas;
+    private RealmResults<Bienes> pujas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         realm = Realm.getDefaultInstance();
-        setContentView(R.layout.activity_timeline);
+        setContentView(R.layout.activity_historialpujas);
         pujastimeline = (RecyclerView) findViewById(R.id.beta2);
         LinearLayoutManager lim = new LinearLayoutManager(this);
         lim.setOrientation(LinearLayoutManager.VERTICAL);
@@ -44,23 +41,19 @@ public class HistorialPujas extends AppCompatActivity {
         inicializaAdaptador();
     }
 
-    public void data(){}
+    public void data(){
+       // pujas = realm.where(Pujas.class).findAll();
+        /* Aqui tienes que agregar todas las pujas que se fueron hechas en la subasta */
 
-    public void inicializaAdaptador(){
-        adaptador = new AdaptadorPujas (pujas,this);
+    }
+
+    public void inicializaAdaptador(){ //Iniciamos el beta
+       // adaptador = new AdaptadorPujas (pujas,this);
         pujastimeline.setAdapter(adaptador);
-        boton = (Button) findViewById(R.id.button1);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override /*Este boton es el signo mas que esta en la ventana TimeLine, al darle click me lleva a crear subasta*/
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),verLotes.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
-    public void onResume() {
+    public void onResume() { /*Actualizamos la pantalla cada vez que se llama a esta clase*/
         super.onResume();
         adaptador.notifyDataSetChanged();
     }

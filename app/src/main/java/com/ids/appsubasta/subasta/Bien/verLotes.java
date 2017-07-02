@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
+import com.ids.appsubasta.subasta.Pujas.HistorialPujas;
 import com.ids.appsubasta.subasta.Pujas.Pujas;
 import com.ids.appsubasta.subasta.R;
 import com.ids.appsubasta.subasta.Slider_Adapter;
@@ -74,15 +75,14 @@ public class verLotes extends AppCompatActivity {
                 int precio = Integer.parseInt(monto);
                     Intent intent = new Intent(verLotes.this,CrearSubastaActivity.class);
                     startActivity(intent);
-               // }
             }
         });
         verhistorial = (Button) findViewById(R.id.verHistorialVerLotes);
         verhistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* Intent intent = new Intent(verLotes.this,HistorialPujas.class);
-                startActivity(intent);*/
+               Intent intent = new Intent(verLotes.this,HistorialPujas.class);
+                startActivity(intent);
             }
         });
     }

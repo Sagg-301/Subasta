@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/usuarioPujador"
@@ -8,14 +10,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="50dp"
-        android:text="Usuario"
+        android:text="1234567"
         android:textSize="30px"/>
 
     <TextView
         android:id="@+id/fechaPujador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha"
+        android:text="02/07/2017"
         android:layout_alignBaseline="@+id/usuarioPujador"
         android:layout_alignBottom="@+id/usuarioPujador"
         android:layout_centerHorizontal="true"
@@ -25,7 +27,7 @@
         android:id="@+id/montoPujador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Monto"
+        android:text="500"
         android:layout_alignBaseline="@+id/fechaPujador"
         android:layout_alignBottom="@+id/fechaPujador"
         android:layout_alignParentEnd="true"

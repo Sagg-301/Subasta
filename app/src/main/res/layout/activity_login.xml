@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/fondo_login"
+    android:background="@drawable/fondo"
     >
 
 
@@ -28,6 +28,7 @@
         android:background="@drawable/usuario_login"
         android:layout_marginTop="72dp"
         android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
@@ -43,6 +44,7 @@
         android:textColor="@android:color/white"
         android:background="@drawable/contrasena_login"
         android:layout_below="@+id/usuariologin"
+        android:textColorHint="@android:color/white"
         android:layout_alignStart="@+id/usuariologin"
         android:layout_marginTop="20dp" />
 
