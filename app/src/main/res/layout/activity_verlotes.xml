@@ -5,22 +5,14 @@
     android:background="@drawable/fondo"
     >
 
-    <ImageView
-        android:id="@+id/CuadradoVerLotes"
-        android:layout_width="350px"
-        android:layout_height="350px"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/cuadrado_verlote" />
 
     <ImageView
         android:id="@+id/VerLotesImagen"
-        android:layout_width="350px"
-        android:layout_height="350px"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         />
 
     <android.support.v4.view.ViewPager
@@ -40,7 +32,7 @@
         android:layout_width="280px"
         android:layout_height="100px"
         android:textSize="40dp"
-        android:layout_below="@+id/CuadradoVerLotes"
+        android:layout_below="@+id/screenshots"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:textColor="@android:color/white"
@@ -67,6 +59,15 @@
         android:layout_marginTop="10dp"
         android:textColor="@android:color/white"/>
 
+    <Button
+        android:id="@+id/verHistorialVerLotes"
+        android:layout_width="450px"
+        android:layout_height="45px"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/montoVerLotes"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/verlotes_historial"
+        />
 
 
     <EditText
@@ -75,17 +76,16 @@
         android:layout_height="80px"
         android:ems="10"
         android:inputType="textPersonName"
-        android:background="@drawable/linea_verlote"
-        android:layout_below="@+id/montoVerLotes"
+        android:background="@drawable/verlotes_monto"
+        android:layout_below="@+id/verHistorialVerLotes"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="15dp"
         android:textSize="30px"
-        android:paddingLeft="50px"
+        android:paddingLeft="60px"
         android:paddingTop="5dp"
         android:textColor="#f6e397"
-        android:textColorHint="#eda0a0"
-        android:hint="M O N T O  A  P U J A R"/>
+        />
 
     <Button
         android:id="@+id/pujarVerLotes"
@@ -94,15 +94,7 @@
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/montoidVerLotes"
-        android:background="@drawable/pujar_verlote" />
-    <Button
-        android:id="@+id/verHistorialVerLotes"
-        android:layout_width="550px"
-        android:layout_height="32px"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/pujarVerLotes"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/verhistorialpujas_verlotes"
-        />
+        android:background="@drawable/verlotes_pujar" />
+
 
 </RelativeLayout>

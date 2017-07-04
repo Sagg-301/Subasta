@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/logo_login" />
+        app:srcCompat="@drawable/iphonee" />
 
     <EditText
         android:id="@+id/usuariologin"
@@ -25,10 +25,10 @@
         android:textSize="35px"
         android:paddingLeft="100px"
         android:inputType="textPersonName"
-        android:background="@drawable/usuario_login"
+        android:background="@drawable/login_usuario"
         android:layout_marginTop="72dp"
         android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="#c4c4c4"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
@@ -42,26 +42,26 @@
         android:paddingLeft="100px"
         android:inputType="textPassword"
         android:textColor="@android:color/white"
-        android:background="@drawable/contrasena_login"
+        android:background="@drawable/login_clave"
         android:layout_below="@+id/usuariologin"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="#c4c4c4"
         android:layout_alignStart="@+id/usuariologin"
         android:layout_marginTop="20dp" />
 
     <Button
     android:id="@+id/loginlogin"
-    android:layout_width="280px"
+    android:layout_width="290px"
     android:layout_height="110px"
     android:layout_marginTop="60dp"
-        android:background="@drawable/login_login"
+        android:background="@drawable/login_btnlogin"
     android:layout_below="@+id/contraseñalogin"
     android:layout_alignStart="@+id/usuariologin"/>
 
     <Button
         android:id="@+id/registrologin"
-        android:layout_width="280px"
+        android:layout_width="290px"
         android:layout_height="110px"
-        android:background="@drawable/registro_login"
+        android:background="@drawable/login_btnregistro"
         android:layout_marginTop="60dp"
         android:layout_below="@+id/contraseñalogin"
         android:layout_alignEnd="@+id/usuariologin"/>
@@ -70,7 +70,7 @@
         android:id="@+id/olvidocontralogin"
         android:layout_width="330px"
         android:layout_height="24px"
-        android:background="@drawable/olvidocontrasena_login"
+        android:background="@drawable/login_olvidoclave"
         android:layout_marginTop="60dp"
         android:layout_below="@+id/registrologin"
         android:layout_centerHorizontal="true"

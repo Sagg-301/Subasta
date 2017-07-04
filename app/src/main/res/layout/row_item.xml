@@ -13,7 +13,7 @@
     <RelativeLayout
         android:layout_width="700px"
         android:layout_height="350px"
-        android:background="@drawable/timecuadros"
+        android:background="@drawable/timeline_subastas"
         android:layout_centerVertical="true"
         android:layout_marginLeft="37dp"
         android:layout_marginTop="16dp"
@@ -44,7 +44,7 @@
         android:layout_alignTop="@+id/relativeLayout"
         android:layout_alignEnd="@+id/relativeLayout"
         android:textStyle="bold"
-        android:textSize="18dp"/>
+        android:textSize="19dp"/>
 
     <TextView
         android:id="@+id/descripcionidrow"

@@ -42,9 +42,7 @@ public class HistorialPujas extends AppCompatActivity {
     }
 
     public void data(){
-       // pujas = realm.where(Pujas.class).findAll();
         /* Aqui tienes que agregar todas las pujas que se fueron hechas en la subasta */
-
     }
 
     public void inicializaAdaptador(){ //Iniciamos el beta

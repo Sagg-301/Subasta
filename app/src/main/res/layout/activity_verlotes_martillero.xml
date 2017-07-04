@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    >
+
+
+
+
+    <ImageView
+        android:id="@+id/VerLotesImagen"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/screenshots"
+        android:background="#1a4987"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="300dp"
+        >
+
+    </android.support.v4.view.ViewPager>
+
+    <TextView
+        android:id="@+id/tituloVerLotes"
+        android:layout_width="450px"
+        android:layout_height="60px"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:text="Apple iPhone 7"
+        android:textStyle="bold"
+        android:layout_below="@+id/VerLotesImagen"
+        android:layout_toEndOf="@+id/btnpublicidad" />
+
+    <TextView
+        android:id="@+id/descricionVerLotes"
+        android:layout_width="500px"
+        android:layout_height="150px"
+        android:textSize="22dp"
+        android:text="iPhone 7 de 32 GB, 4.7 pulgadas, 3D touch pantalla y boton / Sensor de huella / Camara 12 MP + Flash"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/tituloVerLotes"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/montoVL"
+        android:layout_width="100px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descricionVerLotes"
+        android:layout_alignStart="@+id/descripcionidrow"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="10dp"
+        android:textSize="25dp"
+        android:text="Monto:"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/montoVerLotes"
+        android:layout_width="160px"
+        android:layout_height="40px"
+        android:textSize="22dp"
+        android:layout_below="@+id/descricionVerLotes"
+        android:layout_alignBaseline="@+id/montoVL"
+        android:layout_alignBottom="@+id/montoVL"
+        android:layout_toEndOf="@+id/montoVL"
+        android:layout_marginTop="10dp"
+        android:text="500000"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/fechaVL"
+        android:layout_width="160px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/montoVerLotes"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp"
+        android:text="Finaliza el:"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/fechafinalVerLotes"
+        android:layout_width="250px"
+        android:layout_height="40px"
+        android:textSize="22dp"
+        android:text="27/08/2018"
+        android:layout_below="@+id/montoVerLotes"
+        android:layout_alignBaseline="@+id/fechaVL"
+        android:layout_alignBottom="@+id/fechaVL"
+        android:layout_toEndOf="@+id/fechaVL"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/mayorVL"
+        android:layout_width="280px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fechaVL"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="10dp"
+        android:textSize="25dp"
+        android:text="Mayor puja actual:"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/mayorVerLotes"
+        android:layout_width="160px"
+        android:layout_height="40px"
+        android:textSize="22dp"
+        android:text="300000"
+        android:layout_below="@+id/montoVerLotes"
+        android:layout_alignBaseline="@+id/mayorVL"
+        android:layout_alignBottom="@+id/mayorVL"
+        android:layout_toEndOf="@+id/mayorVL"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/tiempoVL"
+        android:layout_width="260px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mayorVL"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="10dp"
+        android:textSize="25dp"
+        android:text="Tiempo restante:"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/tiempoVerLotes"
+        android:layout_width="400px"
+        android:layout_height="40px"
+        android:textSize="22dp"
+        android:text="5min 10s"
+        android:layout_below="@+id/montoVerLotes"
+        android:layout_alignBaseline="@+id/tiempoVL"
+        android:layout_alignBottom="@+id/tiempoVL"
+        android:layout_toEndOf="@+id/tiempoVL"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"/>
+
+    <RadioButton
+        android:id="@+id/btnpublicidad"
+        android:layout_width="148px"
+        android:layout_height="22px"
+        android:layout_marginTop="20dp"
+        android:text="publicidad"
+        android:textColor="#ffffff"
+        android:textSize="21px"
+        android:layout_below="@id/tiempoVL"
+        android:layout_marginLeft="80dp"/>
+    <RadioButton
+        android:id="@+id/btnencurso"
+        android:layout_width="126px"
+        android:layout_height="22px"
+        android:layout_marginTop="20dp"
+        android:text="en curso"
+        android:textColor="#ffffff"
+        android:textSize="21px"
+        android:layout_below="@+id/tiempoVL"
+        android:layout_toEndOf="@+id/btnpublicidad"
+        android:layout_marginLeft="40dp"/>
+    <RadioButton
+        android:id="@+id/btnadjudicada"
+        android:layout_width="160px"
+        android:layout_height="22px"
+        android:layout_marginTop="20dp"
+        android:text="adjudicada"
+        android:textColor="#ffffff"
+        android:textSize="21px"
+        android:layout_below="@+id/tiempoVL"
+        android:layout_toEndOf="@+id/btnencurso"
+        android:layout_marginLeft="40dp" />
+
+    <Button
+        android:layout_width="425px"
+        android:layout_height="97px"
+        android:background="@drawable/verlotes_martillero_adjudicar"
+        android:layout_below="@+id/btnpublicidad"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:id="@+id/button" />
+
+</RelativeLayout>

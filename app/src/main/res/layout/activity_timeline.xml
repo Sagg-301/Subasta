@@ -11,14 +11,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="1"
-        android:background="@drawable/fondotimeline">
+        android:background="@drawable/timeline_fondo">
 
 
         <Button
             android:id="@+id/button1"
             android:layout_width="42px"
             android:layout_height="41px"
-            android:background="@drawable/mas"
+            android:background="@drawable/timeline_mas"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="505dp"/>
 

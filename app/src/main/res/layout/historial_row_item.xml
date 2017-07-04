@@ -18,10 +18,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="02/07/2017"
+        android:textSize="30px"
         android:layout_alignBaseline="@+id/usuarioPujador"
         android:layout_alignBottom="@+id/usuarioPujador"
-        android:layout_centerHorizontal="true"
-        android:textSize="30px"/>
+        android:layout_toEndOf="@+id/usuarioPujador"
+        android:layout_marginStart="50dp" />
+
+    <TextView
+        android:id="@+id/horaPujador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02/07/2017"
+        android:textSize="30px"
+        android:layout_alignBaseline="@+id/fechaPujador"
+        android:layout_alignBottom="@+id/fechaPujador"
+        android:layout_toEndOf="@+id/fechaPujador"
+        android:layout_marginStart="28dp" />
 
     <TextView
         android:id="@+id/montoPujador"

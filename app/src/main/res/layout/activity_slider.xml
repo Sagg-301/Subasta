@@ -8,5 +8,5 @@
         android:id="@+id/slider_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/collar_perlas" />
+        app:srcCompat="@drawable/iphonee" />
 </LinearLayout>

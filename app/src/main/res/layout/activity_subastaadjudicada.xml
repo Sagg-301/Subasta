@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/subastaadjudicada_fondo">
+
+
+    <TextView
+        android:id="@+id/monto_subastacreada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:text="5000"
+        android:textColor="#ffffff"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:id="@+id/usuario_subastacreada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="117dp"
+        android:text="Oeneikaphotos"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/monto_subastacreada"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="181dp" />
+
+    <Button
+        android:id="@+id/home_subastacreada"
+        android:layout_width="243px"
+        android:layout_height="91px"
+        android:background="@drawable/btnhome"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="82dp" />
+</RelativeLayout>
