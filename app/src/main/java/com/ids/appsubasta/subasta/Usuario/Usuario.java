@@ -35,6 +35,7 @@ public class Usuario extends RealmObject{                   //Observador
 
     public Usuario() {
         tipoUsuario = null;
+        tipoUsuarioS = "postor";
     }
 
     public Usuario(String nombre, String apellido, String telefono, String contraseña, String email) {
