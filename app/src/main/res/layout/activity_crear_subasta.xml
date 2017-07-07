@@ -10,11 +10,11 @@
     <EditText
         android:id="@+id/TituloID"
         android:layout_width="700px"
-        android:layout_height="100px"
+        android:layout_height="120px"
         android:background="@drawable/crearsubastas_titulo"
         android:layout_marginLeft="36dp"
         android:inputType="textPersonName"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
         android:textColor="#f6e397"
         android:textColorHint="@android:color/white"
         android:paddingLeft="80dp"
@@ -24,16 +24,16 @@
 
     <Button
         android:id="@+id/FechaInicialID"
-        android:layout_width="330px"
-        android:layout_height="100px"
+        android:layout_width="325px"
+        android:layout_height="110px"
         android:background="@drawable/crearsubastas_fechainicio"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/TituloID"
         android:layout_alignStart="@+id/TituloID" />
     <Button
         android:id="@+id/FechaFinalID"
-        android:layout_width="330px"
-        android:layout_height="100px"
+        android:layout_width="325px"
+        android:layout_height="110px"
         android:background="@drawable/crearsubastas_fechafinal"
         android:layout_below="@+id/TituloID"
         android:layout_marginTop="15dp"
@@ -70,7 +70,7 @@
     <EditText
         android:id="@+id/descripcionID"
         android:layout_width="700px"
-        android:layout_height="300px"
+        android:layout_height="330px"
         android:background="@drawable/crearsubastas_descripcion"
         android:inputType="textCapCharacters"
         android:layout_below="@+id/InicioID"
@@ -91,7 +91,7 @@
         android:inputType="textCapCharacters"
         android:layout_below="@+id/descripcionID"
         android:layout_alignStart="@+id/FechaInicialID"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:hint="P R E C I O  E S T I M A D O ( $ )"
         android:textColorHint="#c4c4c4"
         android:paddingLeft="90dp"
@@ -105,7 +105,7 @@
         android:layout_width="100px"
         android:layout_height="100px"
         android:layout_below="@+id/montoID"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="480dp"
         android:background="@drawable/crearsubasta_camera" />
 
@@ -115,14 +115,14 @@
         android:layout_width="140px"
         android:layout_height="140px"
         android:layout_below="@+id/montoID"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_alignStart="@+id/EnviarID" />
     <ImageView
         android:id="@+id/ImagenesID2"
         android:layout_width="140px"
         android:layout_height="140px"
         android:layout_alignTop="@+id/ImagenesID"
-        android:layout_toEndOf="@+id/ImagenesID" />
+        android:layout_alignEnd="@+id/InicioID" />
     <ImageView
         android:id="@+id/ImagenesID3"
         android:layout_width="140px"
@@ -136,7 +136,7 @@
         android:layout_width="700px"
         android:layout_height="78px"
         android:background="@drawable/crearsubastas_enviar"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="130dp"
         android:layout_below="@+id/montoID"
         android:layout_alignStart="@+id/montoID"
         android:layout_alignEnd="@+id/montoID" />

@@ -29,6 +29,9 @@
             android:name=".Timeline"
             android:label="@string/app_name" />
         <activity
+            android:name=".Usuario.MiCuenta"
+            android:label="MiCuenta" />
+        <activity
             android:name=".CreacionSubasta.SubastaCreada"
             android:label="@string/app_name" />
         <activity

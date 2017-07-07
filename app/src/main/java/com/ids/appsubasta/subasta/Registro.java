@@ -1,11 +1,16 @@
 package com.ids.appsubasta.subasta;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ids.appsubasta.subasta.Usuario.Usuario;
@@ -14,7 +19,18 @@ import io.realm.Realm;
 
 
 public class Registro extends AppCompatActivity {
-    Button registro;
+    Button registro,agregar;
+    ImageView imagen;
+
+    //Las primeras dos son para saber donde se guardaran nuestras fotos
+    private String APP_DIRECTORY = "myPictureApp/"; //Directorio principal
+    private String MEDIA_DIRECTORY = APP_DIRECTORY + "myPictureApp"; //Subcarpeta
+
+    private String TEMPORAL_PICTURE_NAME = "temporal.jpg";
+    private final int PHOTO_CODE=100;
+    private final int SELECT_PICTURE = 200;
+    private final int MY_PERMISSIONS = 100;
+    static final int REQUEST_IMAGE_CAPTURE =1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +38,9 @@ public class Registro extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         final Realm realm = Realm.getDefaultInstance();
         registro = (Button) findViewById(R.id.registrarse_registro);
+        agregar = (Button) findViewById(R.id.BotonCamara);
+        imagen = (ImageView) findViewById(R.id.ImagenUsuario);
+
 
         //OnClick----------------------------------------------------------------------
         registro.setOnClickListener(new View.OnClickListener() {
@@ -66,5 +85,28 @@ public class Registro extends AppCompatActivity {
 
 
         });
+
+        agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llamarIntent();
+            }
+        });
+    }
+
+    private void llamarIntent() { //De aqui vas a la camara del dispositivo
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imagen.setImageBitmap(imageBitmap);
+        }
     }
 }

@@ -13,7 +13,6 @@
         android:weightSum="1"
         android:background="@drawable/timeline_fondo">
 
-
         <Button
             android:id="@+id/button1"
             android:layout_width="42px"
@@ -36,9 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/nav_menu"
+        android:background="#202020"
+        app:itemTextColor="#ffffff"
         android:layout_gravity="start">
-
-
 
     </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>

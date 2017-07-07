@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="300px"
-        android:layout_height="430px"
+        android:layout_width="580px"
+        android:layout_height="400px"
         android:layout_alignParentTop="true"
         android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/iphonee" />
+        android:background="@drawable/subasta_online" />
 
     <EditText
         android:id="@+id/usuariologin"

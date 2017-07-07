@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.ids.appsubasta.subasta.Bien.Bienes;
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 import com.ids.appsubasta.subasta.CreacionSubasta.SubastaCreada;
+import com.ids.appsubasta.subasta.Usuario.MiCuenta;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class Timeline extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         realm = Realm.getDefaultInstance();
         setContentView(R.layout.activity_timeline);
-       nav = (NavigationView) findViewById(R.id.Nav_View);
+        nav = (NavigationView) findViewById(R.id.Nav_View);
         bienestimeline = (RecyclerView) findViewById(R.id.beta);
         LinearLayoutManager lim = new LinearLayoutManager(this);
         lim.setOrientation(LinearLayoutManager.VERTICAL);
@@ -60,7 +61,7 @@ public class Timeline extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.mi_cuenta:
-                        Intent intent = new Intent(Timeline.this, SubastaCreada.class);
+                        Intent intent = new Intent(Timeline.this, MiCuenta.class);
                         startActivity(intent);
                         return true;
                     case R.id.settings:
@@ -68,6 +69,9 @@ public class Timeline extends AppCompatActivity {
                         settings.putExtra("EXTRA_USUARIO", usuario.getNombreUsuario());
                         startActivity(settings);
                         return true;
+                    case R.id.cerrar_sesion:
+                        Intent finalizar = new Intent (Timeline.this, LoginActivity.class);
+                        startActivity(finalizar);
                     default:
                         return false;
                 }

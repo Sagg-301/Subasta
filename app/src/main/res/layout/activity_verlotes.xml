@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/fondo"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/fondo">
 
 
 
@@ -47,14 +47,13 @@
         android:textSize="22dp"
         android:text="iPhone 7 de 32 GB, 4.7 pulgadas, 3D touch pantalla y boton / Sensor de huella / Camara 12 MP + Flash"
         android:textColor="@android:color/white"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/tituloVerLotes"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_alignStart="@+id/tituloVerLotes" />
     <TextView
         android:id="@+id/montoVL"
         android:layout_width="100px"
-        android:layout_height="wrap_content"
+        android:layout_height="34dp"
         android:layout_below="@+id/descricionVerLotes"
         android:layout_alignStart="@+id/descripcionidrow"
         android:layout_marginLeft="120dp"
@@ -99,12 +98,9 @@
         android:layout_height="40px"
         android:textSize="22dp"
         android:text="27/08/2018"
-        android:layout_below="@+id/montoVerLotes"
-        android:layout_alignBaseline="@+id/fechaVL"
-        android:layout_alignBottom="@+id/fechaVL"
-        android:layout_toEndOf="@+id/fechaVL"
-        android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:layout_alignTop="@+id/fechaVL"
+        android:layout_toEndOf="@+id/fechaVL" />
 
     <TextView
         android:id="@+id/mayorVL"
@@ -123,7 +119,7 @@
     <TextView
         android:id="@+id/mayorVerLotes"
         android:layout_width="160px"
-        android:layout_height="40px"
+        android:layout_height="38px"
         android:textSize="22dp"
         android:text="300000"
         android:layout_below="@+id/montoVerLotes"
@@ -148,26 +144,33 @@
 
     <TextView
         android:id="@+id/tiempoVerLotes"
-        android:layout_width="400px"
+        android:layout_width="250px"
         android:layout_height="40px"
         android:textSize="22dp"
         android:text="5min 10s"
-        android:layout_below="@+id/montoVerLotes"
-        android:layout_alignBaseline="@+id/tiempoVL"
-        android:layout_alignBottom="@+id/tiempoVL"
-        android:layout_toEndOf="@+id/tiempoVL"
-        android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/mayorVL"
+        android:layout_toEndOf="@+id/tiempoVL" />
+
+    <Button
+        android:layout_width="250px"
+        android:layout_height="30px"
+        android:background="@drawable/verlotes_historial"
+        android:id="@+id/historialpujas"
+        android:layout_below="@+id/tiempoVL"
+        android:layout_toEndOf="@+id/montoVL"
+        android:layout_marginTop="20dp" />
 
     <EditText
         android:id="@+id/edtpuja"
         android:layout_width="425px"
         android:layout_height="80px"
-        android:layout_marginTop="20dp"
-        android:text="Introduce Puja"
+        android:layout_marginTop="50dp"
         android:textColor="#ffffff"
         android:textSize="22dp"
         android:inputType="phone"
+        android:paddingLeft="70dp"
+        android:background="@drawable/verlotes_monto"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/tiempoVL"
         android:layout_marginLeft="80dp"/>
@@ -178,7 +181,6 @@
         android:background="@drawable/verlotes_pujar"
         android:layout_below="@+id/edtpuja"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/btnpujar" />
-
-</RelativeLayout>
+    </RelativeLayout>

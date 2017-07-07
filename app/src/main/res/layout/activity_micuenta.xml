@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/micuenta_fondo">
+
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="285dp"
+        android:layout_marginStart="17dp"
+        android:text="Alexander"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/email" />
+
+    <TextView
+        android:id="@+id/apellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:text="De Azevedo"
+        android:layout_below="@+id/usuario"
+        android:layout_alignStart="@+id/telefono" />
+
+    <TextView
+        android:id="@+id/telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:text="02121234567"
+        android:layout_below="@+id/apellido"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:text="oeneikaphotos@gmail.com"
+        android:layout_marginEnd="127dp"
+        android:layout_below="@+id/telefono"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nombre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="180dp"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:text="OENEIKA" />
+
+    <ImageView
+        android:id="@+id/fotoperfil"
+        android:layout_width="310px"
+        android:layout_height="292px"
+        android:layout_marginBottom="18dp"
+        app:srcCompat="@mipmap/ic_launcher_round"
+        android:layout_above="@+id/usuario"
+        android:layout_alignStart="@+id/email" />
+</RelativeLayout>
