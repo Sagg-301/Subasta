@@ -5,18 +5,5 @@ package com.ids.appsubasta.subasta.Cartera;
  */
 
 public class Bolivares extends Monedas {
-    private int monto;
 
-    public int getMonto() {
-        return monto;
-    }
-
-    public void setMonto(int monto) {
-        this.monto = monto;
-    }
-
-    @Override
-    public void placeholder() {
-        //nada
-    }
 }

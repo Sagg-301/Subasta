@@ -24,9 +24,9 @@ public class Subasta extends RealmObject{
     private Fase fase;
     private RealmList<Bienes> bienes;
     @Ignore
-    private RealmList<Usuario> usuarios;
+    private RealmList<Usuario> usuarios = new RealmList<Usuario>();
     @Ignore
-    private ArrayList<Pujas> pujas;
+    private Pujas pujas;
 
     public Subasta() {
     }
@@ -38,7 +38,7 @@ public class Subasta extends RealmObject{
         return Id;
     }
 
-    public ArrayList<Pujas> getPujas() {
+    public Pujas getPujas() {
         return pujas;
     }
 
@@ -57,7 +57,7 @@ public class Subasta extends RealmObject{
         Id = id;
     }
 
-    public void setPujas(ArrayList<Pujas> pujas) {
+    public void setPujas(Pujas pujas) {
         this.pujas = pujas;
     }
 
@@ -83,15 +83,13 @@ public class Subasta extends RealmObject{
 
     public void adscribirUsuario(Usuario u){
         usuarios.add(u);
+        u.setSubastaObservable(this);
     }
 
     public void quitarUsuario(Usuario u){
         usuarios.remove(u);
     }
 
-    public void recibirPuja(Pujas puja){
-        pujas.add(puja);
-    }
 
     public void addBien(Bienes bien){
         bienes.add(bien);
@@ -99,6 +97,17 @@ public class Subasta extends RealmObject{
 
     public Fase getFases() {
         return fase;
+    }
+
+    public boolean recibirPuja(Pujas puja){
+        if (puja.getValor().getMonto() > pujas.getValor().getMonto()){
+            pujas = puja;
+            notificar();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public void setFase(Fase fase) {

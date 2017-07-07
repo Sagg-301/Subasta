@@ -18,6 +18,7 @@ public class Usuario extends RealmObject{                   //Observador
     private String apellido;
     private String telefono;
     private String contraseña;
+    private String tipoUsuarioS;
     private RealmList<Subasta> subastasPropias;
     @PrimaryKey
     private String nombreUsuario;
@@ -26,7 +27,6 @@ public class Usuario extends RealmObject{                   //Observador
     private Cartera cartera;
     @Ignore
     private Subasta subastaObservable;                                //Sujeto a Observar
-    private String tipoUsuarioS;
     @Ignore
     private TipoUsuario tipoUsuario;
     @Ignore
@@ -34,8 +34,7 @@ public class Usuario extends RealmObject{                   //Observador
 
 
     public Usuario() {
-        TipoUsuario dfault = new Postor();
-        tipoUsuario = dfault;
+        tipoUsuario = null;
     }
 
     public Usuario(String nombre, String apellido, String telefono, String contraseña, String email) {
@@ -148,9 +147,6 @@ public class Usuario extends RealmObject{                   //Observador
         this.subastaObservable = subasta;
     }
 
-    public void realizarPuja(){
-
-    }
 
     public String generarIdSubasta(){
         String idSubasta;
@@ -166,6 +162,21 @@ public class Usuario extends RealmObject{                   //Observador
         cantidadSubasta = subastasPropias.size();
         idSubasta = this.nombreUsuario + Integer.toString(cantidadSubasta);
         return idSubasta;
+    }
+
+    public void initTipoUsuario(){
+        if (this.tipoUsuarioS.equals("martillero")){
+            TipoUsuario x = new Martillero();
+            this.tipoUsuario=x;
+        }
+        else if (this.tipoUsuarioS.equals("postor")){
+            TipoUsuario x = new Postor();
+            this.tipoUsuario=x;
+        }
+        else if (this.tipoUsuarioS.equals("vendedor")){
+            TipoUsuario x = new Vendedor();
+            this.tipoUsuario=x;
+        }
     }
 
 }

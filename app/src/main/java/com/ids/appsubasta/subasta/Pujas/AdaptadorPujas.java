@@ -68,15 +68,7 @@ public class AdaptadorPujas extends RecyclerView.Adapter<AdaptadorPujas.adaptado
 
         @Override
         public void onClick(View v) {
-            int position = getAdapterPosition();
-            //Bienes bienes = this.bienes.get(position);
-            Pujas pujas = this.pujas.get(position);
-            Intent intent = new Intent (this.ctx,verLotes.class);
-            /*intent.putExtra("img_id",bienes.getFoto());
-            intent.putExtra("Titulo",bienes.getNombre());
-            intent.putExtra("Descripcion",bienes.getDescripcion());
-            intent.putExtra("Precio",bienes.getMonto());*/
-            this.ctx.startActivity(intent);
+
         }
     }
 }

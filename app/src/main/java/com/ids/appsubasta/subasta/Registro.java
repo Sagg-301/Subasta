@@ -35,22 +35,28 @@ public class Registro extends AppCompatActivity {
                 final String usuario = ((EditText) findViewById(R.id.usuario_registro)).getText().toString();
                 final String contrasena = ((EditText) findViewById(R.id.contrasena_registro)).getText().toString();
                 /*Enviamos los datos a la base de datos y entramos al timeline*/
-                if ((nombre != null)&&(apellido != null)&&(telefono !=null)&&(email !=null)&&(usuario !=null)&&(contrasena !=null)){
-                    //añade Usuario a la base de datos
-                    realm.executeTransaction(new Realm.Transaction() {
-                        @Override
-                        public void execute(Realm realm) {
-                            Usuario u = realm.createObject(Usuario.class,usuario);
-                            u.setNombre(nombre);
-                            u.setApellido(apellido);
-                            u.setContraseña(contrasena);
-                            u.setEmail(email);
-                            u.setTelefono(telefono);
-                        }
-                    });
-                    //------------------------------------
-                    Intent creacion = new Intent(Registro.this, LoginActivity.class);
-                    startActivity(creacion);
+                if ((nombre != "")&&(apellido != "")&&(telefono !="")&&(email !="")&&(usuario !="")&&(contrasena !="")){
+                    Usuario existe = realm.where(Usuario.class).equalTo("nombreUsuario",usuario).findFirst();
+                    if (existe == null) {
+                        //añade Usuario a la base de datos
+                        realm.executeTransaction(new Realm.Transaction() {
+                            @Override
+                            public void execute(Realm realm) {
+                                Usuario u = realm.createObject(Usuario.class, usuario);
+                                u.setNombre(nombre);
+                                u.setApellido(apellido);
+                                u.setContraseña(contrasena);
+                                u.setEmail(email);
+                                u.setTelefono(telefono);
+                            }
+                        });
+                        //------------------------------------
+                        Intent creacion = new Intent(Registro.this, LoginActivity.class);
+                        startActivity(creacion);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"El nombre de usuario ya está en uso", Toast.LENGTH_SHORT);
+                    }
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "¡Error!, por favor llene los campos solicitados", Toast.LENGTH_SHORT).show();

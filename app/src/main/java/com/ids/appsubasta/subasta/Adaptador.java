@@ -23,12 +23,12 @@ import java.util.List;
 
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
-    List<Bienes> bienes;
+    List<Subasta> subastas;
     Context ctx;
     Usuario usuario;
 
-    public Adaptador (Usuario usuario,List<Bienes> bienes, Context ctx){
-        this.bienes = bienes;
+    public Adaptador (Usuario usuario,List<Subasta> subastas, Context ctx){
+        this.subastas = subastas;
         this.ctx = ctx;
         this.usuario = usuario;
     }
@@ -37,34 +37,36 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
     public adaptadorHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.row_item, parent, false);
-        return new adaptadorHolder(v,ctx,bienes);
+        return new adaptadorHolder(v,ctx,subastas);
     }
 
     @Override
     public void onBindViewHolder(adaptadorHolder adaptadorViewHolder, int position) {
-        Bienes bien = bienes.get(position);
-        adaptadorViewHolder.texto.setText(bien.getNombre());
-        adaptadorViewHolder.descripcion.setText(bien.getDescripcion());
-        adaptadorViewHolder.monto.setText(bien.getMonto());
-        Bitmap bmp = BitmapFactory.decodeByteArray(bien.getFotos().get(1).getData(),0,bien.getFotos().get(1).getData().length);
+        Subasta subasta = subastas.get(position);
+        adaptadorViewHolder.texto.setText(subasta.getBienes().get(0).getNombre());
+        adaptadorViewHolder.descripcion.setText(subasta.getBienes().get(0).getDescripcion());
+        adaptadorViewHolder.monto.setText(subasta.getBienes().get(0).getMonto());
+        Bitmap bmp = BitmapFactory.decodeByteArray(subasta.getBienes().get(0).getFotos().get(0).getData(),
+                0,
+                subasta.getBienes().get(0).getFotos().get(0).getData().length);
         adaptadorViewHolder.img.setImageBitmap(bmp);
     }
 
     @Override
     public int getItemCount() {
-        return bienes.size();
+        return subastas.size();
     }
 
     public class adaptadorHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView texto, descripcion, monto;
         private ImageView img;
-        private List<Bienes> bienes;
+        private List<Subasta> subastas;
         private Context ctx;
 
 
-        public adaptadorHolder(View itemView, Context ctx, List<Bienes> bienes){
+        public adaptadorHolder(View itemView, Context ctx, List<Subasta> subastas){
             super(itemView);
-            this.bienes = bienes;
+            this.subastas = subastas;
             this.ctx = ctx;
             itemView.setOnClickListener(this);
             texto = (TextView)itemView.findViewById(R.id.textoidrow);
@@ -76,17 +78,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            Bienes bienes = this.bienes.get(position);
-            Intent intent = new Intent (this.ctx,verLotes.class);
-            intent.putExtra("img_id",bienes.getFoto());
-            intent.putExtra("Titulo",bienes.getNombre());
-            intent.putExtra("Descripcion",bienes.getDescripcion());
-            intent.putExtra("Precio",bienes.getMonto());
-            intent.putExtra("Id", bienes.getIdentificacion());
-            //PassData-------------------------------
-            intent.putExtra("EXTRA_USUARIO",usuario.getNombreUsuario());
-            //---------------------------------------
-            this.ctx.startActivity(intent);
+            Subasta subasta = this.subastas.get(position);
+            usuario.getTipoUsuario().verLote(usuario.getNombreUsuario(),subasta.getId(),this.ctx);
         }
     }
 }

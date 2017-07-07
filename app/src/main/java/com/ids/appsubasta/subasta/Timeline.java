@@ -29,7 +29,7 @@ import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class Timeline extends AppCompatActivity {
-    private RealmResults<Bienes> bienes;
+    private RealmResults<Subasta> subastas;
     private RecyclerView bienestimeline;
     private NavigationView nav;
     private Adaptador adaptador;
@@ -51,6 +51,7 @@ public class Timeline extends AppCompatActivity {
         data();
         //--------------------------
         usuario = realm.where(Usuario.class).equalTo("nombreUsuario",getIntent().getStringExtra("EXTRA_USUARIO")).findFirst();
+        usuario.initTipoUsuario();
         //--------------------------
         inicializaAdaptador();
 
@@ -76,11 +77,11 @@ public class Timeline extends AppCompatActivity {
     }
 
     public void data(){
-        bienes = realm.where(Bienes.class).findAll();
+        subastas = realm.where(Subasta.class).findAll();
     }
 
     public void inicializaAdaptador(){
-        adaptador = new Adaptador (usuario,bienes,this);
+        adaptador = new Adaptador (usuario,subastas,this);
         bienestimeline.setAdapter(adaptador);
         boton = (Button) findViewById(R.id.button1);
         boton.setOnClickListener(new View.OnClickListener() {

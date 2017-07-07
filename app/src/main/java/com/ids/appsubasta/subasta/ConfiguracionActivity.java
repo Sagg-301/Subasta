@@ -55,7 +55,7 @@ public class ConfiguracionActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     realm.beginTransaction();
-                    TipoUsuario uPostor = new Postor();
+                    TipoUsuario uPostor = new Postor(usuario.getNombreUsuario());
                     uPostor.cambiarTipoDeUsuario(usuario);
                     realm.copyToRealmOrUpdate(usuario);
                     realm.commitTransaction();

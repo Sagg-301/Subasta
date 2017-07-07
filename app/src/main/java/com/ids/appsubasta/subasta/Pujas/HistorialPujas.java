@@ -14,6 +14,7 @@ import com.ids.appsubasta.subasta.Bien.verLotes;
 import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
 import com.ids.appsubasta.subasta.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class HistorialPujas extends AppCompatActivity {
     private Button boton;
     private Realm realm;
     private CrearSubastaActivity crearSubastaActivity;
-    private RealmResults<Bienes> pujas;
+    private ArrayList<Pujas> pujas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class HistorialPujas extends AppCompatActivity {
         LinearLayoutManager lim = new LinearLayoutManager(this);
         lim.setOrientation(LinearLayoutManager.VERTICAL);
         pujastimeline.setLayoutManager(lim);
+        pujas = getIntent().getParcelableArrayListExtra("EXTRA_PUJAS");
         data();
         inicializaAdaptador();
     }
@@ -46,7 +48,7 @@ public class HistorialPujas extends AppCompatActivity {
     }
 
     public void inicializaAdaptador(){ //Iniciamos el beta
-       // adaptador = new AdaptadorPujas (pujas,this);
+        adaptador = new AdaptadorPujas (pujas,this);
         pujastimeline.setAdapter(adaptador);
     }
 

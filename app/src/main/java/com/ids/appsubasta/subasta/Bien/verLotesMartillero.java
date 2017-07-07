@@ -39,6 +39,7 @@ public class verLotesMartillero extends AppCompatActivity {
     RadioButton publicidad, encurso, adjudicada;
     ViewPager view;
     Usuario usuario;
+    Subasta subasta;
     Bienes bien;
     Realm realm;
     Fase fase;
@@ -52,11 +53,12 @@ public class verLotesMartillero extends AppCompatActivity {
 
         realm = Realm.getDefaultInstance();
         usuario = realm.where(Usuario.class).equalTo("nombreUsuario", getIntent().getStringExtra("EXTRA_USUARIO")).findFirst();
-        bien = realm.where(Bienes.class).equalTo("identificacion", getIntent().getStringExtra("Id")).findFirst();
+        subasta = realm.where(Subasta.class).equalTo("Id",getIntent().getStringExtra("EXTRA_ID_SUBASTA")).findFirst();
+        usuario.initTipoUsuario();
 
 
         view = (ViewPager) findViewById(R.id.screenshots);
-        adaptador = new Slider_Adapter(this, bien.getFotos());
+        adaptador = new Slider_Adapter(this,subasta.getBienes().get(0).getFotos());
         view.setAdapter(adaptador);
 
         /*Instancias*/
@@ -73,52 +75,28 @@ public class verLotesMartillero extends AppCompatActivity {
 
 
         imagen.setImageResource(getIntent().getIntExtra("img_id", 00));
-        titulo.setText("" + getIntent().getStringExtra("Titulo"));
-        descripcion.setText("DESCRIPCIÓN: " + getIntent().getStringExtra("Descripcion"));
-        monto.setText("MONTO: " + getIntent().getStringExtra("Precio"));
-        mayorpuja.setText("PUJA" + getIntent().getStringExtra("Puja"));
-        tiempo.setText("TIEMPO" + getIntent().getStringExtra("Tiempo"));
-        fechafinal.setText("FECHAFINAL" + getIntent().getStringExtra("FechaFinal"));
+        titulo.setText("" +subasta.getBienes().get(0).getNombre());
+        descripcion.setText("DESCRIPCIÓN: " +subasta.getBienes().get(0).getDescripcion());
+        monto.setText("MONTO: " +subasta.getBienes().get(0).getMonto());
+        mayorpuja.setText("PUJA");
+        tiempo.setText("TIEMPO");
+        fechafinal.setText("FECHAFINAL" );
         /* Hay que agregar mayorpuja,tiempo y fechafinal en el adaptador para que nos muestre estos*/
 
-        adjudicar = (Button) findViewById(R.id.pujarVerLotes);
+        adjudicar = (Button) findViewById(R.id.btnadjudicada);
         adjudicar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 if (publicidad.isChecked()){
-                    realm.executeTransaction(new Realm.Transaction() {
-                        @Override
-                        public void execute(Realm realm) {
-                            Subasta u = realm.createObject(Subasta.class,titulo);
-                            u.setFase(fase);
-                            /*Colocale que la subasta pasara a la fase publicidad*/
-                        }
-                    });
+
                 }
                 else if(encurso.isChecked()){
-                    realm.executeTransaction(new Realm.Transaction() {
-                        @Override
-                        public void execute(Realm realm) {
-                            Subasta u = realm.createObject(Subasta.class,titulo);
-                            u.setFase(fase);
-                            /*Colocale que la subasta pasara a la fase en curso*/
-                        }
-                    });
+
                 }
                 else if(adjudicada.isChecked()){
-                    realm.executeTransaction(new Realm.Transaction() {
-                        @Override
-                        public void execute(Realm realm) {
-                            Subasta u = realm.createObject(Subasta.class,titulo);
-                            u.setFase(fase);
-                            /*Colocale que la subasta pasara a la fase adjudicada*/
-                        }
-                    });
-                }
 
-                    Intent creacion = new Intent(verLotesMartillero.this, Timeline.class);
-                    startActivity(creacion);
+                }
             }
         });
 
