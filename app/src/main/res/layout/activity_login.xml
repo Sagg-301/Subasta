@@ -24,7 +24,7 @@
         android:hint="U S U A R I O"
         android:textSize="35px"
         android:paddingLeft="100px"
-        android:inputType="textPersonName"
+        android:inputType="textAutoComplete"
         android:background="@drawable/login_usuario"
         android:layout_marginTop="72dp"
         android:textColor="@android:color/white"

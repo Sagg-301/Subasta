@@ -72,7 +72,7 @@
         android:layout_width="700px"
         android:layout_height="330px"
         android:background="@drawable/crearsubastas_descripcion"
-        android:inputType="textCapCharacters"
+        android:inputType="textLongMessage"
         android:layout_below="@+id/InicioID"
         android:layout_alignStart="@+id/FechaInicialID"
         android:layout_marginTop="15dp"
