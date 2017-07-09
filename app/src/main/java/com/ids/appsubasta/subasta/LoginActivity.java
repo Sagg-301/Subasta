@@ -1,6 +1,8 @@
 package com.ids.appsubasta.subasta;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +16,9 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class LoginActivity extends AppCompatActivity {
-    Button login, registro;
-    Usuario usuarios;
+    private Button login, registro;
+    private Usuario usuarios;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         final Realm realm = Realm.getDefaultInstance();
         login = (Button) findViewById(R.id.loginlogin);
+        //-------------------------------------------------------------------------------------
+        pref = this.getSharedPreferences("PreferenciasSubasta", Context.MODE_PRIVATE);
+        String userName = pref.getString("PREF_NOMBRE", "NULL");
+        if (userName != "NULL"){
+            Intent intent = new Intent(LoginActivity.this, Timeline.class);
+            intent.putExtra("EXTRA_USUARIO",userName);
+            startActivity(intent);
+        }
 
         //-------------------------------------------------------------------------------------
         login.setOnClickListener(new View.OnClickListener() {

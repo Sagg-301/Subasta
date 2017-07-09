@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/subasta_online" />
+        android:background="@drawable/x" />
 
     <EditText
         android:id="@+id/usuariologin"

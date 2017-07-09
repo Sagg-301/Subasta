@@ -1,6 +1,8 @@
 package com.ids.appsubasta.subasta;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -38,12 +40,13 @@ public class Timeline extends AppCompatActivity {
     private Usuario usuario;
     private Realm realm;
     private CrearSubastaActivity crearSubastaActivity;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        realm = Realm.getDefaultInstance();
         setContentView(R.layout.activity_timeline);
+        realm = Realm.getDefaultInstance();
         nav = (NavigationView) findViewById(R.id.Nav_View);
         bienestimeline = (RecyclerView) findViewById(R.id.beta);
         LinearLayoutManager lim = new LinearLayoutManager(this);
@@ -54,6 +57,16 @@ public class Timeline extends AppCompatActivity {
         usuario = realm.where(Usuario.class).equalTo("nombreUsuario",getIntent().getStringExtra("EXTRA_USUARIO")).findFirst();
         usuario.initTipoUsuario();
         //--------------------------
+        //Manejar Preferencias----------------------------------------------------------------------
+        pref = this.getSharedPreferences("PreferenciasSubasta", Context.MODE_PRIVATE);
+        String nombreUsuario = pref.getString("PREF_NOMBRE","NULL");
+        if (nombreUsuario=="NULL"){
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("PREF_NOMBRE", usuario.getNombreUsuario());
+            editor.putString("PREF_PASSWORD", usuario.getContraseña());
+            editor.commit();
+        }
+        //------------------------------------------------------------------------------------------
         inicializaAdaptador();
 
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -62,6 +75,7 @@ public class Timeline extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.mi_cuenta:
                         Intent intent = new Intent(Timeline.this, MiCuenta.class);
+                        intent.putExtra("EXTRA_USUARIO", usuario.getNombreUsuario());
                         startActivity(intent);
                         return true;
                     case R.id.settings:
@@ -71,6 +85,9 @@ public class Timeline extends AppCompatActivity {
                         return true;
                     case R.id.cerrar_sesion:
                         Intent finalizar = new Intent (Timeline.this, LoginActivity.class);
+                        SharedPreferences.Editor edit = pref.edit();
+                        edit.clear();
+                        edit.commit();
                         startActivity(finalizar);
                     default:
                         return false;

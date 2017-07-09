@@ -13,14 +13,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.ids.appsubasta.subasta.Interfaz.Foto;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
+
+import java.io.ByteArrayOutputStream;
 
 import io.realm.Realm;
 
 
 public class Registro extends AppCompatActivity {
-    Button registro,agregar;
-    ImageView imagen;
+    private Button registro,agregar;
+    private ImageView imagen;
+    private Realm realm;
+    private Foto f;
 
     //Las primeras dos son para saber donde se guardaran nuestras fotos
     private String APP_DIRECTORY = "myPictureApp/"; //Directorio principal
@@ -36,7 +41,7 @@ public class Registro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        final Realm realm = Realm.getDefaultInstance();
+        realm = Realm.getDefaultInstance();
         registro = (Button) findViewById(R.id.registrarse_registro);
         agregar = (Button) findViewById(R.id.BotonCamara);
         imagen = (ImageView) findViewById(R.id.ImagenUsuario);
@@ -67,6 +72,7 @@ public class Registro extends AppCompatActivity {
                                 u.setContraseña(contrasena);
                                 u.setEmail(email);
                                 u.setTelefono(telefono);
+                                u.setFotoPerfil(f);
                             }
                         });
                         //------------------------------------
@@ -107,6 +113,13 @@ public class Registro extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imagen.setImageBitmap(imageBitmap);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            realm.beginTransaction();
+            f = realm.createObject(Foto.class);
+            f.setData(byteArray);
+            realm.commitTransaction();
         }
     }
 }

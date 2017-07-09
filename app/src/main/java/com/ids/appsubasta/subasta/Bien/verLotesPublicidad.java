@@ -25,15 +25,15 @@ import io.realm.Realm;
 
 public class verLotesPublicidad extends AppCompatActivity {
 
-    ImageView imagen;
-    TextView titulo, descripcion, monto, fechafinal,fechainicial;
-    Button adjudicar;
-    ViewPager view;
-    Usuario usuario;
-    Bienes bien;
-    Realm realm;
-    Fase fase;
-    Slider_Adapter adaptador;
+    private ImageView imagen;
+    private TextView titulo, descripcion, monto, fechafinal,fechainicial;
+    private Button adjudicar;
+    private ViewPager view;
+    private Usuario usuario;
+    private Bienes bien;
+    private Realm realm;
+    private Fase fase;
+    private Slider_Adapter adaptador;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

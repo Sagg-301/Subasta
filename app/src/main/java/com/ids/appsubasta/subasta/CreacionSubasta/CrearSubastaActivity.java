@@ -34,6 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -127,25 +128,31 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if (v == FechaInicialID) {
-            final Calendar c = Calendar.getInstance();
+            Calendar c = Calendar.getInstance();
+            Date d = new Date();
+            c.setTime(d);
             dia = c.get(Calendar.DAY_OF_MONTH);
             mes = c.get(Calendar.MONTH);
             ano = c.get(Calendar.YEAR);
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
+
+
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     InicioID.setText(dayOfMonth + "/" + month + "/" + year);
                 }
             }
-                    , dia, mes, ano);
+                    , ano, mes, dia);
             datePickerDialog.show();
         }
 
 
         if (v == FechaFinalID) {
-            final Calendar c = Calendar.getInstance();
+            Calendar c = Calendar.getInstance();
+            Date d = new Date();
+            c.setTime(d);
             dia = c.get(Calendar.DAY_OF_MONTH);
             mes = c.get(Calendar.MONTH);
             ano = c.get(Calendar.YEAR);
@@ -157,7 +164,7 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
                     FinalID.setText(dayOfMonth + "/" + month + "/" + year);
                 }
             }
-                    , dia, mes, ano);
+                    , ano, mes, dia);
             datePickerDialog.show();
         }
 

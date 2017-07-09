@@ -4,6 +4,7 @@ import android.widget.ImageView;
 
 import com.ids.appsubasta.subasta.Ban.TipoBan;
 import com.ids.appsubasta.subasta.Cartera.Cartera;
+import com.ids.appsubasta.subasta.Interfaz.Foto;
 import com.ids.appsubasta.subasta.Subasta;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class Usuario extends RealmObject{                   //Observador
     private TipoUsuario tipoUsuario;
     @Ignore
     private TipoBan ban;
+    private Foto fotoPerfil;
 
 
     public Usuario() {
@@ -44,6 +46,10 @@ public class Usuario extends RealmObject{                   //Observador
         this.telefono = telefono;
         this.contraseña = contraseña;
         this.email = email;
+    }
+
+    public Foto getFotoPerfil() {
+        return fotoPerfil;
     }
 
     public String getNombreUsuario() {
@@ -124,6 +130,10 @@ public class Usuario extends RealmObject{                   //Observador
 
     public void setSubastaObservable(Subasta subastaObservable) {
         this.subastaObservable = subastaObservable;
+    }
+
+    public void setFotoPerfil(Foto fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
     public void setBan(TipoBan ban) {
