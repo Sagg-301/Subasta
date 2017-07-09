@@ -43,7 +43,7 @@ public class MiCuenta extends AppCompatActivity {
         usuario.setText("" + u.getNombreUsuario());
         nombre.setText("" +u.getNombre());
         apellido.setText("" +u.getApellido());
-        telefono.setText("" +u.getEmail());
+        telefono.setText("" +u.getTelefono());
         email.setText("" +u.getEmail());
         Bitmap bmp = BitmapFactory.decodeByteArray(u.getFotoPerfil().getData(),0,u.getFotoPerfil().getData().length);
         fotoPerfil.setImageBitmap(bmp);
