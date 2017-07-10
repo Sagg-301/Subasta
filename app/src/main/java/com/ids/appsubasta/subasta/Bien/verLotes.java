@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,8 @@ import com.ids.appsubasta.subasta.Subasta;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 import com.mancj.slideup.SlideUp;
 
+import org.w3c.dom.Text;
+
 import java.util.Date;
 
 import io.realm.Realm;
@@ -35,7 +38,7 @@ import io.realm.Realm;
 
 public class verLotes extends AppCompatActivity {
     ImageView imagen;
-    TextView titulo, descripcion, monto, mayor, montovl;
+    TextView titulo, descripcion, monto, mayor, montovl,fecha;
     Button pujar, verhistorial;
     ViewPager view;
     Usuario usuario;
@@ -54,10 +57,6 @@ public class verLotes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verlotes);
         /*Fuentes*/
-        /*String fuentee= ("assets/fuentes/gothic.TTF");
-        this.century = Typeface.createFromAsset(getAssets(),fuentee);
-        String fuentees= ("assets/fuentes/futura.ttf");
-        this.futura = Typeface.createFromAsset(getAssets(),fuentees);*/
         Typeface font = Typeface.createFromAsset(getAssets(), "FjallaOne-Regular.ttf");
 
 
@@ -78,15 +77,11 @@ public class verLotes extends AppCompatActivity {
 
         imagen = (ImageView) findViewById(R.id.VerLotesImagen);
         titulo = (TextView) findViewById(R.id.tituloVerLotes);
-        titulo.setTypeface(futura);
         descripcion = (TextView) findViewById(R.id.descricionVerLotes);
-        descripcion.setTypeface(century);
         monto = (TextView) findViewById(R.id.montoVerLotes);
-        monto.setTypeface(century);
         mayor = (TextView) findViewById(R.id.mayorVerLotes);
-        mayor.setTypeface(century);
         montovl = (TextView) findViewById(R.id.montoVL);
-        montovl.setTypeface(font);
+        fecha = (TextView) findViewById(R.id.fechita);
 
 
         titulo.setText("" + subasta.getBienes().get(0).getNombre());
@@ -98,6 +93,7 @@ public class verLotes extends AppCompatActivity {
         pujar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pujar.setText(new Date().toString());
                 String monto = ((EditText) findViewById(R.id.edtpuja)).getText().toString();
                 int precio = Integer.parseInt(monto);
                 Monedas bs = new Bolivares();
@@ -106,10 +102,21 @@ public class verLotes extends AppCompatActivity {
                     mayor.setText(monto);
                     Toast.makeText(getApplicationContext(), "Puja realizada con exito", Toast.LENGTH_SHORT);
                 }
-
             }
-
         });
+
+        Time today=new
+
+                Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int dia=today.monthDay;
+        int mes=today.month;
+        int ano=today.year;
+        mes=mes+1;
+        fecha.setText("mes : "+ mes +
+
+                " " +"dia : " + dia + " " + "año : " + ano);
+
         /*verhistorial = (Button) findViewById(R.id.verHistorialVerLotes);
         verhistorial.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -15,7 +15,7 @@
     android:layout_centerHorizontal="true"
         android:inputType="textPersonName"
         android:layout_marginTop="60dp"
-        android:paddingLeft="120px"
+        android:paddingLeft="100px"
         android:textColor="@android:color/white"
         android:textSize="26px" />
 
@@ -29,7 +29,7 @@
         android:inputType="textPersonName"
         android:textColor="@android:color/white"
         android:textSize="26px"
-        android:paddingLeft="120px"/>
+        android:paddingLeft="100px"/>
 
     <EditText
         android:id="@+id/telefono_registro"

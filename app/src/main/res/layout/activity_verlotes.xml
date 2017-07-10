@@ -13,16 +13,15 @@
         android:layout_height="300dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/screenshots"
-        android:background="#1a4987"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_height="300dp"
         >
 
@@ -79,7 +78,7 @@
 
     <TextView
         android:id="@+id/fechaVL"
-        android:layout_width="160px"
+        android:layout_width="180px"
         android:layout_height="wrap_content"
         android:layout_below="@+id/montoVerLotes"
         android:layout_marginBottom="10dp"
@@ -128,36 +127,13 @@
         android:layout_toEndOf="@+id/mayorVL"
         android:textColor="@android:color/white"/>
 
-    <TextView
-        android:id="@+id/tiempoVL"
-        android:layout_width="260px"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mayorVL"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="10dp"
-        android:textSize="25dp"
-        android:text="Tiempo restante:"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        />
-
-    <TextView
-        android:id="@+id/tiempoVerLotes"
-        android:layout_width="250px"
-        android:layout_height="40px"
-        android:textSize="22dp"
-        android:text="5min 10s"
-        android:textColor="@android:color/white"
-        android:layout_below="@+id/mayorVL"
-        android:layout_toEndOf="@+id/tiempoVL" />
 
     <Button
         android:layout_width="250px"
         android:layout_height="30px"
         android:background="@drawable/verlotes_historial"
         android:id="@+id/historialpujas"
-        android:layout_below="@+id/tiempoVL"
+        android:layout_below="@+id/mayorVL"
         android:layout_toEndOf="@+id/montoVL"
         android:layout_marginTop="20dp" />
 
@@ -165,14 +141,14 @@
         android:id="@+id/edtpuja"
         android:layout_width="425px"
         android:layout_height="80px"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:textColor="#ffffff"
         android:textSize="22dp"
         android:inputType="phone"
         android:paddingLeft="70dp"
         android:background="@drawable/verlotes_monto"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/tiempoVL"
+        android:layout_below="@id/historialpujas"
         android:layout_marginLeft="80dp"/>
 
     <Button
@@ -183,4 +159,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:id="@+id/btnpujar" />
+
+    <TextView
+        android:layout_width="500px"
+        android:layout_height="50px"
+        android:id="@+id/fechita"
+        android:textColor="#ffffff"
+        />
     </RelativeLayout>

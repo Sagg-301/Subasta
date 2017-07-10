@@ -18,57 +18,111 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:textSize="30dp"
+        android:textSize="40dp"
         android:text="OENEIKA"
         android:textStyle="bold"
         android:layout_below="@+id/fotoperfil"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="20dp" />
+
     <TextView
-        android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Alexander"
+        android:id="@+id/textonombre"
+        android:layout_width="200px"
+        android:layout_height="40px"
+        android:text="NOMBRE:"
+        android:textStyle="bold"
         android:textColor="#ffffff"
         android:textSize="25dp"
-        android:layout_below="@+id/usuario"
-        android:layout_marginTop="210dp"
-        android:layout_alignTop="@+id/usuario"
-        android:layout_marginLeft="200dp"/>
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="560dp"
+        />
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="300px"
+        android:layout_height="40px"
+        android:text="Alexander"
+        android:textColor="#ffffff"
+        android:textSize="28dp"
+        android:paddingLeft="40dp"
+        android:layout_alignBaseline="@+id/textonombre"
+        android:layout_alignBottom="@+id/textonombre"
+        android:layout_alignStart="@+id/fotoperfil" />
+
+    <TextView
+        android:id="@+id/textoapellido"
+        android:layout_width="200px"
+        android:layout_height="40px"
+        android:text="APELLIDO:"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/textonombre"
+        />
 
     <TextView
         android:id="@+id/apellido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:textSize="25dp"
+        android:textSize="28dp"
         android:text="De Azevedo"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/nombre"
-        android:layout_marginLeft="220dp"/>
+        android:paddingLeft="50dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/textonombre"
+        android:layout_alignStart="@+id/fotoperfil" />
+
+    <TextView
+        android:id="@+id/textotelefono"
+        android:layout_width="200px"
+        android:layout_height="40px"
+        android:text="TELEFONO:"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/textoapellido"
+        />
 
     <TextView
         android:id="@+id/telefono"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_height="40px"
+        android:layout_marginTop="35dp"
         android:textColor="#ffffff"
-        android:textSize="25dp"
+        android:textSize="28dp"
+        android:paddingLeft="60dp"
         android:text="02121234567"
         android:layout_below="@+id/apellido"
-        android:layout_marginLeft="230dp"/>
+        android:layout_alignStart="@+id/fotoperfil"
+        />
+
+    <TextView
+        android:id="@+id/textoemail"
+        android:layout_width="150px"
+        android:layout_height="40px"
+        android:text="EMAIL:"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/textotelefono"
+        />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="37dp"
         android:textColor="#ffffff"
-        android:textSize="25dp"
+        android:textSize="28dp"
+        android:paddingLeft="10dp"
         android:text="oeneikaphotos@gmail.com"
         android:layout_below="@+id/telefono"
         android:layout_alignStart="@+id/fotoperfil" />
-
 
 
     <Button
