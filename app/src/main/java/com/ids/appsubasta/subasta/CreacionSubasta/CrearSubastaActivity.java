@@ -110,6 +110,8 @@ public class CrearSubastaActivity extends AppCompatActivity implements View.OnCl
                                                      bien.setDescripcion(descripcion);
                                                      bien.setFotos(fotos);
                                                      subasta.addBien(bien);
+                                                     subasta.addFechaInicio(fechaInicial);
+                                                     subasta.addFechaFinal(fechaFinal);
                                                  }
                                              }
                     );
