@@ -5,9 +5,12 @@ import android.widget.ImageView;
 import com.ids.appsubasta.subasta.Bien.Bienes;
 import com.ids.appsubasta.subasta.Fase.EnCurso;
 import com.ids.appsubasta.subasta.Fase.Fase;
+import com.ids.appsubasta.subasta.Fase.Publicidad;
 import com.ids.appsubasta.subasta.Pujas.Pujas;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 import java.util.ArrayList;
+import java.util.Date;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
@@ -19,21 +22,39 @@ import static android.R.attr.max;
 public class Subasta extends RealmObject{
     @PrimaryKey
     private String Id;
+    private Date fechaFinal;
+    private Date fechaInicial;
     private Usuario martillero;
     @Ignore
     private Fase fase;
+    private String faseS = "EnCurso";
     private RealmList<Bienes> bienes;
     @Ignore
     private RealmList<Usuario> usuarios = new RealmList<Usuario>();
     @Ignore
     private Pujas pujas;
 
-    private String fechaFinal,fechaInicio;
-
     public Subasta() {
     }
+
     public Subasta(String id) {
         Id = id;
+    }
+
+    public Date getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public Date getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public Fase getFase() {
+        return fase;
+    }
+
+    public String getFaseS() {
+        return faseS;
     }
 
     public String getId() {
@@ -43,14 +64,6 @@ public class Subasta extends RealmObject{
     public Pujas getPujas() {
         return pujas;
     }
-
-    public void addFechaInicio (String fecha){this.fechaInicio=fecha;}
-
-    public String getFechaInicio (){return fechaInicio;}
-
-    public void addFechaFinal(String fecha){this.fechaFinal=fecha;}
-
-    public String getFechaFinal (){return fechaFinal;}
 
     public RealmList<Bienes> getBienes() {
         return bienes;
@@ -83,6 +96,22 @@ public class Subasta extends RealmObject{
         this.usuarios = usuarios;
     }
 
+    public void setFase(Fase fase) {
+        this.fase = fase;
+    }
+
+    public void setFaseS(String faseS) {
+        this.faseS = faseS;
+    }
+
+    public void setFechaFinal(Date fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+
+    public void setFechaInicial(Date fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
     //-----------------------------------------------------------------------------------
 
     public void notificar(){
@@ -105,10 +134,6 @@ public class Subasta extends RealmObject{
         bienes.add(bien);
     }
 
-    public Fase getFases() {
-        return fase;
-    }
-
     public boolean recibirPuja(Pujas puja){
         if (puja.getValor().getMonto() > pujas.getValor().getMonto()){
             pujas = puja;
@@ -120,9 +145,6 @@ public class Subasta extends RealmObject{
         }
     }
 
-    public void setFase(Fase fase) {
-        this.fase = fase;
-    }
 
     public String generarIdBienes(){
         String idBienes;
@@ -130,6 +152,17 @@ public class Subasta extends RealmObject{
         cantidadBienes = this.bienes.size();
         idBienes = this.Id + Integer.toString(cantidadBienes);
         return idBienes;
+    }
+
+    public void initiSubasta(){
+        if (faseS.equals("EnCurso")){
+            Fase f = new EnCurso();
+            this.fase = f;
+        }
+        else if (faseS.equals("Publicidad")){
+            Fase f = new Publicidad();
+            this.fase = f;
+        }
     }
 
 }

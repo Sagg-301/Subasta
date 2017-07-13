@@ -1,25 +1,17 @@
-package com.ids.appsubasta.subasta.Pujas;
+package com.ids.appsubasta.subasta.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Button;
 
-import com.ids.appsubasta.subasta.Adaptador;
-import com.ids.appsubasta.subasta.Bien.Bienes;
-import com.ids.appsubasta.subasta.Bien.verLotes;
-import com.ids.appsubasta.subasta.CreacionSubasta.CrearSubastaActivity;
+import com.ids.appsubasta.subasta.Pujas.Pujas;
 import com.ids.appsubasta.subasta.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class HistorialPujas extends AppCompatActivity {
     private RecyclerView pujastimeline;

@@ -1,9 +1,7 @@
-package com.ids.appsubasta.subasta;
+package com.ids.appsubasta.subasta.Activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Typeface;
-import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ids.appsubasta.subasta.Interfaz.Foto;
+import com.ids.appsubasta.subasta.R;
+import com.ids.appsubasta.subasta.RealmController;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 
 import java.io.ByteArrayOutputStream;
@@ -24,7 +24,7 @@ import io.realm.Realm;
 public class Registro extends AppCompatActivity {
     private Button registro,agregar;
     private ImageView imagen;
-    private Realm realm;
+    private RealmController rc;
     private Foto f;
 
     //Las primeras dos son para saber donde se guardaran nuestras fotos
@@ -41,7 +41,6 @@ public class Registro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        realm = Realm.getDefaultInstance();
         registro = (Button) findViewById(R.id.registrarse_registro);
         agregar = (Button) findViewById(R.id.BotonCamara);
         imagen = (ImageView) findViewById(R.id.ImagenUsuario);
@@ -59,28 +58,17 @@ public class Registro extends AppCompatActivity {
                 final String usuario = ((EditText) findViewById(R.id.usuario_registro)).getText().toString();
                 final String contrasena = ((EditText) findViewById(R.id.contrasena_registro)).getText().toString();
                 /*Enviamos los datos a la base de datos y entramos al timeline*/
-                if ((nombre != "")&&(apellido != "")&&(telefono !="")&&(email !="")&&(usuario !="")&&(contrasena !="")){
-                    Usuario existe = realm.where(Usuario.class).equalTo("nombreUsuario",usuario).findFirst();
+                if ((!nombre.equals(""))&&(!apellido.equals(""))&&(!telefono.equals(""))&&(!email.equals(""))&&(!usuario.equals(""))&&(!contrasena.equals(""))){
+                    Usuario existe = rc.findUsuario(usuario);
                     if (existe == null) {
                         //añade Usuario a la base de datos
-                        realm.executeTransaction(new Realm.Transaction() {
-                            @Override
-                            public void execute(Realm realm) {
-                                Usuario u = realm.createObject(Usuario.class, usuario);
-                                u.setNombre(nombre);
-                                u.setApellido(apellido);
-                                u.setContraseña(contrasena);
-                                u.setEmail(email);
-                                u.setTelefono(telefono);
-                                u.setFotoPerfil(f);
-                            }
-                        });
+                        rc.addUsuarioToRealm(usuario, nombre, apellido, contrasena, email, telefono, f);
                         //------------------------------------
                         Intent creacion = new Intent(Registro.this, LoginActivity.class);
                         startActivity(creacion);
                     }
                     else{
-                        Toast.makeText(getApplicationContext(),"El nombre de usuario ya está en uso", Toast.LENGTH_SHORT);
+                        Toast.makeText(getApplicationContext(),"El nombre de usuario ya está en uso", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
@@ -116,10 +104,8 @@ public class Registro extends AppCompatActivity {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] byteArray = stream.toByteArray();
-            realm.beginTransaction();
-            f = realm.createObject(Foto.class);
             f.setData(byteArray);
-            realm.commitTransaction();
+
         }
     }
 }

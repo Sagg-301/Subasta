@@ -15,9 +15,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:label="Subasta Online">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,27 +28,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Timeline"
+            android:name=".Activities.Timeline"
             android:label="@string/app_name" />
         <activity
-            android:name=".Usuario.MiCuenta"
+            android:name=".Activities.MiCuenta"
             android:label="MiCuenta" />
         <activity
             android:name=".CreacionSubasta.SubastaCreada"
             android:label="@string/app_name" />
         <activity
-            android:name=".CreacionSubasta.CrearSubastaActivity"
+            android:name=".Activities.CrearSubastaActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".Bien.verLotes"
+            android:name=".Activities.verLotes"
             android:label="bienes" />
         <activity
-            android:name=".Registro"
+            android:name=".Activities.Registro"
             android:label="Registro" />
         <activity
-            android:name=".Bien.verLotesMartillero"
+            android:name=".Activities.verLotesMartillero"
             android:label="verLotesMartillero" />
-        <activity android:name=".ConfiguracionActivity"></activity>
+        <activity android:name=".Activities.ConfiguracionActivity"></activity>
+        <activity
+            android:name=".Activities.verLotesPublicidad"
+            android:label="bienes" />
 
     </application>
 

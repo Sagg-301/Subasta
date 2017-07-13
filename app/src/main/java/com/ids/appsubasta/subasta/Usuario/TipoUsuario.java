@@ -17,5 +17,5 @@ public interface TipoUsuario{
      public void cambiarTipoDeUsuario(Usuario u);
      public void cambiarFase(Subasta subasta, Fase fase);
      public boolean realizarPuja(Monedas valor, Subasta subasta);
-     public void verLote(String idUsuario, String idSubasta, Context ctx);
+     public void verLote(String idUsuario, Context ctx, Subasta subasta);
 }

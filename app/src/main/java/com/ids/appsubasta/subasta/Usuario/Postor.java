@@ -1,9 +1,7 @@
 package com.ids.appsubasta.subasta.Usuario;
 
 import android.content.Context;
-import android.content.Intent;
 
-import com.ids.appsubasta.subasta.Bien.verLotes;
 import com.ids.appsubasta.subasta.Cartera.Monedas;
 import com.ids.appsubasta.subasta.Fase.Fase;
 import com.ids.appsubasta.subasta.Pujas.Pujas;
@@ -45,13 +43,8 @@ public class Postor implements TipoUsuario {
     }
 
     @Override
-    public void verLote(String idUsuario, String idSubasta, Context ctx) {
-        Intent intent = new Intent (ctx,verLotes.class);
-        intent.putExtra("EXTRA_ID_SUBASTA",idSubasta);
-        //PassData-------------------------------
-        intent.putExtra("EXTRA_USUARIO",idUsuario);
-        //---------------------------------------
-        ctx.startActivity(intent);
+    public void verLote(String idUsuario, Context ctx, Subasta subasta) {
+        subasta.getFase().verSubasta(idUsuario, subasta.getId(), ctx);
     }
 
     public boolean realizarPuja(Monedas valor, Subasta subasta) {

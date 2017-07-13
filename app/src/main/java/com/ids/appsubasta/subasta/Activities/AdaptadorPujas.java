@@ -1,23 +1,15 @@
-package com.ids.appsubasta.subasta.Pujas;
+package com.ids.appsubasta.subasta.Activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ids.appsubasta.subasta.Adaptador;
-import com.ids.appsubasta.subasta.Bien.Bienes;
-import com.ids.appsubasta.subasta.Bien.verLotes;
 import com.ids.appsubasta.subasta.Pujas.Pujas;
 import com.ids.appsubasta.subasta.R;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 

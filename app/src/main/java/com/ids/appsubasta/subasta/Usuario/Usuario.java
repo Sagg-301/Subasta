@@ -158,6 +158,10 @@ public class Usuario extends RealmObject{                   //Observador
         this.subastaObservable = subasta;
     }
 
+    public void addSubasta(Subasta subasta){
+        this.subastasPropias.add(subasta);
+    }
+
 
     public String generarIdSubasta(){
         String idSubasta;

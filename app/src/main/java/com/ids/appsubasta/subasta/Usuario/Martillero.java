@@ -3,17 +3,12 @@ package com.ids.appsubasta.subasta.Usuario;
 import android.content.Context;
 import android.content.Intent;
 
-import com.ids.appsubasta.subasta.Bien.verLotes;
-import com.ids.appsubasta.subasta.Bien.verLotesMartillero;
+import com.ids.appsubasta.subasta.Activities.verLotesMartillero;
 import com.ids.appsubasta.subasta.Cartera.Monedas;
 import com.ids.appsubasta.subasta.Fase.Fase;
 import com.ids.appsubasta.subasta.Subasta;
 
-import java.util.ArrayList;
-
 import io.realm.Realm;
-import io.realm.RealmList;
-import io.realm.RealmResults;
 
 /**
  * Created by Sergio on 14/6/2017.
@@ -44,9 +39,9 @@ public class Martillero implements TipoUsuario {
     }
 
     @Override
-    public void verLote(String idUsuario, String idSubasta, Context ctx) {
+    public void verLote(String idUsuario, Context ctx, Subasta subasta) {
         Intent intent = new Intent (ctx,verLotesMartillero.class);
-        intent.putExtra("EXTRA_ID_SUBASTA",idSubasta);
+        intent.putExtra("EXTRA_ID_SUBASTA",subasta.getId());
         //PassData-------------------------------
         intent.putExtra("EXTRA_USUARIO",idUsuario);
         //---------------------------------------

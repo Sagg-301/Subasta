@@ -1,4 +1,4 @@
-package com.ids.appsubasta.subasta.Usuario;
+package com.ids.appsubasta.subasta.Activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,11 +10,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ids.appsubasta.subasta.ConfiguracionActivity;
 import com.ids.appsubasta.subasta.R;
-import com.ids.appsubasta.subasta.Timeline;
-
-import org.w3c.dom.Text;
+import com.ids.appsubasta.subasta.RealmController;
+import com.ids.appsubasta.subasta.Usuario.Usuario;
 
 import io.realm.Realm;
 
@@ -23,14 +21,14 @@ public class MiCuenta extends AppCompatActivity {
     private Button atras;
     private ImageView fotoPerfil;
     private Usuario u;
-    private Realm realm;
+    private RealmController rc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_micuenta);
 
-        realm = Realm.getDefaultInstance();
-        u = realm.where(Usuario.class).equalTo("nombreUsuario",getIntent().getStringExtra("EXTRA_USUARIO")).findFirst();
+        rc = new RealmController();
+        u = rc.findUsuario(getIntent().getStringExtra("EXTRA_USUARIO"));
 
         nombre = (TextView) findViewById(R.id.nombre);
         apellido = (TextView) findViewById(R.id.apellido);

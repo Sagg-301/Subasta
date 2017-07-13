@@ -1,7 +1,6 @@
-package com.ids.appsubasta.subasta;
+package com.ids.appsubasta.subasta.Activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
@@ -11,14 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ids.appsubasta.subasta.Bien.Bienes;
-import com.ids.appsubasta.subasta.Bien.verLotes;
-import com.ids.appsubasta.subasta.Interfaz.Foto;
+import com.ids.appsubasta.subasta.R;
+import com.ids.appsubasta.subasta.Subasta;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -79,7 +74,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.adaptadorHolder>{
         public void onClick(View v) {
             int position = getAdapterPosition();
             Subasta subasta = this.subastas.get(position);
-            usuario.getTipoUsuario().verLote(usuario.getNombreUsuario(),subasta.getId(),this.ctx);
+            subasta.initiSubasta();
+            usuario.getTipoUsuario().verLote(usuario.getNombreUsuario(),this.ctx,subasta);
         }
     }
 }

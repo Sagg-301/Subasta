@@ -37,7 +37,7 @@
         android:layout_height="130px"
         android:background="@drawable/registro_telefono"
         android:textColor="@android:color/white"
-        android:inputType="textPhonetic"
+        android:inputType="phone"
         android:textSize="26px"
         android:paddingLeft="100px"
         android:layout_below="@+id/apellido_registro"

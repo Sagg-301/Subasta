@@ -43,7 +43,7 @@ public class Vendedor implements TipoUsuario {
     }
 
     @Override
-    public void verLote(String idUsuario, String idSubasta, Context ctx) {
+    public void verLote(String idUsuario, Context ctx, Subasta subasta) {
 
     }
 }

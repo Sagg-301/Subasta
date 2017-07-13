@@ -1,4 +1,4 @@
-package com.ids.appsubasta.subasta;
+package com.ids.appsubasta.subasta.Activities;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ids.appsubasta.subasta.Interfaz.Foto;
+import com.ids.appsubasta.subasta.R;
 
 import org.w3c.dom.Text;
 

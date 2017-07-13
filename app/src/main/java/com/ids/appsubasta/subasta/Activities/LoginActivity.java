@@ -1,4 +1,4 @@
-package com.ids.appsubasta.subasta;
+package com.ids.appsubasta.subasta.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.ids.appsubasta.subasta.R;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 public class LoginActivity extends AppCompatActivity {
     private Button login, registro;

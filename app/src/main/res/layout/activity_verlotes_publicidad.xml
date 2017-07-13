@@ -80,16 +80,14 @@
         android:id="@+id/fechaIVL"
         android:layout_width="160px"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/montoVerLotes"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
         android:textSize="25dp"
         android:text="Inicia el:"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        />
+        android:layout_below="@+id/montoVerLotes"
+        android:layout_alignStart="@+id/montoVL" />
 
     <TextView
         android:id="@+id/fechainicialVerLotes"
@@ -131,6 +129,16 @@
         android:layout_toEndOf="@+id/fechaVL"
         android:layout_marginTop="10dp"
         android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/atrasPublicidad"
+        android:layout_width="30px"
+        android:layout_height="30px"
+        android:background="@drawable/x"
+        android:layout_marginStart="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp" />
 
 
 

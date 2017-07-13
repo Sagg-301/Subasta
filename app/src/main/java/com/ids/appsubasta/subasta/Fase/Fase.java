@@ -1,5 +1,7 @@
 package com.ids.appsubasta.subasta.Fase;
 
+import android.content.Context;
+
 import com.ids.appsubasta.subasta.Subasta;
 
 /**
@@ -8,4 +10,5 @@ import com.ids.appsubasta.subasta.Subasta;
 
 public interface Fase {
     void cambiarFase(Subasta subasta);
+    void verSubasta(String idusuario, String idSubasta, Context ctx);
 }

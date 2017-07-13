@@ -11,8 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import io.realm.RealmObject;
 
-public class Pujas implements Parcelable {
+
+public class Pujas implements Parcelable{
     private Monedas valor;
     private String idPostor;
     private String fecha;

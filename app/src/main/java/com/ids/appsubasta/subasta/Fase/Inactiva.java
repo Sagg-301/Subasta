@@ -1,5 +1,7 @@
 package com.ids.appsubasta.subasta.Fase;
 
+import android.content.Context;
+
 import com.ids.appsubasta.subasta.Subasta;
 
 /**
@@ -11,5 +13,10 @@ public class Inactiva implements Fase {
     @Override
     public void cambiarFase(Subasta subasta) {
         subasta.setFase(this);
+    }
+
+    @Override
+    public void verSubasta(String idusuario, String idSubasta, Context ctx) {
+
     }
 }

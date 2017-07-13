@@ -1,4 +1,4 @@
-package com.ids.appsubasta.subasta;
+package com.ids.appsubasta.subasta.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.TextView;
 
-import com.ids.appsubasta.subasta.Ban.TipoBan;
+import com.ids.appsubasta.subasta.R;
+import com.ids.appsubasta.subasta.RealmController;
 import com.ids.appsubasta.subasta.Usuario.Martillero;
 import com.ids.appsubasta.subasta.Usuario.Postor;
 import com.ids.appsubasta.subasta.Usuario.TipoUsuario;
@@ -22,28 +22,26 @@ public class ConfiguracionActivity extends AppCompatActivity {
     Switch martillero,postor,vendedor;
     Button atras;
     Usuario usuario;
-    Realm realm;
+    RealmController rc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracion);
-        realm = Realm.getDefaultInstance();
         atras = (Button) findViewById(R.id.back);
         martillero = (Switch) findViewById(R.id.martilleroSwitch);
         postor = (Switch) findViewById(R.id.postorSwitch);
         vendedor = (Switch) findViewById(R.id.vendedorSwitch);
-        usuario = realm.where(Usuario.class).equalTo("nombreUsuario",getIntent().getStringExtra("EXTRA_USUARIO")).findFirst();
+        rc = new RealmController();
+        usuario = rc.findUsuario(getIntent().getStringExtra("EXTRA_USUARIO"));
+        initSwitch();
 
         martillero.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    realm.beginTransaction();
                     TipoUsuario uMartillero = new Martillero();
-                    uMartillero.cambiarTipoDeUsuario(usuario);
-                    realm.copyToRealmOrUpdate(usuario);
-                    realm.commitTransaction();
+                    rc.changeTipoUsuario(usuario,uMartillero);
                     //------------------------
                     vendedor.setChecked(false);
                     postor.setChecked(false);
@@ -55,11 +53,8 @@ public class ConfiguracionActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    realm.beginTransaction();
                     TipoUsuario uPostor = new Postor(usuario.getNombreUsuario());
-                    uPostor.cambiarTipoDeUsuario(usuario);
-                    realm.copyToRealmOrUpdate(usuario);
-                    realm.commitTransaction();
+                    rc.changeTipoUsuario(usuario,uPostor);
                     //------------------------
                     martillero.setChecked(false);
                     vendedor.setChecked(false);
@@ -71,11 +66,8 @@ public class ConfiguracionActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    realm.beginTransaction();
                     TipoUsuario uVendedor = new Vendedor();
-                    uVendedor.cambiarTipoDeUsuario(usuario);
-                    realm.copyToRealmOrUpdate(usuario);
-                    realm.commitTransaction();
+                    rc.changeTipoUsuario(usuario,uVendedor);
                     //------------------------
                     martillero.setChecked(false);
                     postor.setChecked(false);
@@ -91,5 +83,14 @@ public class ConfiguracionActivity extends AppCompatActivity {
                 startActivity(timeline);
             }
         });
+    }
+
+    void initSwitch(){
+        if(usuario.getTipoUsuarioS().equals("martillero")){
+            martillero.setChecked(true);
+        }
+        else if(usuario.getTipoUsuarioS().equals("postor")){
+            postor.setChecked(true);
+        }
     }
 }
