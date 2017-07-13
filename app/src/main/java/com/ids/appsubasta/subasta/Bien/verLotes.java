@@ -81,13 +81,14 @@ public class verLotes extends AppCompatActivity {
         monto = (TextView) findViewById(R.id.montoVerLotes);
         mayor = (TextView) findViewById(R.id.mayorVerLotes);
         montovl = (TextView) findViewById(R.id.montoVL);
-        fecha = (TextView) findViewById(R.id.fechita);
+        fecha = (TextView) findViewById(R.id.fechafinalVerLotes);
 
 
         titulo.setText("" + subasta.getBienes().get(0).getNombre());
-        descripcion.setText("DESCRIPCIÓN: " + subasta.getBienes().get(0).getDescripcion());
-        monto.setText("MONTO: " + subasta.getBienes().get(0).getMonto());
+        descripcion.setText("" + subasta.getBienes().get(0).getDescripcion());
+        monto.setText("" + subasta.getBienes().get(0).getMonto());
         mayor.setText(subasta.getBienes().get(0).getMonto());
+        fecha.setText(subasta.getFechaFinal());
 
         pujar = (Button) findViewById(R.id.btnpujar);
         pujar.setOnClickListener(new View.OnClickListener() {
@@ -113,9 +114,7 @@ public class verLotes extends AppCompatActivity {
         int mes=today.month;
         int ano=today.year;
         mes=mes+1;
-        fecha.setText("mes : "+ mes +
-
-                " " +"dia : " + dia + " " + "año : " + ano);
+        fecha.setText("DIA : "+ dia + " " +"MES : " + mes + " " + "AÑO : " + ano);
 
         /*verhistorial = (Button) findViewById(R.id.verHistorialVerLotes);
         verhistorial.setOnClickListener(new View.OnClickListener() {

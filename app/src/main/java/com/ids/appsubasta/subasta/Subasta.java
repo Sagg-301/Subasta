@@ -28,6 +28,8 @@ public class Subasta extends RealmObject{
     @Ignore
     private Pujas pujas;
 
+    private String fechaFinal,fechaInicio;
+
     public Subasta() {
     }
     public Subasta(String id) {
@@ -41,6 +43,14 @@ public class Subasta extends RealmObject{
     public Pujas getPujas() {
         return pujas;
     }
+
+    public void addFechaInicio (String fecha){this.fechaInicio=fecha;}
+
+    public String getFechaInicio (){return fechaInicio;}
+
+    public void addFechaFinal(String fecha){this.fechaFinal=fecha;}
+
+    public String getFechaFinal (){return fechaFinal;}
 
     public RealmList<Bienes> getBienes() {
         return bienes;
