@@ -18,11 +18,13 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/screenshots"
+        android:background="#1a4987"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_marginTop="40dp"
         android:layout_height="300dp"
+        android:adjustViewBounds="true"
         >
 
     </android.support.v4.view.ViewPager>

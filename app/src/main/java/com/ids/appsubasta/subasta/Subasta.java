@@ -27,7 +27,7 @@ public class Subasta extends RealmObject{
     private Usuario martillero;
     @Ignore
     private Fase fase;
-    private String faseS = "EnCurso";
+    private String faseS = "Publicidad";
     private RealmList<Bienes> bienes;
     @Ignore
     private RealmList<Usuario> usuarios = new RealmList<Usuario>();

@@ -7,6 +7,6 @@
     <ImageView
         android:id="@+id/slider_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/iphonee" />
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
 </LinearLayout>
