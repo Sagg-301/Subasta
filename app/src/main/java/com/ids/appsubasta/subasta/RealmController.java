@@ -80,6 +80,10 @@ public class RealmController {
         return realm.where(Usuario.class).equalTo("nombreUsuario",nombreUsuario).findFirst();
     }
 
+    public Usuario findUsuario(String usuario, String contrasena){
+        return realm.where(Usuario.class).equalTo("nombreUsuario",usuario).findAll().where().equalTo("contraseña",contrasena).findFirst();
+    }
+
     public void changeTipoUsuario(Usuario usuario, TipoUsuario tipoUsuario){
         realm.beginTransaction();
         tipoUsuario.cambiarTipoDeUsuario(usuario);

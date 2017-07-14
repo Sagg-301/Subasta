@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ids.appsubasta.subasta.R;
+import com.ids.appsubasta.subasta.RealmController;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 
 import io.realm.Realm;
@@ -19,13 +20,14 @@ public class LoginActivity extends AppCompatActivity {
     private Button login, registro;
     private Usuario usuarios;
     private SharedPreferences pref;
+    private RealmController rc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        final Realm realm = Realm.getDefaultInstance();
         login = (Button) findViewById(R.id.loginlogin);
+        rc = new RealmController();
         //-------------------------------------------------------------------------------------
         pref = this.getSharedPreferences("PreferenciasSubasta", Context.MODE_PRIVATE);
         String userName = pref.getString("PREF_NOMBRE", "NULL");
@@ -42,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String usuario = ((EditText) findViewById(R.id.usuariologin)).getText().toString();
                 String contrasena = ((EditText) findViewById(R.id.contraseñalogin)).getText().toString();
-                usuarios = realm.where(Usuario.class).equalTo("nombreUsuario",usuario).findAll().where().equalTo("contraseña",contrasena).findFirst();
+                usuarios = rc.findUsuario(usuario,contrasena);
                 if (usuarios != null){
                     Intent timeline = new Intent(LoginActivity.this, Timeline.class);
                     timeline.putExtra("EXTRA_USUARIO", usuarios.getNombreUsuario());

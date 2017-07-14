@@ -22,6 +22,8 @@ import com.ids.appsubasta.subasta.Subasta;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 import com.mancj.slideup.SlideUp;
 
+import java.text.SimpleDateFormat;
+
 import io.realm.Realm;
 
 
@@ -34,6 +36,7 @@ public class verLotes extends AppCompatActivity {
     private Subasta subasta;
     private RealmController rc;
     private Slider_Adapter adaptador;
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +75,7 @@ public class verLotes extends AppCompatActivity {
         descripcion.setText(subasta.getBienes().get(0).getDescripcion());
         monto.setText(subasta.getBienes().get(0).getMonto());
         mayor.setText(subasta.getBienes().get(0).getMonto());
-        fecha.setText(subasta.getFechaFinal().toString());
+        fecha.setText(formato.format(subasta.getFechaFinal()));
 
         pujar = (Button) findViewById(R.id.btnpujar);
         pujar.setOnClickListener(new View.OnClickListener() {

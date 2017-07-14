@@ -12,6 +12,8 @@ import com.ids.appsubasta.subasta.R;
 import com.ids.appsubasta.subasta.Subasta;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 
+import java.text.SimpleDateFormat;
+
 import io.realm.Realm;
 
 public class verLotesPublicidad extends AppCompatActivity {
@@ -25,6 +27,7 @@ public class verLotesPublicidad extends AppCompatActivity {
     private Subasta subasta;
     private Realm realm;
     private Slider_Adapter adaptador;
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +54,8 @@ public class verLotesPublicidad extends AppCompatActivity {
         titulo.setText(subasta.getBienes().get(0).getNombre());
         descripcion.setText(subasta.getBienes().get(0).getDescripcion());
         monto.setText(subasta.getBienes().get(0).getMonto());
-        fechafinal.setText(subasta.getFechaFinal().toString());
-        fechainicial.setText(subasta.getFechaFinal().toString());
+        fechafinal.setText(formato.format(subasta.getFechaFinal()));
+        fechainicial.setText(formato.format(subasta.getFechaFinal()));
 
         /* Hay que agregar fechainicial en el adaptador para que muestre*/
                /* Intent creacion = new Intent(verLotesPublicidad.this, Timeline.class);

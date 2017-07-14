@@ -22,6 +22,8 @@ import com.ids.appsubasta.subasta.RealmController;
 import com.ids.appsubasta.subasta.Subasta;
 import com.ids.appsubasta.subasta.Usuario.Usuario;
 
+import java.text.SimpleDateFormat;
+
 import io.realm.Realm;
 
 /**
@@ -39,6 +41,7 @@ public class verLotesMartillero extends AppCompatActivity {
     private Subasta subasta;
     private RealmController rc;
     private Slider_Adapter adaptador;
+    private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +79,7 @@ public class verLotesMartillero extends AppCompatActivity {
         monto.setText(subasta.getBienes().get(0).getMonto());
         mayorpuja.setText("");
         tiempo.setText("");
-        fechafinal.setText(subasta.getFechaFinal().toString());
+        fechafinal.setText(formato.format(subasta.getFechaFinal()));
         /* Hay que agregar mayorpuja,tiempo y fechafinal en el adaptador para que nos muestre estos*/
 
         adjudicar.setOnClickListener(new View.OnClickListener() {
